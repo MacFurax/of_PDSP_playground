@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openFrameworksLib", "..\..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lesson2", "lesson2\lesson2.vcxproj", "{D087A2A0-7CA7-41B6-A6E8-DEE06423E006}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "playWithUI", "playWithUI\playWithUI.vcxproj", "{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{D087A2A0-7CA7-41B6-A6E8-DEE06423E006}.Release|x64.Build.0 = Release|x64
 		{D087A2A0-7CA7-41B6-A6E8-DEE06423E006}.Release|x86.ActiveCfg = Release|Win32
 		{D087A2A0-7CA7-41B6-A6E8-DEE06423E006}.Release|x86.Build.0 = Release|Win32
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Debug|x64.ActiveCfg = Debug|x64
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Debug|x64.Build.0 = Debug|x64
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Debug|x86.ActiveCfg = Debug|Win32
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Debug|x86.Build.0 = Debug|Win32
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Release|x64.ActiveCfg = Release|x64
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Release|x64.Build.0 = Release|x64
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Release|x86.ActiveCfg = Release|Win32
+		{1450FC75-CD3E-4B0E-A41B-6EC5F4D12B08}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
