@@ -1,1 +1,4 @@
-of_PDSP_playground
+# of_PDSP_playground
+
+Visual studio solution to play with OpenFramworks and ofxPDSP
+
