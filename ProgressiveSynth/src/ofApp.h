@@ -29,7 +29,8 @@ class ofApp : public ofBaseApp{
 
     // ofxImGui
     ofxImGui::Gui gui;
-    float attackValue = 10.0f;
+    float attackValue = 0.0f;
+    float decayValue = 300.0f;
 
     
 };

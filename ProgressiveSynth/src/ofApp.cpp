@@ -43,7 +43,10 @@ void ofApp::drawImGui()
   ofxImGuiStartDocking();
 
   ImGui::Begin("Knobs");
-    MyKnob("Attack", &attackValue, -0.5f, 0.5f);
+    MyKnob("Attack", &attackValue, 0.0f, 5000.0f, 0);
+    ImGui::SameLine();
+    MyKnob("Decay", &decayValue, 0.0f, 2000.0f, 0);
+    ImGui::Button("TOTO");
   ImGui::End();
 
   ofxImGuiEndDocking();
