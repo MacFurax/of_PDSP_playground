@@ -13,7 +13,12 @@ class ofApp : public ofBaseApp{
     void update();
     void draw();
 
-    void drawImGui();
+    void ui_Draw();
+    void ui_Menu();
+    void ui_OSCWindow();
+    void ui_EnvelopeWindow();
+    void ui_FiltersWindow();
+    void ui_AudioSettings();
 
     void keyPressed(int key);
     void keyReleased(int key);
@@ -29,6 +34,7 @@ class ofApp : public ofBaseApp{
 
     // ofxImGui
     ofxImGui::Gui gui;
+    bool ui_show_audio_settings = false;
     float attackValue = 0.0f;
     float decayValue = 300.0f;
 

@@ -34,23 +34,75 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  drawImGui();
+  ui_Draw();
 }
 
-void ofApp::drawImGui()
+void ofApp::ui_Draw()
 {
   gui.begin();
   ofxImGuiStartDocking();
 
-  ImGui::Begin("Knobs");
-    MyKnob("Attack", &attackValue, 0.0f, 5000.0f, 0);
-    ImGui::SameLine();
-    MyKnob("Decay", &decayValue, 0.0f, 2000.0f, 0);
-    ImGui::Button("TOTO");
-  ImGui::End();
+  ui_Menu();
+
+  ui_OSCWindow();
+  ui_EnvelopeWindow();
+  ui_FiltersWindow();
+
+  if (ui_show_audio_settings) ui_AudioSettings();
 
   ofxImGuiEndDocking();
   gui.end();
+}
+
+void ofApp::ui_Menu()
+{
+  if (ImGui::BeginMainMenuBar())
+  {
+    if (ImGui::BeginMenu("File"))
+    {
+      if (ImGui::MenuItem("Exit", "ALT+F4")) 
+      {
+        ofExit();
+      }
+      ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("Settings"))
+    {
+      ImGui::MenuItem("Audio & MIDI", "", &ui_show_audio_settings);
+      ImGui::EndMenu();
+    }
+
+    ImGui::EndMainMenuBar();
+  }
+}
+
+void ofApp::ui_OSCWindow()
+{
+  ImGui::Begin("OSCs");
+  
+  ImGui::End();
+}
+
+void ofApp::ui_EnvelopeWindow()
+{
+  ImGui::Begin("Envelopes");
+
+  ImGui::End();
+}
+
+void ofApp::ui_FiltersWindow()
+{
+  ImGui::Begin("Filters");
+
+  ImGui::End();
+}
+
+void ofApp::ui_AudioSettings()
+{
+  ImGui::Begin("Audio Settings", &ui_show_audio_settings);
+
+  ImGui::End();
 }
 
 //--------------------------------------------------------------
