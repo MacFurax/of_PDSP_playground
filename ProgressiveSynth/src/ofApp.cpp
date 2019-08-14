@@ -80,6 +80,18 @@ void ofApp::ui_Menu()
 void ofApp::ui_OSCWindow()
 {
   ImGui::Begin("OSCs");
+    ImGui::Text("OSC 1");
+    ImGui::Combo("Wave form", &ui_selected_wave_forms, wavesForms);
+
+    MyKnob("Tune", &ui_osc_detune, -10.0, 10.0);
+    ImGui::SameLine();
+    MyKnob("Fine", &ui_osc_fine_detune, -0.5, 0.5);
+        
+    if (ui_selected_wave_forms == 2) // pulse wave forms
+    {
+      ImGui::SameLine();
+      MyKnob("Pulse Width", &ui_osc_pulse_width, 0.0f, 1.0f);
+    }
   
   ImGui::End();
 }
