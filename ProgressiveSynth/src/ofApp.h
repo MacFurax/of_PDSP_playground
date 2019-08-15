@@ -17,6 +17,7 @@ class ofApp : public ofBaseApp{
     void ui_Menu();
     void ui_OSCWindow();
     void ui_EnvelopeWindow();
+    void ui_OutputWindow();
     void ui_FiltersWindow();
     void ui_AudioSettings();
 
@@ -38,14 +39,24 @@ class ofApp : public ofBaseApp{
     float attackValue = 0.0f;
     float decayValue = 300.0f;
 
-    std::vector<std::string> wavesForms = {"sine", "triangle", "pulse"};
+    std::vector<std::string> wavesForms = {"sine", "triangle", "saw", "pulse"};
+    const int pulse_wave_idx = 3;
     int ui_selected_wave_forms = 0;
+    int ui_selected_wave_forms_previous = 0;
     float ui_osc_fine_detune = 0.0f;
     float ui_osc_detune = 0.0f;
     float ui_osc_pulse_width = 0.5f;
+    float ui_gain = -23.0f;
 
     //ofx PDSP
+    pdsp::Engine engine;
     pdsp::VAOscillator osc;
+    pdsp::Switch oscWaveFormSwitch;
+    pdsp::DBtoLin dBToLin;
+    pdsp::Amp mainOut;
+
+    pdsp::ValueControl pulseWidthCtrl;
+    pdsp::ValueControl gainCtrl;
 
     
 };

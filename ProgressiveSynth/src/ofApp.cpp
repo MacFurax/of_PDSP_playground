@@ -11,6 +11,30 @@ void ofApp::setup(){
   ofSetWindowTitle("Progressive Soft Synthetizer");
 
   setupImGui();
+
+  oscWaveFormSwitch.resize(wavesForms.size());
+  osc.out_sine() >> oscWaveFormSwitch.input(0);
+  osc.out_triangle() >> oscWaveFormSwitch.input(1);
+  osc.out_saw() >> oscWaveFormSwitch.input(2);
+  osc.out_pulse() >> oscWaveFormSwitch.input(3);
+
+  pulseWidthCtrl.set(0.5f);
+  pulseWidthCtrl.enableSmoothing(50);
+
+  pulseWidthCtrl >> osc.in_pw();
+
+  oscWaveFormSwitch >> mainOut;
+
+  gainCtrl.enableSmoothing(50);
+  gainCtrl >> mainOut.in_mod();
+
+  mainOut >> engine.audio_out(0);
+  mainOut >> engine.audio_out(1);
+
+  engine.listDevices();
+  engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+  engine.setup(44100, 512, 3);
+
 }
 
 void ofApp::setupImGui()
@@ -47,6 +71,7 @@ void ofApp::ui_Draw()
   ui_OSCWindow();
   ui_EnvelopeWindow();
   ui_FiltersWindow();
+  ui_OutputWindow();
 
   if (ui_show_audio_settings) ui_AudioSettings();
 
@@ -87,10 +112,22 @@ void ofApp::ui_OSCWindow()
     ImGui::SameLine();
     MyKnob("Fine", &ui_osc_fine_detune, -0.5, 0.5);
         
-    if (ui_selected_wave_forms == 2) // pulse wave forms
+    if (ui_selected_wave_forms == pulse_wave_idx) // pulse wave forms
     {
       ImGui::SameLine();
-      MyKnob("Pulse Width", &ui_osc_pulse_width, 0.0f, 1.0f);
+      static float previous_osc_pulse_width = ui_osc_pulse_width;
+      MyKnob("Pulse Width", &ui_osc_pulse_width, 0.1f, 0.9f);
+      if (previous_osc_pulse_width != ui_osc_pulse_width)
+      {
+        pulseWidthCtrl.set(ui_osc_pulse_width);
+      }
+      
+    }
+
+    if (ui_selected_wave_forms != ui_selected_wave_forms_previous)
+    {
+      ui_selected_wave_forms_previous = ui_selected_wave_forms;
+      ui_selected_wave_forms >> oscWaveFormSwitch.in_select();
     }
   
   ImGui::End();
@@ -100,6 +137,18 @@ void ofApp::ui_EnvelopeWindow()
 {
   ImGui::Begin("Envelopes");
 
+  ImGui::End();
+}
+
+void ofApp::ui_OutputWindow()
+{
+  ImGui::Begin("Main Output");
+    float gain_before = ui_gain;
+    ImGui::VSliderFloat("Gain", ImVec2(50, 230), &ui_gain, -43.0f, 12.0f, "%.2f");
+    if (gain_before != ui_gain)
+    {
+      ui_gain >> dBToLin >> gainCtrl;
+    }
   ImGui::End();
 }
 

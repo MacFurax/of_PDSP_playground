@@ -613,12 +613,6 @@
     <ClCompile Include="..\..\..\..\addons\ofxPDSP\libs\audiofft\AudioFFT.cpp">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\addons\ofxSIMDFloats\src\core\activate.cpp">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\addons\ofxSIMDFloats\src\core\allocator.cpp">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\helpers\ImGuiHelpers.cpp">
       <Filter>src\helpers</Filter>
     </ClCompile>
@@ -872,27 +866,6 @@
     </Filter>
     <Filter Include="addons\ofxPDSP\libs\audiofft">
       <UniqueIdentifier>{f091831f-0cd9-4bdf-b189-433f389856b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats">
-      <UniqueIdentifier>{a91171b8-cb3e-4262-b3c4-baaa32434d65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src">
-      <UniqueIdentifier>{2106a657-4746-4ef4-a051-bcc4a59bf4f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src\core">
-      <UniqueIdentifier>{0dd5cf9a-35b8-40e8-abc5-aeaf08366fb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src\functions">
-      <UniqueIdentifier>{8f2ce986-006e-4a6b-a8ab-b0c49fe73f97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src\functions\mathfun">
-      <UniqueIdentifier>{b8b1703f-0d13-4a5f-a8fb-c4bbef16cc8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src\kernels">
-      <UniqueIdentifier>{396bae38-430f-4705-ae10-a7d952fc70a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxSIMDFloats\src\vectors">
-      <UniqueIdentifier>{35f307f7-df41-4fda-98e0-56aca36eabd9}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\helpers">
       <UniqueIdentifier>{3bec028e-0a06-45b4-b4f7-8e64ebf5922e}</UniqueIdentifier>
@@ -1849,138 +1822,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\addons\ofxPDSP\libs\audiofft\AudioFFT.h">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions.h">
-      <Filter>addons\ofxSIMDFloats\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\ofxSIMDFloats.h">
-      <Filter>addons\ofxSIMDFloats\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\core\activate.h">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\core\allocator.h">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\core\flags.h">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\core\inlines.h">
-      <Filter>addons\ofxSIMDFloats\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\floor.h">
-      <Filter>addons\ofxSIMDFloats\src\functions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\mathfun.h">
-      <Filter>addons\ofxSIMDFloats\src\functions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\simd_wrapper.h">
-      <Filter>addons\ofxSIMDFloats\src\functions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\ternaryOp.h">
-      <Filter>addons\ofxSIMDFloats\src\functions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\mathfun\mathfun_NEON.h">
-      <Filter>addons\ofxSIMDFloats\src\functions\mathfun</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\functions\mathfun\mathfun_SSE2.h">
-      <Filter>addons\ofxSIMDFloats\src\functions\mathfun</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\inline_logSB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\inline_powSB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\inline_ramp.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_1divB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_absB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_B.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BaddC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BaddS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_Badd_CmulS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BdivC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BmulC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BmulS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BsubC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_BsubS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_clipB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_cosB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_expB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_floorB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_logB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_maxBC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_maxBS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_minBC.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_minBS.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_negB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_S.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_sinB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_sqrtB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_SsubB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_tanB.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\kernels\kernel_Zero.h">
-      <Filter>addons\ofxSIMDFloats\src\kernels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\vectors\vect_ops.h">
-      <Filter>addons\ofxSIMDFloats\src\vectors</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\addons\ofxSIMDFloats\src\vectors\vect_transform.h">
-      <Filter>addons\ofxSIMDFloats\src\vectors</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\ImGuiHelpers.h">
       <Filter>src\helpers</Filter>
