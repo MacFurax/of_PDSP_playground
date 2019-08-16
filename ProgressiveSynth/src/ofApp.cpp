@@ -18,29 +18,69 @@ void ofApp::setup(){
 
 void ofApp::setupPDSP()
 {
-  // PDSP patching
+  
+  waveSelectCtrl.set(0.0f);
+  pulseWidthCtrl.set(ui_osc_pulse_width);
+  pulseWidthCtrl.enableSmoothing(300);
 
-  oscWaveFormSwitch.resize(wavesForms.size());
-  osc.out_sine() >> oscWaveFormSwitch.input(0);
-  osc.out_triangle() >> oscWaveFormSwitch.input(1);
-  osc.out_saw() >> oscWaveFormSwitch.input(2);
-  osc.out_pulse() >> oscWaveFormSwitch.input(3);
+  envAttackCtrl.set(ui_env_attack);
+  envAttackCtrl.enableSmoothing(10);
 
-  pulseWidthCtrl.set(0.5f);
-  pulseWidthCtrl.enableSmoothing(50);
+  envDecayCtrl.set(ui_env_decay);
+  envDecayCtrl.enableSmoothing(10);
 
-  pulseWidthCtrl >> osc.in_pw();
+  envSustainCtrl.set(ui_env_sustain);
+  envSustainCtrl.enableSmoothing(10);
 
-  oscWaveFormSwitch >> mainOut;
+  envReleaseCtrl.set(ui_env_release);
+  envReleaseCtrl.enableSmoothing(10);
 
   gainCtrl.set(pdsp::DBtoLin::eval(ui_gain));
-  gainCtrl.enableSmoothing(50);
+  gainCtrl.enableSmoothing(30);
   gainCtrl >> mainOut.in_mod();
 
+  keyboard.setPolyMode(8);
+  int voicesNum = keyboard.getVoicesNumber();
+  
+  voices.resize(voicesNum);
+
+  int channelIdx = 0;
+  for (auto& v : voices)
+  {
+    // set envelope
+    envAttackCtrl >> v.envelopes.in_attack();
+    envDecayCtrl >> v.envelopes.in_decay();
+    envSustainCtrl >> v.envelopes.in_sustain();
+    envReleaseCtrl >> v.envelopes.in_release();
+
+    v.waveFormSwitch.resize(4);
+
+    v.osc.out_sine() >> v.waveFormSwitch.input(0);
+    v.osc.out_triangle() >> v.waveFormSwitch.input(1);
+    v.osc.out_saw() >> v.waveFormSwitch.input(2);
+    v.osc.out_pulse() >> v.waveFormSwitch.input(3);
+
+    pulseWidthCtrl >> v.osc.in_pw();
+
+    waveSelectCtrl >> v.waveFormSwitch.in_select();
+
+    keyboard.out_trig(channelIdx) >> v.envelopes.in_trig();
+    v.envelopes >> v.amp.in_mod();
+
+    keyboard.out_pitch(channelIdx) >> v.osc.in_pitch();
+
+    v.waveFormSwitch >> v.amp;
+
+    v.amp >> mainOut;
+
+    channelIdx++;
+  }
+
+  //osc.out_sine() >> mainOut;
+  
   mainOut >> engine.audio_out(0);
   mainOut >> engine.audio_out(1);
-
-
+  
   engine.listDevices();
   engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
   engine.setup(44100, 512, 3);
@@ -68,6 +108,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
   ui_Draw();
+  keyboard.draw(100, 465, 200, 180);
 }
 
 void ofApp::ui_Draw()
@@ -121,9 +162,8 @@ void ofApp::ui_OSCWindow()
     if (ui_selected_wave_forms != ui_selected_wave_forms_previous)
     {
       ui_selected_wave_forms_previous = ui_selected_wave_forms;
-      ui_selected_wave_forms >> oscWaveFormSwitch.in_select();
+      waveSelectCtrl.set(ui_selected_wave_forms);
     }
-       
     
     // show OSC tuning knobs
     MyKnob("Tune", &ui_osc_detune, -10.0, 10.0);
@@ -148,6 +188,19 @@ void ofApp::ui_OSCWindow()
 void ofApp::ui_EnvelopeWindow()
 {
   ImGui::Begin("Envelopes");
+    ImGui::Text("Trigger Envelope");
+    MyKnob("Attack", &ui_env_attack, 0.0, 2000.0);
+    envAttackCtrl.set(ui_env_attack);
+    ImGui::SameLine();
+    MyKnob("Decay", &ui_env_decay, 0.0, 2000.0);
+    envDecayCtrl.set(ui_env_decay);
+    ImGui::SameLine();
+    MyKnob("Sustain", &ui_env_sustain, 0.0, 1.0);
+    envSustainCtrl.set(ui_env_sustain);
+    ImGui::SameLine();
+    MyKnob("Release", &ui_env_release, 0.0, 5000.0);
+    envReleaseCtrl.set(ui_env_release);
+    ImGui::SameLine();
 
   ImGui::End();
 }
@@ -180,12 +233,12 @@ void ofApp::ui_AudioSettings()
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+  keyboard.keyPressed(key);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+  keyboard.keyReleased(key);
 }
 
 //--------------------------------------------------------------

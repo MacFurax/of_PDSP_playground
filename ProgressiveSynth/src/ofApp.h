@@ -4,6 +4,31 @@
 #include "ofxImGui.h"
 #include "helpers/ImGuiHelpers.h"
 #include "ofxPDSP.h"
+#include "Synths/SynthDeuxOscillateurs.h"
+
+
+class Voice
+{
+public:
+  Voice()
+  {}
+  Voice(const Voice & other)
+  {
+    cout << "Voice copy constructor \n";
+  }
+  Voice& operator=(const Voice & other)
+  {
+    cout << "Voice move cnstructor \n";
+    return *this;
+  }
+
+  pdsp::VAOscillator osc;
+  pdsp::Amp          amp;
+  pdsp::ADSR         envelopes;
+  pdsp::Switch       waveFormSwitch;
+
+};
+
 
 class ofApp : public ofBaseApp{
 
@@ -49,15 +74,26 @@ class ofApp : public ofBaseApp{
     float ui_osc_pulse_width = 0.5f;
     float ui_gain = -23.0f;
 
-    //ofx PDSP
-    pdsp::Engine engine;
-    pdsp::VAOscillator osc;
-    pdsp::Switch oscWaveFormSwitch;
-    pdsp::DBtoLin dBToLin;
-    pdsp::Amp mainOut;
+    float ui_env_attack = 5.0f;
+    float ui_env_decay = 105.0f;
+    float ui_env_sustain = 0.5f;
+    float ui_env_release = 1000.f;
 
-    pdsp::ValueControl pulseWidthCtrl;
-    pdsp::ValueControl gainCtrl;
+    //ofx PDSP
+    pdsp::Engine                    engine;
+    pdsp::ComputerKeyboard          keyboard;
+    
+    std::vector<Voice>              voices;
+
+    pdsp::Amp                       mainOut;
+    pdsp::ValueControl              gainCtrl;
+    pdsp::ValueControl              waveSelectCtrl;
+    pdsp::ValueControl              pulseWidthCtrl;
+
+    pdsp::ValueControl              envAttackCtrl;
+    pdsp::ValueControl              envDecayCtrl;
+    pdsp::ValueControl              envSustainCtrl;
+    pdsp::ValueControl              envReleaseCtrl;
 
     
 };

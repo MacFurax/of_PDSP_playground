@@ -616,6 +616,9 @@
     <ClCompile Include="src\helpers\ImGuiHelpers.cpp">
       <Filter>src\helpers</Filter>
     </ClCompile>
+    <ClCompile Include="src\Synths\SynthDeuxOscillateurs.cpp">
+      <Filter>src\Synths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -869,6 +872,9 @@
     </Filter>
     <Filter Include="src\helpers">
       <UniqueIdentifier>{3bec028e-0a06-45b4-b4f7-8e64ebf5922e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Synths">
+      <UniqueIdentifier>{5592ff92-13ab-4cfb-8dba-a49048f5449b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1825,6 +1831,9 @@
     </ClInclude>
     <ClInclude Include="src\helpers\ImGuiHelpers.h">
       <Filter>src\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Synths\SynthDeuxOscillateurs.h">
+      <Filter>src\Synths</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -406,6 +406,7 @@
     <ClCompile Include="src\helpers\ImGuiHelpers.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\Synths\SynthDeuxOscillateurs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\addons\ofxAudioFile\libs\dr_flac.h" />
@@ -726,6 +727,7 @@
     <ClInclude Include="..\..\..\..\addons\ofxPDSP\src\types.h" />
     <ClInclude Include="src\helpers\ImGuiHelpers.h" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\Synths\SynthDeuxOscillateurs.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
