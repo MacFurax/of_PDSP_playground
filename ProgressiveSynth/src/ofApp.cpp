@@ -80,6 +80,10 @@ void ofApp::setupPDSP()
   
   mainOut >> engine.audio_out(0);
   mainOut >> engine.audio_out(1);
+
+  midiIn.listPorts();
+
+  cout << "MIDI in port count " << midiIn.getPortCount() << "\n";
   
   engine.listDevices();
   engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
@@ -214,7 +218,21 @@ void ofApp::ui_OutputWindow()
     {
       gainCtrl.set(pdsp::DBtoLin::eval(ui_gain));
     }
+
+    if (ImGui::Button("Panic"))
+    {
+      Panic();
+    }
+
   ImGui::End();
+}
+
+void ofApp::Panic()
+{
+  for (auto& v : voices)
+  {
+    0.0f >> v.envelopes.in_trig();
+  }
 }
 
 void ofApp::ui_FiltersWindow()

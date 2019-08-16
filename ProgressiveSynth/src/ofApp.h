@@ -44,6 +44,7 @@ class ofApp : public ofBaseApp{
     void ui_OSCWindow();
     void ui_EnvelopeWindow();
     void ui_OutputWindow();
+    void Panic();
     void ui_FiltersWindow();
     void ui_AudioSettings();
 
@@ -79,9 +80,15 @@ class ofApp : public ofBaseApp{
     float ui_env_sustain = 0.5f;
     float ui_env_release = 1000.f;
 
+    bool midiLearnChk[100];
+
     //ofx PDSP
     pdsp::Engine                    engine;
     pdsp::ComputerKeyboard          keyboard;
+
+    pdsp::midi::Input               midiIn;
+    pdsp::midi::Keys                midiKeys;
+    pdsp::midi::Controls            midiCCs;
     
     std::vector<Voice>              voices;
 
