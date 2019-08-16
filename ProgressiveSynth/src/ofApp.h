@@ -9,6 +9,7 @@ class ofApp : public ofBaseApp{
 
   public:
     void setup();
+    void setupPDSP();
     void setupImGui();
     void update();
     void draw();

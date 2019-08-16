@@ -12,6 +12,14 @@ void ofApp::setup(){
 
   setupImGui();
 
+  setupPDSP();
+
+}
+
+void ofApp::setupPDSP()
+{
+  // PDSP patching
+
   oscWaveFormSwitch.resize(wavesForms.size());
   osc.out_sine() >> oscWaveFormSwitch.input(0);
   osc.out_triangle() >> oscWaveFormSwitch.input(1);
@@ -25,16 +33,17 @@ void ofApp::setup(){
 
   oscWaveFormSwitch >> mainOut;
 
+  gainCtrl.set(pdsp::DBtoLin::eval(ui_gain));
   gainCtrl.enableSmoothing(50);
   gainCtrl >> mainOut.in_mod();
 
   mainOut >> engine.audio_out(0);
   mainOut >> engine.audio_out(1);
 
+
   engine.listDevices();
   engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
   engine.setup(44100, 512, 3);
-
 }
 
 void ofApp::setupImGui()
@@ -106,12 +115,22 @@ void ofApp::ui_OSCWindow()
 {
   ImGui::Begin("OSCs");
     ImGui::Text("OSC 1");
-    ImGui::Combo("Wave form", &ui_selected_wave_forms, wavesForms);
 
+    // wave form selector
+    ImGui::Combo("Wave form", &ui_selected_wave_forms, wavesForms);
+    if (ui_selected_wave_forms != ui_selected_wave_forms_previous)
+    {
+      ui_selected_wave_forms_previous = ui_selected_wave_forms;
+      ui_selected_wave_forms >> oscWaveFormSwitch.in_select();
+    }
+       
+    
+    // show OSC tuning knobs
     MyKnob("Tune", &ui_osc_detune, -10.0, 10.0);
     ImGui::SameLine();
     MyKnob("Fine", &ui_osc_fine_detune, -0.5, 0.5);
-        
+    
+    // if wave form is pulse (square) show pulse width knob
     if (ui_selected_wave_forms == pulse_wave_idx) // pulse wave forms
     {
       ImGui::SameLine();
@@ -121,13 +140,6 @@ void ofApp::ui_OSCWindow()
       {
         pulseWidthCtrl.set(ui_osc_pulse_width);
       }
-      
-    }
-
-    if (ui_selected_wave_forms != ui_selected_wave_forms_previous)
-    {
-      ui_selected_wave_forms_previous = ui_selected_wave_forms;
-      ui_selected_wave_forms >> oscWaveFormSwitch.in_select();
     }
   
   ImGui::End();
@@ -147,7 +159,7 @@ void ofApp::ui_OutputWindow()
     ImGui::VSliderFloat("Gain", ImVec2(50, 230), &ui_gain, -43.0f, 12.0f, "%.2f");
     if (gain_before != ui_gain)
     {
-      ui_gain >> dBToLin >> gainCtrl;
+      gainCtrl.set(pdsp::DBtoLin::eval(ui_gain));
     }
   ImGui::End();
 }
