@@ -6,8 +6,8 @@ Required Addons
 
 * ofxAudioFile
 * ofxGui
-* ofxImGui (my version https://github.com/MacFurax/ofxImGui.git `branch docking` )
-* ofxPDSP (my version https://github.com/MacFurax/ofxPDSP.git `branch features/midi`)
+* ofxImGui (my fork https://github.com/MacFurax/ofxImGui.git `branch docking` )
+* ofxPDSP (my fork https://github.com/MacFurax/ofxPDSP.git `branch features/midi`)
 * ofxMidi
 * ofxOSC
 
