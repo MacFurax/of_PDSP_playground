@@ -94,11 +94,13 @@ void ofApp::setupImGui()
 {
   // set my font for ImGui
   string fontPath = ofToDataPath("./fonts/Roboto-Regular.ttf", true);
-  ofxImGuiSetFont(gui, fontPath, 16.0f);
+  int fontIdx = gui.addFont(fontPath, 16.0f);
+  gui.SetDefaultFont(fontIdx);
   
+  gui.enableDocking();
   gui.setup();
 
-  ofxImGuiEnableDocking();
+  //ofxImGuiEnableDocking();
 
   // set CorporateGrey theme
   ofxImGuiApplyCorporateGreyTheme(1.0f);
@@ -118,7 +120,6 @@ void ofApp::draw(){
 void ofApp::ui_Draw()
 {
   gui.begin();
-  ofxImGuiStartDocking();
 
   ui_Menu();
 
@@ -129,7 +130,6 @@ void ofApp::ui_Draw()
 
   if (ui_show_audio_settings) ui_AudioSettings();
 
-  ofxImGuiEndDocking();
   gui.end();
 }
 
@@ -162,7 +162,7 @@ void ofApp::ui_OSCWindow()
     ImGui::Text("OSC 1");
 
     // wave form selector
-    ImGui::Combo("Wave form", &ui_selected_wave_forms, wavesForms);
+    ofxImGui::VectorCombo("Wave form", &ui_selected_wave_forms, wavesForms);
     if (ui_selected_wave_forms != ui_selected_wave_forms_previous)
     {
       ui_selected_wave_forms_previous = ui_selected_wave_forms;
