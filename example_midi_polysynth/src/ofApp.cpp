@@ -15,11 +15,13 @@ void ofApp::setup(){
 
     // set up control
     // you can use setPolyMode(int maxNotes, int unisonVoices) or setMonoMode(int unisonVoices, bool legato, MonoPriority priority)
-    midiKeys.setPolyMode(4, 1);
+    midiKeys.setPolyMode(4, 2);
     // activate portamento, in poly mode you can notice portamento only on note stealing
-    midiKeys.setPortamento( pdsp::On, 250.0f, pdsp::Rate );
+    //midiKeys.setPortamento( pdsp::On, 250.0f, pdsp::Rate );
 
     //midiCCs.setCCSlew( 100.0f ); // enable for changing the midi CCs slew time, default is 50.0f = 50ms
+
+    //midiKeys.setUnisonDetune(0.5f);
 
     // voices is a vector of synth voices, we resize it to the midiKeys voice number     
     voicesNum = midiKeys.getVoicesNumber();
