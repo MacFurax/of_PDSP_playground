@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-  ofSetWindowTitle("sImple sYnth");
+  ofSetWindowTitle("sImpLe sYnTh");
 
   setup_GUI();
   setup_PDSP();
@@ -65,11 +65,11 @@ void ofApp::setup_PDSP()
 void ofApp::setup_GUI()
 {
   // load a different font
-  /*string fontPath = ofToDataPath("./fonts/Roboto-Regular.ttf", true);
+  string fontPath = ofToDataPath("./fonts/Roboto-Regular.ttf", true);
   cout << "Load ImGui font from \n[" << fontPath << "]\n";
 
-  int fontIdx = gui.addFont(fontPath, 16.0f);
-  gui.SetDefaultFont(fontIdx);*/
+  int fontIdx = gui.addFont(fontPath, 20.0f);
+  gui.SetDefaultFont(fontIdx);
 
   // Initi ImGui with CorporateGrey Theme
   gui.setup( static_cast<ofxImGui::BaseTheme*>(new ofxImGui::CorporateGreyTheme()) );
