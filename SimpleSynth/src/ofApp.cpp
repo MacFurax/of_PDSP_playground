@@ -4,9 +4,10 @@
 void ofApp::setup(){
   ofSetWindowTitle("sImple sYnth");
 
+  setup_GUI();
   setup_PDSP();
   
-  setup_GUI();
+ 
 }
 
 void ofApp::setup_PDSP()
@@ -31,18 +32,21 @@ void ofApp::setup_PDSP()
     midiKeys.out_trig(voiceIndex) >> synth.voices[voiceIndex].in("trig");
     midiKeys.out_pitch(voiceIndex) >> synth.voices[voiceIndex].in("pitch");
 
+    // patch ADSR envelope
+    attack >> synth.voices[voiceIndex].ampEnv.in_attack();
+    decay >> synth.voices[voiceIndex].ampEnv.in_decay();
+    sustain >> synth.voices[voiceIndex].ampEnv.in_sustain();
+    release >> synth.voices[voiceIndex].ampEnv.in_release();
+
     // patch each voice to output gain
     synth.voices[voiceIndex] >> gain;
+
     voiceIndex++;
   }
 
   // patch gain to audio engine output 
   gain >> engine.audio_out(0);
   gain >> engine.audio_out(1);
-
-
-  // GUI ---------------------------------------------------------
-  gain.enableSmoothing(50.f);
 
   // audio / midi setup----------------------------
 
@@ -69,6 +73,17 @@ void ofApp::setup_GUI()
 
   // Initi ImGui with CorporateGrey Theme
   gui.setup( static_cast<ofxImGui::BaseTheme*>(new ofxImGui::CorporateGreyTheme()) );
+
+  gain.set("gain", 0, -48, 12);
+  gain.enableSmoothing(50.f);
+  attack.set("attack", 0, 0, 1000);
+  attack.enableSmoothing(50.f);
+  decay.set("decay", 100, 0, 1000);
+  decay.enableSmoothing(50.f);
+  sustain.set("sustain", 0.5f, 0.0f, 1.0f);
+  sustain.enableSmoothing(50.f);
+  release.set("release", 1000, 0, 5000);
+  release.enableSmoothing(50.f);
 }
 
 //--------------------------------------------------------------
@@ -88,12 +103,15 @@ void ofApp::draw_UI()
 
   auto mainSettings = ofxImGui::Settings();
 
-  if (ofxImGui::BeginWindow("Main", mainSettings, false))
+  if (ofxImGui::BeginWindow("-O Main O-", mainSettings, false))
   {
-    ofxImGui::AddParameter(gain.set("gain", 0, -48, 12));
+    ofxImGui::AddParameter(gain.getOFParameterInt());
+    ofxImGui::AddParameter(attack.getOFParameterInt());
+    ofxImGui::AddParameter(decay.getOFParameterInt());
+    ofxImGui::AddParameter(sustain.getOFParameterFloat());
+    ofxImGui::AddParameter(release.getOFParameterInt());
   }
   ofxImGui::EndWindow(mainSettings);
-
 
   gui.end();
 }

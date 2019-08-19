@@ -12,7 +12,7 @@ void Synth::Voice::setup(Synth & ui, int v)
   // osc out to amp in
   oscillator.out_pulse() >> voiceAmp;
   // ADSR out to amp modulation in, here with fixed ADSR values
-  voiceTrigger >> ampEnv.set(5.0f, 100.0f, 0.5f, 1000.0f) >> voiceAmp.in_mod();
+  voiceTrigger >> ampEnv >> voiceAmp.in_mod();
 
 }
 

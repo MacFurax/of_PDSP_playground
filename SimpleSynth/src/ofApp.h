@@ -42,6 +42,11 @@ class ofApp : public ofBaseApp{
         
     pdsp::ParameterGain     gain;
 
+    pdsp::Parameter         attack;
+    pdsp::Parameter         decay;
+    pdsp::Parameter         sustain;
+    pdsp::Parameter         release;
+
     Synth                   synth;
 
     ofxImGui::Gui           gui;

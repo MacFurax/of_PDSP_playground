@@ -7,13 +7,14 @@ class Synth : public pdsp::Patchable
 {
 public:
   class Voice : public pdsp::Patchable { // internal class ----------------------
-      //friend class PolySynth;
+      friend class Synth;
   public:
     Voice() {}
     Voice(const Voice& other) {}
 
     void setup(Synth & ui, int v);
 
+    pdsp::ADSR          ampEnv;
 
   private:
     pdsp::PatchNode     voiceTrigger;
@@ -22,9 +23,6 @@ public:
     pdsp::VAOscillator  oscillator;
         
     pdsp::Amp           voiceAmp;
-
-    pdsp::ADSR          ampEnv;
-    
 
   }; // end Voice class -------------------------------------------------------
 
