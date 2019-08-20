@@ -51,8 +51,14 @@ void ofApp::setup_PDSP()
   // audio / midi setup----------------------------
 
   //get MIDI control
+  cout << "Number of MIDI IN port " << midiIn.getPortCount() << "\n";
+  for (auto s : midiIn.getPortList())
+  {
+    cout << "port :" << s << "\n";
+  }
   midiIn.listPorts();
-  midiIn.openPort(0); //set the right port !!!
+  midiIn.openPort(2); //set the right port !!!
+
 
   // for our midi controllers to work we have to add them to the engine, so it know it has to process them
   engine.addMidiController(midiKeys, midiIn); // add midi processing to the engine
