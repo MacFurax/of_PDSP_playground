@@ -12,6 +12,7 @@ class ofApp : public ofBaseApp{
     void setup();
     void setup_PDSP();
     void setup_GUI();
+    void RefreshMIDIInDeviceList();
     void update();
     void draw();
 
@@ -39,13 +40,28 @@ class ofApp : public ofBaseApp{
     pdsp::midi::Input       midiIn;
     pdsp::midi::Keys        midiKeys;
     pdsp::midi::Controls    midiCCs;
+
+    ofParameterGroup        MIDIINParameterGroup;
+
+    int                     selectedMIDIIN = 0;
+    std::vector<string>     midiInDeviceNames;
+    int                     midiInDeviceCount;
         
+    
+    ofParameterGroup        mainOutParameterGroup;
+    ofParameterGroup        ADSRParameterGroup;
+    ofParameterGroup        filterParameterGroup;
+
+
     pdsp::ParameterGain     gain;
 
     pdsp::Parameter         attack;
     pdsp::Parameter         decay;
     pdsp::Parameter         sustain;
     pdsp::Parameter         release;
+
+    pdsp::Parameter         cutoff;
+    pdsp::Parameter         reso;
 
     Synth                   synth;
 
