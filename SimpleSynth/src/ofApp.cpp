@@ -140,10 +140,10 @@ void ofApp::draw_UI()
 {
   gui.begin();
 
-  auto mainSettings = ofxImGui::Settings();
+  
 
   
-  if (ofxImGui::BeginWindow("MIDI IN", mainSettings, false))
+  if (ImGui::Begin("MIDI IN"))
   {
     if (midiInDeviceCount > 0)
     {
@@ -160,7 +160,9 @@ void ofApp::draw_UI()
       ImGui::Text("No MIDI in devices");
     }
   }
-  ofxImGui::EndWindow(mainSettings);
+  ImGui::End();
+
+  auto mainSettings = ofxImGui::Settings();
 
   ofxImGui::AddGroup(globalParamGroup, mainSettings, false);
 
