@@ -74,19 +74,21 @@ void ofApp::setup_PDSP()
 void ofApp::setup_GUI()
 {
   // load a different font
-  /*string fontPath = ofToDataPath("./fonts/Roboto-Regular.ttf", true);
+  string fontPath = ofToDataPath("./fonts/Roboto/Roboto-Light.ttf", true);
   cout << "Load ImGui font from \n[" << fontPath << "]\n";
 
   int fontIdx = gui.addFont(fontPath, 20.0f);
-  gui.SetDefaultFont(fontIdx);*/
+  gui.SetDefaultFont(fontIdx);
+
+  gui.enableDocking();
 
   // Init ImGui with CorporateGrey Theme
   gui.setup( static_cast<ofxImGui::BaseTheme*>(new ofxImGui::CorporateGreyTheme()) );
   
   gain.set("gain", 0, -48, 12);
   gain.enableSmoothing(50.f);
-  mainOutParameterGroup.setName("Main Out");
-  mainOutParameterGroup.add(static_cast<ofAbstractParameter&>(gain.getOFParameterInt()));
+  mainOutParamGroup.setName("Main Out");
+  mainOutParamGroup.add(static_cast<ofAbstractParameter&>(gain.getOFParameterInt()));
 
   attack.set("attack", 0, 0, 1000);
   attack.enableSmoothing(50.f);
@@ -96,17 +98,22 @@ void ofApp::setup_GUI()
   sustain.enableSmoothing(50.f);
   release.set("release", 1000, 0, 5000);
   release.enableSmoothing(50.f);
-  ADSRParameterGroup.setName("Envelope");
-  ADSRParameterGroup.add(static_cast<ofAbstractParameter&>(attack.getOFParameterInt()));
-  ADSRParameterGroup.add(static_cast<ofAbstractParameter&>(decay.getOFParameterInt()));
-  ADSRParameterGroup.add(static_cast<ofAbstractParameter&>(sustain.getOFParameterFloat()));
-  ADSRParameterGroup.add(static_cast<ofAbstractParameter&>(release.getOFParameterInt()));
+  ADSRParamGroup.setName("Envelope");
+  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(attack.getOFParameterInt()));
+  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(decay.getOFParameterInt()));
+  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(sustain.getOFParameterFloat()));
+  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(release.getOFParameterInt()));
 
   cutoff.set("cutoff", 82,20,136);
   reso.set("reso", 0.0f, 0.0f, 1.0f);
-  filterParameterGroup.setName("Filter");
-  filterParameterGroup.add(static_cast<ofAbstractParameter&>(cutoff.getOFParameterInt()));
-  filterParameterGroup.add(static_cast<ofAbstractParameter&>(reso.getOFParameterFloat()));
+  filterParamGroup.setName("Filter");
+  filterParamGroup.add(static_cast<ofAbstractParameter&>(cutoff.getOFParameterInt()));
+  filterParamGroup.add(static_cast<ofAbstractParameter&>(reso.getOFParameterFloat()));
+
+  globalParamGroup.setName("Synth");
+  globalParamGroup.add(static_cast<ofAbstractParameter&>(mainOutParamGroup));
+  globalParamGroup.add(static_cast<ofAbstractParameter&>(ADSRParamGroup));
+  globalParamGroup.add(static_cast<ofAbstractParameter&>(filterParamGroup));
 
   RefreshMIDIInDeviceList();
 }
@@ -135,26 +142,31 @@ void ofApp::draw_UI()
 
   auto mainSettings = ofxImGui::Settings();
 
-  ofxImGui::BeginWindow("MIDI IN", mainSettings, false);
-  if (midiInDeviceCount > 0)
+  
+  if (ofxImGui::BeginWindow("MIDI IN", mainSettings, false))
   {
-    int currentSelectedDevice = selectedMIDIIN;
-    ofxImGui::VectorCombo("Devices", &selectedMIDIIN, midiInDeviceNames);
-    if (currentSelectedDevice != selectedMIDIIN)
+    if (midiInDeviceCount > 0)
     {
-      midiIn.closePort();
-      midiIn.openPort(selectedMIDIIN);
+      int currentSelectedDevice = selectedMIDIIN;
+      ofxImGui::VectorCombo("Devices", &selectedMIDIIN, midiInDeviceNames);
+      if (currentSelectedDevice != selectedMIDIIN)
+      {
+        midiIn.closePort();
+        midiIn.openPort(selectedMIDIIN);
+      }
     }
-  }
-  else 
-  {
-    ImGui::Text("No MIDI in devices");
+    else
+    {
+      ImGui::Text("No MIDI in devices");
+    }
   }
   ofxImGui::EndWindow(mainSettings);
 
-  ofxImGui::AddGroup(mainOutParameterGroup, mainSettings);
-  ofxImGui::AddGroup(ADSRParameterGroup, mainSettings);
-  ofxImGui::AddGroup(filterParameterGroup, mainSettings);
+  ofxImGui::AddGroup(globalParamGroup, mainSettings, false);
+
+  /*ofxImGui::AddGroup(mainOutParamGroup, mainSettings);
+  ofxImGui::AddGroup(ADSRParamGroup, mainSettings);
+  ofxImGui::AddGroup(filterParamGroup, mainSettings);*/
 
   /*if (ofxImGui::BeginWindow("-O Main O-", mainSettings, false))
   {

@@ -21,7 +21,6 @@ public:
     pdsp::PatchNode     voicePitch;
 
     pdsp::VAOscillator  oscillator;
-
     pdsp::VAFilter      filter;
         
     pdsp::Amp           voiceAmp;

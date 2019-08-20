@@ -41,25 +41,25 @@ class ofApp : public ofBaseApp{
     pdsp::midi::Keys        midiKeys;
     pdsp::midi::Controls    midiCCs;
 
-    ofParameterGroup        MIDIINParameterGroup;
+    ofParameterGroup        globalParamGroup;
+
+    ofParameterGroup        MIDIINParamGroup;
 
     int                     selectedMIDIIN = 0;
     std::vector<string>     midiInDeviceNames;
     int                     midiInDeviceCount;
         
     
-    ofParameterGroup        mainOutParameterGroup;
-    ofParameterGroup        ADSRParameterGroup;
-    ofParameterGroup        filterParameterGroup;
-
-
+    ofParameterGroup        mainOutParamGroup;
     pdsp::ParameterGain     gain;
 
+    ofParameterGroup        ADSRParamGroup;
     pdsp::Parameter         attack;
     pdsp::Parameter         decay;
     pdsp::Parameter         sustain;
     pdsp::Parameter         release;
 
+    ofParameterGroup        filterParamGroup;
     pdsp::Parameter         cutoff;
     pdsp::Parameter         reso;
 
