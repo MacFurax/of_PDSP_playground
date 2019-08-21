@@ -110,10 +110,25 @@ void ofApp::setup_GUI()
   filterParamGroup.add(static_cast<ofAbstractParameter&>(cutoff.getOFParameterInt()));
   filterParamGroup.add(static_cast<ofAbstractParameter&>(reso.getOFParameterFloat()));
 
+  filterADSRParamGroup.setName("Filter envelope");
+  envAttack.set("attack", 10, 0, 1000);
+  envAttack.enableSmoothing(50.f);
+  envDecay.set("decay", 100, 0, 1000);
+  envDecay.enableSmoothing(50.f);
+  envSustain.set("sustain", 0.6f, 0.0f, 1.0f);
+  envSustain.enableSmoothing(50.f);
+  envRelease.set("release", 1000, 0, 5000);
+  envRelease.enableSmoothing(50.f);
+  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envAttack.getOFParameterInt()));
+  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envDecay.getOFParameterInt()));
+  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envSustain.getOFParameterFloat()));
+  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envRelease.getOFParameterInt()));
+
   globalParamGroup.setName("Synth");
   globalParamGroup.add(static_cast<ofAbstractParameter&>(mainOutParamGroup));
   globalParamGroup.add(static_cast<ofAbstractParameter&>(ADSRParamGroup));
   globalParamGroup.add(static_cast<ofAbstractParameter&>(filterParamGroup));
+  globalParamGroup.add(static_cast<ofAbstractParameter&>(filterADSRParamGroup));
 
   RefreshMIDIInDeviceList();
 }
@@ -158,6 +173,10 @@ void ofApp::draw_UI()
     else
     {
       ImGui::Text("No MIDI in devices");
+    }
+    if (ImGui::Button("Refresh device list"))
+    {
+      RefreshMIDIInDeviceList();
     }
   }
   ImGui::End();

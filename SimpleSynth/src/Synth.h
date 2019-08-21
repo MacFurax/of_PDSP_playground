@@ -15,6 +15,7 @@ public:
     void setup(Synth & ui, int v);
 
     pdsp::ADSR          ampEnv;
+    pdsp::ADSR          filterEnv;
 
   private:
     pdsp::PatchNode     voiceTrigger;

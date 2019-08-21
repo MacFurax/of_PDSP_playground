@@ -41,14 +41,17 @@ class ofApp : public ofBaseApp{
     pdsp::midi::Keys        midiKeys;
     pdsp::midi::Controls    midiCCs;
 
-    ofParameterGroup        globalParamGroup;
-
+    // params controlling synth behaviour
+    
+    // MIDI in port selection variables
+    // separate window
     ofParameterGroup        MIDIINParamGroup;
-
     int                     selectedMIDIIN = 0;
     std::vector<string>     midiInDeviceNames;
     int                     midiInDeviceCount;
-        
+    
+    // global group 
+    ofParameterGroup        globalParamGroup;
     
     ofParameterGroup        mainOutParamGroup;
     pdsp::ParameterGain     gain;
@@ -58,6 +61,12 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         decay;
     pdsp::Parameter         sustain;
     pdsp::Parameter         release;
+
+    ofParameterGroup        filterADSRParamGroup;
+    pdsp::Parameter         envAttack;
+    pdsp::Parameter         envDecay;
+    pdsp::Parameter         envSustain;
+    pdsp::Parameter         envRelease;
 
     ofParameterGroup        filterParamGroup;
     pdsp::Parameter         cutoff;
