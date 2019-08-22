@@ -62,6 +62,15 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detune;
     pdsp::Parameter         detuneFine;
 
+    pdsp::Parameter         waveForm2;
+    pdsp::Parameter         pulseWidth2;
+    pdsp::Parameter         attack2;
+    pdsp::Parameter         decay2;
+    pdsp::Parameter         sustain2;
+    pdsp::Parameter         release2;
+    pdsp::Parameter         detune2;
+    pdsp::Parameter         detuneFine2;
+
     Synth                   synth;
 
     ofxImGui::Gui           gui;
