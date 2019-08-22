@@ -15,7 +15,7 @@ void ofApp::setup(){
 
     // set up control
     // you can use setPolyMode(int maxNotes, int unisonVoices) or setMonoMode(int unisonVoices, bool legato, MonoPriority priority)
-    midiKeys.setPolyMode(4, 2);
+    midiKeys.setPolyMode(4, 1);
     // activate portamento, in poly mode you can notice portamento only on note stealing
     //midiKeys.setPortamento( pdsp::On, 250.0f, pdsp::Rate );
 

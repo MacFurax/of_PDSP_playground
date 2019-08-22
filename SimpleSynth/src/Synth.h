@@ -14,17 +14,7 @@ public:
 
     void setup(Synth & ui, int v);
 
-    pdsp::ADSR          ampEnv;
-    pdsp::ADSR          filterEnv;
-
-  private:
-    pdsp::PatchNode     voiceTrigger;
-    pdsp::PatchNode     voicePitch;
-
-    pdsp::VAOscillator  oscillator;
-    pdsp::VAFilter      filter;
-        
-    pdsp::Amp           voiceAmp;
+    pdsp::ADSR_OSC  osc;
 
   }; // end Voice class -------------------------------------------------------
 

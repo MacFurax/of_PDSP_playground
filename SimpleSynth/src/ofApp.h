@@ -50,27 +50,17 @@ class ofApp : public ofBaseApp{
     std::vector<string>     midiInDeviceNames;
     int                     midiInDeviceCount;
     
-    // global group 
-    ofParameterGroup        globalParamGroup;
-    
-    ofParameterGroup        mainOutParamGroup;
     pdsp::ParameterGain     gain;
 
-    ofParameterGroup        ADSRParamGroup;
+    std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse"};
+    pdsp::Parameter         waveForm;
+    pdsp::Parameter         pulseWidth;
     pdsp::Parameter         attack;
     pdsp::Parameter         decay;
     pdsp::Parameter         sustain;
     pdsp::Parameter         release;
-
-    ofParameterGroup        filterADSRParamGroup;
-    pdsp::Parameter         envAttack;
-    pdsp::Parameter         envDecay;
-    pdsp::Parameter         envSustain;
-    pdsp::Parameter         envRelease;
-
-    ofParameterGroup        filterParamGroup;
-    pdsp::Parameter         cutoff;
-    pdsp::Parameter         reso;
+    pdsp::Parameter         detune;
+    pdsp::Parameter         detuneFine;
 
     Synth                   synth;
 

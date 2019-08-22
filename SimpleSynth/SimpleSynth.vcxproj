@@ -556,6 +556,7 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters\PhaserFilter.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters\SVFilter.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters\VAFilter.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ADSR_OSC.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ClockedLFO.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\DataOscillator.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\FMOperator.cpp" />
@@ -871,6 +872,7 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters\SVFilter.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters\VAFilter.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\header.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ADSR_OSC.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ClockedLFO.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\DataOscillator.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\FMOperator.h" />

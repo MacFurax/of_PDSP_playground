@@ -32,14 +32,20 @@ void ofApp::setup_PDSP()
     midiKeys.out_trig(voiceIndex) >> synth.voices[voiceIndex].in("trig");
     midiKeys.out_pitch(voiceIndex) >> synth.voices[voiceIndex].in("pitch");
 
-    cutoff >> synth.voices[voiceIndex].in("cutoff");
-    reso >> synth.voices[voiceIndex].in("reso");
+    /*cutoff >> synth.voices[voiceIndex].in("cutoff");
+    reso >> synth.voices[voiceIndex].in("reso");*/
 
-    // patch ADSR envelope
-    attack >> synth.voices[voiceIndex].ampEnv.in_attack();
-    decay >> synth.voices[voiceIndex].ampEnv.in_decay();
-    sustain >> synth.voices[voiceIndex].ampEnv.in_sustain();
-    release >> synth.voices[voiceIndex].ampEnv.in_release();
+    // patch OSC settings
+
+    waveForm >> synth.voices[voiceIndex].osc.waveForm.in_select();
+    pulseWidth >> synth.voices[voiceIndex].osc.in("pw");
+    attack >> synth.voices[voiceIndex].osc.adsr.in_attack();
+    decay >> synth.voices[voiceIndex].osc.adsr.in_decay();
+    sustain >> synth.voices[voiceIndex].osc.adsr.in_sustain();
+    release >> synth.voices[voiceIndex].osc.adsr.in_release();
+
+    detune >> synth.voices[voiceIndex].osc.detuneCoarse;
+    detuneFine >> synth.voices[voiceIndex].osc.detuneFine;
 
     // patch each voice to output gain
     synth.voices[voiceIndex] >> gain;
@@ -87,9 +93,10 @@ void ofApp::setup_GUI()
   
   gain.set("gain", 0, -48, 12);
   gain.enableSmoothing(50.f);
-  mainOutParamGroup.setName("Main Out");
-  mainOutParamGroup.add(static_cast<ofAbstractParameter&>(gain.getOFParameterInt()));
-
+  
+  waveForm.set("wave form", 0, 0, 3);
+  pulseWidth.set("pw", 0.5f, 0.5f, 0.9f);
+  pulseWidth.enableSmoothing(100.f);
   attack.set("attack", 0, 0, 1000);
   attack.enableSmoothing(50.f);
   decay.set("decay", 100, 0, 1000);
@@ -98,37 +105,10 @@ void ofApp::setup_GUI()
   sustain.enableSmoothing(50.f);
   release.set("release", 1000, 0, 5000);
   release.enableSmoothing(50.f);
-  ADSRParamGroup.setName("Envelope");
-  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(attack.getOFParameterInt()));
-  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(decay.getOFParameterInt()));
-  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(sustain.getOFParameterFloat()));
-  ADSRParamGroup.add(static_cast<ofAbstractParameter&>(release.getOFParameterInt()));
-
-  cutoff.set("cutoff", 82,20,136);
-  reso.set("reso", 0.0f, 0.0f, 1.0f);
-  filterParamGroup.setName("Filter");
-  filterParamGroup.add(static_cast<ofAbstractParameter&>(cutoff.getOFParameterInt()));
-  filterParamGroup.add(static_cast<ofAbstractParameter&>(reso.getOFParameterFloat()));
-
-  filterADSRParamGroup.setName("Filter envelope");
-  envAttack.set("attack", 10, 0, 1000);
-  envAttack.enableSmoothing(50.f);
-  envDecay.set("decay", 100, 0, 1000);
-  envDecay.enableSmoothing(50.f);
-  envSustain.set("sustain", 0.6f, 0.0f, 1.0f);
-  envSustain.enableSmoothing(50.f);
-  envRelease.set("release", 1000, 0, 5000);
-  envRelease.enableSmoothing(50.f);
-  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envAttack.getOFParameterInt()));
-  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envDecay.getOFParameterInt()));
-  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envSustain.getOFParameterFloat()));
-  filterADSRParamGroup.add(static_cast<ofAbstractParameter&>(envRelease.getOFParameterInt()));
-
-  globalParamGroup.setName("Synth");
-  globalParamGroup.add(static_cast<ofAbstractParameter&>(mainOutParamGroup));
-  globalParamGroup.add(static_cast<ofAbstractParameter&>(ADSRParamGroup));
-  globalParamGroup.add(static_cast<ofAbstractParameter&>(filterParamGroup));
-  globalParamGroup.add(static_cast<ofAbstractParameter&>(filterADSRParamGroup));
+  detune.set("detune", 0.0f, 0.0f, 8.0f);
+  detune.enableSmoothing(50.f);
+  detuneFine.set("fine", 0.0f, 0.0f, 1.0f);
+  detuneFine.enableSmoothing(50.f);
 
   RefreshMIDIInDeviceList();
 }
@@ -154,9 +134,6 @@ void ofApp::draw(){
 void ofApp::draw_UI()
 {
   gui.begin();
-
-  
-
   
   if (ImGui::Begin("MIDI IN"))
   {
@@ -183,21 +160,21 @@ void ofApp::draw_UI()
 
   auto mainSettings = ofxImGui::Settings();
 
-  ofxImGui::AddGroup(globalParamGroup, mainSettings, false);
-
-  /*ofxImGui::AddGroup(mainOutParamGroup, mainSettings);
-  ofxImGui::AddGroup(ADSRParamGroup, mainSettings);
-  ofxImGui::AddGroup(filterParamGroup, mainSettings);*/
-
-  /*if (ofxImGui::BeginWindow("-O Main O-", mainSettings, false))
-  {
+  ofxImGui::BeginWindow("Main Out", mainSettings, false);
     ofxImGui::AddParameter(gain.getOFParameterInt());
+  ofxImGui::EndWindow(mainSettings);
+
+  ofxImGui::BeginWindow("OSC 1", mainSettings, false);
+    ofxImGui::AddCombo( waveForm.getOFParameterInt(), waveFormes);
+    ofxImGui::AddParameter(pulseWidth.getOFParameterFloat());
     ofxImGui::AddParameter(attack.getOFParameterInt());
     ofxImGui::AddParameter(decay.getOFParameterInt());
     ofxImGui::AddParameter(sustain.getOFParameterFloat());
     ofxImGui::AddParameter(release.getOFParameterInt());
-  }
-  ofxImGui::EndWindow(mainSettings);*/
+    ofxImGui::AddParameter(detune.getOFParameterFloat());
+    ofxImGui::AddParameter(detuneFine.getOFParameterFloat());
+  ofxImGui::EndWindow(mainSettings);
+
 
   gui.end();
 }
