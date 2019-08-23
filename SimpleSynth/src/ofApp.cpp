@@ -113,17 +113,17 @@ void ofApp::setup_GUI()
   waveForm2.set("wave form", 0, 0, 3);
   pulseWidth2.set("pw", 0.5f, 0.5f, 0.9f);
   pulseWidth2.enableSmoothing(100.f);
-  attack2.set("attack", 0, 0, 1000);
+  attack2.set("attack", 0.0f, 0.0f, 1000.0f);
   attack2.enableSmoothing(50.f);
-  decay2.set("decay", 100, 0, 1000);
+  decay2.set("decay", 100.0f, 0.0f, 1000.0f);
   decay2.enableSmoothing(50.f);
   sustain2.set("sustain", 0.5f, 0.0f, 1.0f);
   sustain2.enableSmoothing(50.f);
-  release2.set("release", 1000, 0, 5000);
+  release2.set("release", 1000.0f, 0.0f, 5000.0f);
   release2.enableSmoothing(50.f);
-  detune2.set("detune", 0.0f, 0.0f, 8.0f);
+  detune2.set("detune", 0.0f, -8.0f, 8.0f);
   detune2.enableSmoothing(50.f);
-  detuneFine2.set("fine", 0.0f, 0.0f, 1.0f);
+  detuneFine2.set("fine", 0.0f, -1.0f, 1.0f);
   detuneFine2.enableSmoothing(50.f);
 
   knobValue.set("Knob", 10.0f, 0.0f, 20.0f);
@@ -186,24 +186,40 @@ void ofApp::draw_UI()
 
   ofxImGui::BeginWindow("OSC 1", mainSettings, false);
     ofxImGui::AddCombo( waveForm.getOFParameterInt(), waveFormes);
-    ofxImGui::AddParameter(pulseWidth.getOFParameterFloat());
+
     ofxImGui::AddParameter(attack.getOFParameterInt());
     ofxImGui::AddParameter(decay.getOFParameterInt());
     ofxImGui::AddParameter(sustain.getOFParameterFloat());
     ofxImGui::AddParameter(release.getOFParameterInt());
+
+    ofxImGui::AddParameter(pulseWidth.getOFParameterFloat());
+    
     ofxImGui::AddParameter(detune.getOFParameterFloat());
     ofxImGui::AddParameter(detuneFine.getOFParameterFloat());
+
   ofxImGui::EndWindow(mainSettings);
 
   ofxImGui::BeginWindow("OSC 2", mainSettings, false);
-  ofxImGui::AddCombo(waveForm2.getOFParameterInt(), waveFormes);
-  ofxImGui::AddParameter(pulseWidth2.getOFParameterFloat());
-  ofxImGui::AddParameter(attack2.getOFParameterInt());
-  ofxImGui::AddParameter(decay2.getOFParameterInt());
-  ofxImGui::AddParameter(sustain2.getOFParameterFloat());
-  ofxImGui::AddParameter(release2.getOFParameterInt());
-  ofxImGui::AddParameter(detune2.getOFParameterFloat());
-  ofxImGui::AddParameter(detuneFine2.getOFParameterFloat());
+    ofxImGui::AddCombo(waveForm2.getOFParameterInt(), waveFormes);
+
+    ofxImGui::AddKnob(detune2.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(detuneFine2.getOFParameterFloat());
+
+    if (waveForm2.get() == 3)
+    {
+      ImGui::SameLine();
+      ofxImGui::AddKnob(pulseWidth2.getOFParameterFloat());
+    }
+
+    ofxImGui::AddKnob(attack2.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(decay2.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(sustain2.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(release2.getOFParameterFloat());
+
   ofxImGui::EndWindow(mainSettings);
 
 
