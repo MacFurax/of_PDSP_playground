@@ -126,6 +126,9 @@ void ofApp::setup_GUI()
   detuneFine2.set("fine", 0.0f, 0.0f, 1.0f);
   detuneFine2.enableSmoothing(50.f);
 
+  knobValue.set("Knob", 10.0f, 0.0f, 20.0f);
+  knobValue.enableSmoothing(50.f);
+
   RefreshMIDIInDeviceList();
 }
 
@@ -178,6 +181,7 @@ void ofApp::draw_UI()
 
   ofxImGui::BeginWindow("Main Out", mainSettings, false);
     ofxImGui::AddParameter(gain.getOFParameterInt());
+    ofxImGui::AddKnob(knobValue.getOFParameterFloat());
   ofxImGui::EndWindow(mainSettings);
 
   ofxImGui::BeginWindow("OSC 1", mainSettings, false);

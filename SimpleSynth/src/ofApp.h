@@ -71,6 +71,8 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detune2;
     pdsp::Parameter         detuneFine2;
 
+    pdsp::Parameter         knobValue;
+
     Synth                   synth;
 
     ofxImGui::Gui           gui;

@@ -170,19 +170,19 @@ void ofApp::ui_OSCWindow()
     }
     
     // show OSC tuning knobs
-    MyKnob2("Tune", &ui_osc_detune, -10.0, 10.0, 2, 25, true);
+    ImGui::Knob("Tune", &ui_osc_detune, -10.0, 10.0);
     ImGui::SameLine();
-    MyKnob2("Fine", &ui_osc_fine_detune, -0.5, 0.5, 2, 25, true);
+    ImGui::Knob("Fine", &ui_osc_fine_detune, -0.5, 0.5);
     ImGui::SameLine();
     static float temp = 0.0f;
-    MyKnob2("New", &temp, -0.5, 0.5, 2, 25, true);
+    ImGui::Knob("New", &temp, -0.5, 0.5);
     
     // if wave form is pulse (square) show pulse width knob
     if (ui_selected_wave_forms == pulse_wave_idx) // pulse wave forms
     {
       ImGui::SameLine();
       static float previous_osc_pulse_width = ui_osc_pulse_width;
-      MyKnob2("Pulse Width", &ui_osc_pulse_width, 0.1f, 0.9f, 2, 25, true);
+      ImGui::Knob("Pulse Width", &ui_osc_pulse_width, 0.1f, 0.9f);
       if (previous_osc_pulse_width != ui_osc_pulse_width)
       {
         pulseWidthCtrl.set(ui_osc_pulse_width);
@@ -199,13 +199,13 @@ void ofApp::ui_EnvelopeWindow()
     ImGui::Knob("Attack", &ui_env_attack, 0.0, 2000.0);
     envAttackCtrl.set(ui_env_attack);
     ImGui::SameLine();
-    MyKnob2("Decay", &ui_env_decay, 0.0, 2000.0, 2, 25, true);
+    ImGui::Knob("Decay", &ui_env_decay, 0.0, 2000.0);
     envDecayCtrl.set(ui_env_decay);
     ImGui::SameLine();
-    MyKnob2("Sustain", &ui_env_sustain, 0.0, 1.0, 2, 25, true);
+    ImGui::Knob("Sustain", &ui_env_sustain, 0.0, 1.0);
     envSustainCtrl.set(ui_env_sustain);
     ImGui::SameLine();
-    MyKnob2("Release", &ui_env_release, 0.0, 5000.0, 2, 25, true);
+    ImGui::Knob("Release", &ui_env_release, 0.0, 5000.0);
     envReleaseCtrl.set(ui_env_release);
     ImGui::SameLine();
 
