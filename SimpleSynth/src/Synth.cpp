@@ -9,12 +9,16 @@ void Synth::Voice::setup(Synth & ui, int v)
 
 void Synth::setup(int numVoices)
 {
+  addModuleOutput("signal", signalOut); // first = default
   voices.resize(numVoices);
+
+  1.0f >> signalOut.in_mod();
 
   int voiceIndex = 0;
   for (auto &v : voices)
   {
     v.setup(*this, voiceIndex);
+    v.out("signal") >> signalOut; // all voice ouput here
     voiceIndex++;
   }
 }

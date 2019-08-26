@@ -37,21 +37,33 @@ void ofApp::setup_PDSP()
 
     // patch OSC settings
 
-    waveForm >> synth.voices[voiceIndex].osc.waveForm.in_select();
-    pulseWidth >> synth.voices[voiceIndex].osc.in("pw");
-    attack >> synth.voices[voiceIndex].osc.adsr.in_attack();
-    decay >> synth.voices[voiceIndex].osc.adsr.in_decay();
-    sustain >> synth.voices[voiceIndex].osc.adsr.in_sustain();
-    release >> synth.voices[voiceIndex].osc.adsr.in_release();
+    waveForm >> synth.voices[voiceIndex].osc.waveForm1.in_select();
+    pulseWidth >> synth.voices[voiceIndex].osc.pw1;
+    attack >> synth.voices[voiceIndex].osc.adsr1.in_attack();
+    decay >> synth.voices[voiceIndex].osc.adsr1.in_decay();
+    sustain >> synth.voices[voiceIndex].osc.adsr1.in_sustain();
+    release >> synth.voices[voiceIndex].osc.adsr1.in_release();
 
-    detune >> synth.voices[voiceIndex].osc.detuneCoarse;
-    detuneFine >> synth.voices[voiceIndex].osc.detuneFine;
+    detune >> synth.voices[voiceIndex].osc.detuneCoarse1;
+    detuneFine >> synth.voices[voiceIndex].osc.detuneFine1;
+
+    waveForm2 >> synth.voices[voiceIndex].osc.waveForm2.in_select();
+    pulseWidth2 >> synth.voices[voiceIndex].osc.pw2;
+    attack2 >> synth.voices[voiceIndex].osc.adsr2.in_attack();
+    decay2 >> synth.voices[voiceIndex].osc.adsr2.in_decay();
+    sustain2 >> synth.voices[voiceIndex].osc.adsr2.in_sustain();
+    release2 >> synth.voices[voiceIndex].osc.adsr2.in_release();
+
+    detune2 >> synth.voices[voiceIndex].osc.detuneCoarse2;
+    detuneFine2 >> synth.voices[voiceIndex].osc.detuneFine2;
 
     // patch each voice to output gain
-    synth.voices[voiceIndex] >> gain;
+    //synth.voices[voiceIndex] >> gain;
 
     voiceIndex++;
   }
+
+  synth >> gain;
 
   // patch gain to audio engine output 
   gain >> engine.audio_out(0);
@@ -105,9 +117,9 @@ void ofApp::setup_GUI()
   sustain.enableSmoothing(50.f);
   release.set("release", 1000, 0, 5000);
   release.enableSmoothing(50.f);
-  detune.set("detune", 0.0f, 0.0f, 8.0f);
+  detune.set("detune", 0.0f, -12.0f, 12.0f);
   detune.enableSmoothing(50.f);
-  detuneFine.set("fine", 0.0f, 0.0f, 1.0f);
+  detuneFine.set("fine", 0.0f, -1.0f, 1.0f);
   detuneFine.enableSmoothing(50.f);
 
   waveForm2.set("wave form", 0, 0, 3);
@@ -121,13 +133,11 @@ void ofApp::setup_GUI()
   sustain2.enableSmoothing(50.f);
   release2.set("release", 1000.0f, 0.0f, 5000.0f);
   release2.enableSmoothing(50.f);
-  detune2.set("detune", 0.0f, -8.0f, 8.0f);
+  detune2.set("detune", 0.0f, -12.0f, 12.0f);
   detune2.enableSmoothing(50.f);
   detuneFine2.set("fine", 0.0f, -1.0f, 1.0f);
   detuneFine2.enableSmoothing(50.f);
 
-  knobValue.set("Knob", 10.0f, 0.0f, 20.0f);
-  knobValue.enableSmoothing(50.f);
 
   RefreshMIDIInDeviceList();
 }
@@ -181,7 +191,6 @@ void ofApp::draw_UI()
 
   ofxImGui::BeginWindow("Main Out", mainSettings, false);
     ofxImGui::AddParameter(gain.getOFParameterInt());
-    ofxImGui::AddKnob(knobValue.getOFParameterFloat());
   ofxImGui::EndWindow(mainSettings);
 
   ofxImGui::BeginWindow("OSC 1", mainSettings, false);

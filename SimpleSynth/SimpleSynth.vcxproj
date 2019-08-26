@@ -71,6 +71,7 @@
     <TargetName>$(ProjectName)_debug</TargetName>
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
+    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\</OutDir>
@@ -78,16 +79,19 @@
     <TargetName>$(ProjectName)_debug</TargetName>
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
+    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -392,6 +396,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\oscWaveSelectDetune.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src\ofxAudioFile.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
@@ -601,6 +606,7 @@
     <ClCompile Include="src\Synth.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\oscWaveSelectDetune.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_flac.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_mp3.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_wav.h" />

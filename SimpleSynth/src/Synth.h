@@ -2,10 +2,12 @@
 
 #include "ofMain.h"
 #include "ofxPDSP.h"
+#include "modules/oscWaveSelectDetune.h"
 
 class Synth : public pdsp::Patchable
 {
 public:
+
   class Voice : public pdsp::Patchable { // internal class ----------------------
       friend class Synth;
   public:
@@ -14,7 +16,7 @@ public:
 
     void setup(Synth & ui, int v);
 
-    pdsp::ADSR_OSC  osc;
+    OscWaveSelectDetune  osc;
 
   }; // end Voice class -------------------------------------------------------
 
@@ -22,4 +24,5 @@ public:
   void setup(int numVoices);
 
   std::vector<Voice> voices;
+  pdsp::Amp          signalOut;
 };

@@ -622,6 +622,9 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ADSR_OSC.cpp">
       <Filter>addons\ofxPDSP\src\modules\oscillators</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\oscWaveSelectDetune.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -872,6 +875,9 @@
     </Filter>
     <Filter Include="addons\ofxPDSP\libs\audiofft">
       <UniqueIdentifier>{67c6366d-36c7-459d-86e8-f5ba4fbf6635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{6b1f8490-e63d-4107-aaac-283e265a2370}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1834,6 +1840,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators\ADSR_OSC.h">
       <Filter>addons\ofxPDSP\src\modules\oscillators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\oscWaveSelectDetune.h">
+      <Filter>libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

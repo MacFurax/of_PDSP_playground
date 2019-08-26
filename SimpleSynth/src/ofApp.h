@@ -54,6 +54,7 @@ class ofApp : public ofBaseApp{
 
     std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse"};
     pdsp::Parameter         waveForm;
+    int                     waveFormSelected = 0;
     pdsp::Parameter         pulseWidth;
     pdsp::Parameter         attack;
     pdsp::Parameter         decay;
@@ -61,8 +62,10 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         release;
     pdsp::Parameter         detune;
     pdsp::Parameter         detuneFine;
+    pdsp::ParameterAmp      level;
 
     pdsp::Parameter         waveForm2;
+    int                     waveFormSelected2 = 0;
     pdsp::Parameter         pulseWidth2;
     pdsp::Parameter         attack2;
     pdsp::Parameter         decay2;
@@ -70,12 +73,9 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         release2;
     pdsp::Parameter         detune2;
     pdsp::Parameter         detuneFine2;
-
-    pdsp::Parameter         knobValue;
+    pdsp::ParameterAmp      level2;
 
     Synth                   synth;
 
     ofxImGui::Gui           gui;
-
-    
 };
