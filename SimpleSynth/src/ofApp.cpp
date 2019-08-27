@@ -10,86 +10,6 @@ void ofApp::setup(){
  
 }
 
-void ofApp::setup_PDSP()
-{
-  // Patching ---------------------------------------------------------
-  // set up control
-  // you can use setPolyMode(int maxNotes, int unisonVoices) or setMonoMode(int unisonVoices, bool legato, MonoPriority priority)
-  midiKeys.setPolyMode(polyphonyVoiceCount, unisonVoiceCount);
-
-  // voices is a vector of synth voices, we resize it to the midiKeys voice number     
-  voicesNum = midiKeys.getVoicesNumber();
-
-  // set keyboard polyphony
-  keyboard.setPolyMode(polyphonyVoiceCount);
-
-  synth.setup(voicesNum);
-
-  int voiceIndex = 0;
-  for (auto& v : synth.voices)
-  {
-    // connect each voice to a midi pitch and trigger output
-    midiKeys.out_trig(voiceIndex) >> v.in("trig");
-    midiKeys.out_pitch(voiceIndex) >> v.in("pitch");
-
-    /*cutoff >> v.in("cutoff");
-    reso >> v.in("reso");*/
-
-    // patch OSC settings
-
-    waveFormCtrl >> v.osc.waveForm1.in_select();
-    //pulseWidth >> v.osc.pw1;
-    attack >> v.osc.adsr1.in_attack();
-    decay >> v.osc.adsr1.in_decay();
-    sustain >> v.osc.adsr1.in_sustain();
-    release >> v.osc.adsr1.in_release();
-
-    detune >> v.osc.detuneCoarse1;
-    detuneFine >> v.osc.detuneFine1;
-
-    level >> v.osc.osc1Level.in_mod();
-
-    // OSC 2
-    //waveForm2Ctrl >> v.osc.waveForm2.in_select();
-    ////pulseWidth2 >> v.osc.pw2;
-    //attack2 >> v.osc.adsr2.in_attack();
-    //decay2 >> v.osc.adsr2.in_decay();
-    //sustain2 >> v.osc.adsr2.in_sustain();
-    //release2 >> v.osc.adsr2.in_release();
-
-    //detune2 >> v.osc.detuneCoarse2;
-    //detuneFine2 >> v.osc.detuneFine2;
-
-    //level2 >> v.osc.osc2Level.in_mod();
-
-    voiceIndex++;
-  }
-
-  synth >> gain;
-
-  // patch gain to audio engine output 
-  gain >> engine.audio_out(0);
-  gain >> engine.audio_out(1);
-
-  // audio / midi setup----------------------------
-
-  //get MIDI control
-  cout << "Number of MIDI IN port " << midiIn.getPortCount() << "\n";
-  for (auto s : midiIn.getPortList())
-  {
-    cout << "port :" << s << "\n";
-  }
-  midiIn.listPorts();
-  midiIn.openPort(selectedMIDIIN); //set the right port !!!
-
-
-  // for our midi controllers to work we have to add them to the engine, so it know it has to process them
-  engine.addMidiController(midiKeys, midiIn); // add midi processing to the engine
-  engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
-  engine.listDevices();
-  engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
-  engine.setup(44100, 512, 3);
-}
 
 void ofApp::setup_GUI()
 {
@@ -147,6 +67,88 @@ void ofApp::setup_GUI()
 
   RefreshMIDIInDeviceList();
 }
+
+void ofApp::setup_PDSP()
+{
+  // Patching ---------------------------------------------------------
+  // set up control
+  // you can use setPolyMode(int maxNotes, int unisonVoices) or setMonoMode(int unisonVoices, bool legato, MonoPriority priority)
+  midiKeys.setPolyMode(polyphonyVoiceCount, unisonVoiceCount);
+
+  // voices is a vector of synth voices, we resize it to the midiKeys voice number     
+  voicesNum = midiKeys.getVoicesNumber();
+
+  // set keyboard polyphony
+  keyboard.setPolyMode(polyphonyVoiceCount);
+
+  synth.setup(voicesNum);
+
+  int voiceIndex = 0;
+  for (auto& v : synth.voices)
+  {
+    // connect each voice to a midi pitch and trigger output
+    midiKeys.out_trig(voiceIndex) >> v.in("trig");
+    midiKeys.out_pitch(voiceIndex) >> v.in("pitch");
+
+    /*cutoff >> v.in("cutoff");
+    reso >> v.in("reso");*/
+
+    // patch OSC settings
+
+    waveFormCtrl >> v.osc.waveForm1.in_select();
+    pulseWidth >> v.osc.osc1.in_pw();
+    attack >> v.osc.adsr1.in_attack();
+    decay >> v.osc.adsr1.in_decay();
+    sustain >> v.osc.adsr1.in_sustain();
+    release >> v.osc.adsr1.in_release();
+
+    detune >> v.osc.detuneCoarse1;
+    detuneFine >> v.osc.detuneFine1;
+
+    level >> v.osc.osc1Level.in_mod();
+
+    // OSC 2
+    waveForm2Ctrl >> v.osc.waveForm2.in_select();
+    pulseWidth2 >> v.osc.osc2.in_pw();;
+    attack2 >> v.osc.adsr2.in_attack();
+    decay2 >> v.osc.adsr2.in_decay();
+    sustain2 >> v.osc.adsr2.in_sustain();
+    release2 >> v.osc.adsr2.in_release();
+
+    detune2 >> v.osc.detuneCoarse2;
+    detuneFine2 >> v.osc.detuneFine2;
+
+    level2 >> v.osc.osc2Level.in_mod();
+
+    voiceIndex++;
+  }
+
+  synth >> gain;
+
+  // patch gain to audio engine output 
+  gain >> engine.audio_out(0);
+  gain >> engine.audio_out(1);
+
+  // audio / midi setup----------------------------
+
+  //get MIDI control
+  cout << "Number of MIDI IN port " << midiIn.getPortCount() << "\n";
+  for (auto s : midiIn.getPortList())
+  {
+    cout << "port :" << s << "\n";
+  }
+  midiIn.listPorts();
+  midiIn.openPort(selectedMIDIIN); //set the right port !!!
+
+
+  // for our midi controllers to work we have to add them to the engine, so it know it has to process them
+  engine.addMidiController(midiKeys, midiIn); // add midi processing to the engine
+  engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
+  engine.listDevices();
+  engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+  engine.setup(44100, 512, 3);
+}
+
 
 void ofApp::RefreshMIDIInDeviceList()
 {

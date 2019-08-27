@@ -62,7 +62,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         release;
     pdsp::Parameter         detune;
     pdsp::Parameter         detuneFine;
-    pdsp::ParameterAmp      level;
+    pdsp::Parameter      level;
 
     pdsp::ValueControl      waveForm2Ctrl;
     pdsp::Parameter         waveForm2;
@@ -73,7 +73,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         release2;
     pdsp::Parameter         detune2;
     pdsp::Parameter         detuneFine2;
-    pdsp::ParameterAmp      level2;
+    pdsp::Parameter         level2;
 
     Synth                   synth;
 
