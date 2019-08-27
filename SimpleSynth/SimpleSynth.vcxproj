@@ -71,7 +71,7 @@
     <TargetName>$(ProjectName)_debug</TargetName>
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
-    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>bin\</OutDir>
@@ -79,19 +79,19 @@
     <TargetName>$(ProjectName)_debug</TargetName>
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
-    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>bin\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Dupuis\Dev\c_cpp\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\libs\ofxPDSP_More\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

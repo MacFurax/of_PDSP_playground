@@ -53,8 +53,8 @@ class ofApp : public ofBaseApp{
     pdsp::ParameterGain     gain;
 
     std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse"};
+    pdsp::ValueControl      waveFormCtrl;
     pdsp::Parameter         waveForm;
-    int                     waveFormSelected = 0;
     pdsp::Parameter         pulseWidth;
     pdsp::Parameter         attack;
     pdsp::Parameter         decay;
@@ -64,8 +64,8 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detuneFine;
     pdsp::ParameterAmp      level;
 
+    pdsp::ValueControl      waveForm2Ctrl;
     pdsp::Parameter         waveForm2;
-    int                     waveFormSelected2 = 0;
     pdsp::Parameter         pulseWidth2;
     pdsp::Parameter         attack2;
     pdsp::Parameter         decay2;

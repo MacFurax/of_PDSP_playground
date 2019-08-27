@@ -29,36 +29,38 @@ void ofApp::setup_PDSP()
   for (auto& v : synth.voices)
   {
     // connect each voice to a midi pitch and trigger output
-    midiKeys.out_trig(voiceIndex) >> synth.voices[voiceIndex].in("trig");
-    midiKeys.out_pitch(voiceIndex) >> synth.voices[voiceIndex].in("pitch");
+    midiKeys.out_trig(voiceIndex) >> v.in("trig");
+    midiKeys.out_pitch(voiceIndex) >> v.in("pitch");
 
-    /*cutoff >> synth.voices[voiceIndex].in("cutoff");
-    reso >> synth.voices[voiceIndex].in("reso");*/
+    /*cutoff >> v.in("cutoff");
+    reso >> v.in("reso");*/
 
     // patch OSC settings
 
-    waveForm >> synth.voices[voiceIndex].osc.waveForm1.in_select();
-    pulseWidth >> synth.voices[voiceIndex].osc.pw1;
-    attack >> synth.voices[voiceIndex].osc.adsr1.in_attack();
-    decay >> synth.voices[voiceIndex].osc.adsr1.in_decay();
-    sustain >> synth.voices[voiceIndex].osc.adsr1.in_sustain();
-    release >> synth.voices[voiceIndex].osc.adsr1.in_release();
+    waveFormCtrl >> v.osc.waveForm1.in_select();
+    //pulseWidth >> v.osc.pw1;
+    attack >> v.osc.adsr1.in_attack();
+    decay >> v.osc.adsr1.in_decay();
+    sustain >> v.osc.adsr1.in_sustain();
+    release >> v.osc.adsr1.in_release();
 
-    detune >> synth.voices[voiceIndex].osc.detuneCoarse1;
-    detuneFine >> synth.voices[voiceIndex].osc.detuneFine1;
+    detune >> v.osc.detuneCoarse1;
+    detuneFine >> v.osc.detuneFine1;
 
-    waveForm2 >> synth.voices[voiceIndex].osc.waveForm2.in_select();
-    pulseWidth2 >> synth.voices[voiceIndex].osc.pw2;
-    attack2 >> synth.voices[voiceIndex].osc.adsr2.in_attack();
-    decay2 >> synth.voices[voiceIndex].osc.adsr2.in_decay();
-    sustain2 >> synth.voices[voiceIndex].osc.adsr2.in_sustain();
-    release2 >> synth.voices[voiceIndex].osc.adsr2.in_release();
+    level >> v.osc.osc1Level.in_mod();
 
-    detune2 >> synth.voices[voiceIndex].osc.detuneCoarse2;
-    detuneFine2 >> synth.voices[voiceIndex].osc.detuneFine2;
+    // OSC 2
+    //waveForm2Ctrl >> v.osc.waveForm2.in_select();
+    ////pulseWidth2 >> v.osc.pw2;
+    //attack2 >> v.osc.adsr2.in_attack();
+    //decay2 >> v.osc.adsr2.in_decay();
+    //sustain2 >> v.osc.adsr2.in_sustain();
+    //release2 >> v.osc.adsr2.in_release();
 
-    // patch each voice to output gain
-    //synth.voices[voiceIndex] >> gain;
+    //detune2 >> v.osc.detuneCoarse2;
+    //detuneFine2 >> v.osc.detuneFine2;
+
+    //level2 >> v.osc.osc2Level.in_mod();
 
     voiceIndex++;
   }
@@ -121,6 +123,8 @@ void ofApp::setup_GUI()
   detune.enableSmoothing(50.f);
   detuneFine.set("fine", 0.0f, -1.0f, 1.0f);
   detuneFine.enableSmoothing(50.f);
+  level.set("level", 0.5f, 0.0f, 1.0f);
+  level.enableSmoothing(50.f);
 
   waveForm2.set("wave form", 0, 0, 3);
   pulseWidth2.set("pw", 0.5f, 0.5f, 0.9f);
@@ -137,6 +141,8 @@ void ofApp::setup_GUI()
   detune2.enableSmoothing(50.f);
   detuneFine2.set("fine", 0.0f, -1.0f, 1.0f);
   detuneFine2.enableSmoothing(50.f);
+  level2.set("level", 0.5f, 0.0f, 1.0f);
+  level2.enableSmoothing(50.f);
 
 
   RefreshMIDIInDeviceList();
@@ -194,7 +200,13 @@ void ofApp::draw_UI()
   ofxImGui::EndWindow(mainSettings);
 
   ofxImGui::BeginWindow("OSC 1", mainSettings, false);
+    int prev_wavef = waveForm.getOFParameterInt().get();
     ofxImGui::AddCombo( waveForm.getOFParameterInt(), waveFormes);
+    if (prev_wavef != waveForm.getOFParameterInt().get())
+    {
+      ofLogNotice() << "wave form 1 change from " << prev_wavef << " to " << waveForm.getOFParameterInt().get() << "\n";
+      waveFormCtrl.set(waveForm.getOFParameterInt().get());
+    }
 
     ofxImGui::AddParameter(attack.getOFParameterInt());
     ofxImGui::AddParameter(decay.getOFParameterInt());
@@ -206,10 +218,18 @@ void ofApp::draw_UI()
     ofxImGui::AddParameter(detune.getOFParameterFloat());
     ofxImGui::AddParameter(detuneFine.getOFParameterFloat());
 
+    ofxImGui::AddParameter(level.getOFParameterFloat());
+
   ofxImGui::EndWindow(mainSettings);
 
   ofxImGui::BeginWindow("OSC 2", mainSettings, false);
+    prev_wavef = waveForm2.getOFParameterInt().get();
     ofxImGui::AddCombo(waveForm2.getOFParameterInt(), waveFormes);
+    if (prev_wavef != waveForm2.getOFParameterInt().get())
+    {
+      ofLogNotice() << "wave form 2 change from " << prev_wavef << " to " << waveForm2.getOFParameterInt().get() << "\n";
+      waveForm2Ctrl.set(waveForm2.getOFParameterInt().get());
+    }
 
     ofxImGui::AddKnob(detune2.getOFParameterFloat());
     ImGui::SameLine();
@@ -228,6 +248,7 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(sustain2.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(release2.getOFParameterFloat());
+    ofxImGui::AddKnob(level2.getOFParameterFloat());
 
   ofxImGui::EndWindow(mainSettings);
 
