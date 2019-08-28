@@ -28,7 +28,7 @@ void ofApp::setup_GUI()
   gain.set("gain", 0, -48, 12);
   gain.enableSmoothing(50.f);
   
-  waveForm.set("wave form", 0, 0, 3);
+  waveForm.set("wave form", 0, 0, 4);
   pulseWidth.set("pw", 0.5f, 0.5f, 0.9f);
   pulseWidth.enableSmoothing(100.f);
   attack.set("attack", 0, 0, 1000);
@@ -46,7 +46,7 @@ void ofApp::setup_GUI()
   level.set("level", 0.5f, 0.0f, 1.0f);
   level.enableSmoothing(50.f);
 
-  waveForm2.set("wave form", 0, 0, 3);
+  waveForm2.set("wave form", 0, 0, 4);
   pulseWidth2.set("pw", 0.5f, 0.5f, 0.9f);
   pulseWidth2.enableSmoothing(100.f);
   attack2.set("attack", 0.0f, 0.0f, 1000.0f);

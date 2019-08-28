@@ -52,7 +52,7 @@ class ofApp : public ofBaseApp{
     
     pdsp::ParameterGain     gain;
 
-    std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse"};
+    std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse", "noise"};
     pdsp::ValueControl      waveFormCtrl;
     pdsp::Parameter         waveForm;
     pdsp::Parameter         pulseWidth;
