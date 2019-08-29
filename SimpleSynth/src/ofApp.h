@@ -50,7 +50,10 @@ class ofApp : public ofBaseApp{
     std::vector<string>     midiInDeviceNames;
     int                     midiInDeviceCount;
     
+    // wave forms
     std::vector<std::string> waveFormes = {"sine", "triangle", "saw", "pulse", "noise"};
+    
+    // OSC 1
     pdsp::ValueControl      waveFormCtrl;
     pdsp::Parameter         waveForm;
     pdsp::Parameter         pulseWidth;
@@ -62,6 +65,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detuneFine;
     pdsp::Parameter         level;
 
+    // OSC 2
     pdsp::ValueControl      waveForm2Ctrl;
     pdsp::Parameter         waveForm2;
     pdsp::Parameter         pulseWidth2;
@@ -73,15 +77,24 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detuneFine2;
     pdsp::Parameter         level2;
 
+    // Filter
     std::vector<std::string> filterTypes = { "LowPass24", "LowPass12", "HighPass24", "HighPass12", "BandPass24", "BandPass12" };
     pdsp::ValueControl      filterTypeCtrl;
     pdsp::Parameter         filterType;
     pdsp::Parameter         filterCutoff;
     pdsp::Parameter         filterReso;
 
+    // Filter 2
+    std::vector<std::string> filter2Types = { "LowPass", "BandPass", "HighPass", "Noth"};
+    pdsp::ValueControl      filter2TypeCtrl;
+    pdsp::Parameter         filter2Type;
+    pdsp::Parameter         filter2Cutoff;
+    pdsp::Parameter         filter2Reso;
+
     Synth                   synth;
 
     pdsp::VAFilter          filter;
+    pdsp::SVFilter          filter2;
     pdsp::ParameterGain     gain;
 
     ofxImGui::Gui           gui;

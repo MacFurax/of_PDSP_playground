@@ -69,9 +69,13 @@ void ofApp::setup_GUI()
   level2.enableSmoothing(50.f);
 
   // init filter parameters
-  filterType.set("type", 0,0,5);
-  filterCutoff.set("cutoff", 80.0f, 22.0f, 180.0f);
+  filterType.set("type", 0 ,0, 5);
+  filterCutoff.set("cutoff", 80.0f, 0.0f, 180.0f);
   filterReso.set("reso", 0.5f, 0.0f, 1.0f);
+
+  filter2Type.set("type", 0, 0, 3);
+  filter2Cutoff.set("cutoff", 80.0f, 0.0f, 180.0f);
+  filter2Reso.set("reso", 0.5f, 0.0f, 1.0f);
 
 
   RefreshMIDIInDeviceList();
@@ -132,9 +136,17 @@ void ofApp::setup_PDSP()
   filterTypeCtrl >> filter.in_mode();
   filterCutoff >> filter.in_cutoff();
   filterReso >> filter.in_reso();
+
+  filter2TypeCtrl >> filter2.in_mode();
+  filter2Cutoff >> filter2.in_cutoff();
+  filter2Reso >> filter2.in_reso();
+
   
   synth >> filter;
   filter >> gain;
+
+  synth >> filter2;
+  filter2 >> gain;
 
   // patch gain to audio engine output 
   gain >> engine.audio_out(0);
@@ -285,6 +297,14 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filterCutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filterReso.getOFParameterFloat());
+
+    if (ofxImGui::AddCombo(filter2Type.getOFParameterInt(), filter2Types))
+    {
+      filter2TypeCtrl.set((float)filter2Type.getOFParameterInt().get());
+    }
+    ofxImGui::AddKnob(filter2Cutoff.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(filter2Reso.getOFParameterFloat());
   ofxImGui::EndWindow(mainSettings);
 
   gui.end();
