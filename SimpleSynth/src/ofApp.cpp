@@ -25,9 +25,12 @@ void ofApp::setup_GUI()
   // Init ImGui with CorporateGrey Theme
   gui.setup( static_cast<ofxImGui::BaseTheme*>(new ofxImGui::CorporateGreyTheme()) );
   
+  // init Main output window parameters
+
   gain.set("gain", 0, -48, 12);
   gain.enableSmoothing(50.f);
   
+  // init OSC 1 parameters
   waveForm.set("wave form", 0, 0, 4);
   pulseWidth.set("pw", 0.5f, 0.5f, 0.9f);
   pulseWidth.enableSmoothing(100.f);
@@ -46,6 +49,7 @@ void ofApp::setup_GUI()
   level.set("level", 0.5f, 0.0f, 1.0f);
   level.enableSmoothing(50.f);
 
+  // init OSC 2 parameters
   waveForm2.set("wave form", 0, 0, 4);
   pulseWidth2.set("pw", 0.5f, 0.5f, 0.9f);
   pulseWidth2.enableSmoothing(100.f);
@@ -63,6 +67,11 @@ void ofApp::setup_GUI()
   detuneFine2.enableSmoothing(50.f);
   level2.set("level", 0.5f, 0.0f, 1.0f);
   level2.enableSmoothing(50.f);
+
+  // init filter parameters
+  filterType.set("type", 0,0,5);
+  filterCutoff.set("cutoff", 80.0f, 22.0f, 180.0f);
+  filterReso.set("reso", 0.5f, 0.0f, 1.0f);
 
 
   RefreshMIDIInDeviceList();
@@ -89,9 +98,6 @@ void ofApp::setup_PDSP()
     // connect each voice to a midi pitch and trigger output
     midiKeys.out_trig(voiceIndex) >> v.in("trig");
     midiKeys.out_pitch(voiceIndex) >> v.in("pitch");
-
-    /*cutoff >> v.in("cutoff");
-    reso >> v.in("reso");*/
 
     // patch OSC settings
 
@@ -123,7 +129,12 @@ void ofApp::setup_PDSP()
     voiceIndex++;
   }
 
-  synth >> gain;
+  filterTypeCtrl >> filter.in_mode();
+  filterCutoff >> filter.in_cutoff();
+  filterReso >> filter.in_reso();
+  
+  synth >> filter;
+  filter >> gain;
 
   // patch gain to audio engine output 
   gain >> engine.audio_out(0);
@@ -212,10 +223,7 @@ void ofApp::draw_UI()
     }
 
     ofxImGui::AddKnob(level.getOFParameterFloat());
-    ImGui::SameLine();/*  
-    ImGui::Dummy( ImVec2(20,20));
-    ImGui::SameLine();*/
-
+    ImGui::SameLine();
     ofxImGui::AddKnob(detune.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(detuneFine.getOFParameterFloat());
@@ -268,6 +276,16 @@ void ofApp::draw_UI()
 
   ofxImGui::EndWindow(mainSettings);
 
+
+  ofxImGui::BeginWindow("Filter", mainSettings, false);
+    if(ofxImGui::AddCombo(filterType.getOFParameterInt(), filterTypes))
+    {
+      filterTypeCtrl.set((float)filterType.getOFParameterInt().get());
+    }
+    ofxImGui::AddKnob(filterCutoff.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(filterReso.getOFParameterFloat());
+  ofxImGui::EndWindow(mainSettings);
 
   gui.end();
 }
