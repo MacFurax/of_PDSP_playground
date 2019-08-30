@@ -65,6 +65,15 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detuneFine;
     pdsp::Parameter         level;
 
+    std::vector<std::string> lfoWaveFormes = { "sine", "triangle", "saw", "square" };
+    pdsp::ValueControl      lfo1waveFormCtrl;
+    pdsp::Parameter         lfo1waveForm;
+    pdsp::Parameter         lfo1Freq;
+    pdsp::Parameter         lfo1ToOSCPitchAmp;
+    pdsp::Parameter         lfo1ToOSCLevelAmp;
+    pdsp::Parameter         lfo1ToOSCPWAmp;
+
+
     // OSC 2
     pdsp::ValueControl      waveForm2Ctrl;
     pdsp::Parameter         waveForm2;

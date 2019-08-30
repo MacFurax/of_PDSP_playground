@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxPDSP.h"
-#include "modules/oscWaveSelectDetune.h"
+#include "modules/voiceFullFeatures.h"
 
 class Synth : public pdsp::Patchable
 {
@@ -16,7 +16,7 @@ public:
 
     void setup(Synth & ui, int v);
 
-    OscWaveSelectDetune  osc;
+    VoiceFullFeatures  osc;
 
   }; // end Voice class -------------------------------------------------------
 

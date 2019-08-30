@@ -625,6 +625,9 @@
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\oscWaveSelectDetune.cpp">
       <Filter>libs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\voiceFullFeatures.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1842,6 +1845,9 @@
       <Filter>addons\ofxPDSP\src\modules\oscillators</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\oscWaveSelectDetune.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\voiceFullFeatures.h">
       <Filter>libs</Filter>
     </ClInclude>
   </ItemGroup>

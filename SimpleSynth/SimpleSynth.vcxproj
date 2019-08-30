@@ -397,6 +397,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\oscWaveSelectDetune.cpp" />
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\voiceFullFeatures.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src\ofxAudioFile.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
@@ -607,6 +608,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\oscWaveSelectDetune.h" />
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\voiceFullFeatures.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_flac.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_mp3.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_wav.h" />

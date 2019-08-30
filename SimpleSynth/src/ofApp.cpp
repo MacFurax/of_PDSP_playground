@@ -49,6 +49,17 @@ void ofApp::setup_GUI()
   level.set("level", 0.5f, 0.0f, 1.0f);
   level.enableSmoothing(50.f);
 
+  lfo1waveForm.set("wave form", 0, 0, 4);
+  lfo1Freq.set("Freq", 1.0f, 0.0f, 20.0f);
+  lfo1Freq.enableSmoothing(50.f);
+  lfo1ToOSCPitchAmp.set("To Pitch", 0.0f, 0.0f, 1.0f);
+  lfo1ToOSCPitchAmp.enableSmoothing(50.f);
+  lfo1ToOSCLevelAmp.set("To Level", 0.0f, 0.0f, 1.0f);
+  lfo1ToOSCLevelAmp.enableSmoothing(50.f);
+  lfo1ToOSCPWAmp.set("To PW", 0.0f, 0.0f, 1.0f);
+  lfo1ToOSCPWAmp.enableSmoothing(50.f);
+
+
   // init OSC 2 parameters
   waveForm2.set("wave form", 0, 0, 4);
   pulseWidth2.set("pw", 0.5f, 0.5f, 0.9f);
@@ -116,6 +127,13 @@ void ofApp::setup_PDSP()
     detuneFine >> v.osc.detuneFine1;
 
     level >> v.osc.osc1Level.in_mod();
+
+    lfo1waveFormCtrl >> v.osc.lfo1waveForm.in_select();
+    lfo1Freq >> v.osc.lfo1.in_freq();
+    lfo1ToOSCPitchAmp >> v.osc.lfo1ToOSCPitchAmp.in_mod();
+    lfo1ToOSCLevelAmp >> v.osc.lfo1ToOSCLevelAmp.in_mod();
+    lfo1ToOSCPWAmp >> v.osc.lfo1ToOSCPWAmp.in_mod();
+
 
     // OSC 2
     waveForm2Ctrl >> v.osc.waveForm2.in_select();
@@ -254,6 +272,20 @@ void ofApp::draw_UI()
     ImGui::SameLine();
     ofxImGui::AddKnob(release.getOFParameterFloat());
 
+
+    if ( ofxImGui::AddCombo(lfo1waveForm.getOFParameterInt(), lfoWaveFormes))
+    {
+      ofLogNotice() << " LFO wave form 1 change to " << lfo1waveForm.getOFParameterInt().get() << "\n";
+      lfo1waveFormCtrl.set(lfo1waveForm.getOFParameterInt().get());
+    }
+    ofxImGui::AddKnob(lfo1Freq.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(lfo1ToOSCPitchAmp.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(lfo1ToOSCLevelAmp.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(lfo1ToOSCPWAmp.getOFParameterFloat());
+    ImGui::SameLine();
 
   ofxImGui::EndWindow(mainSettings);
 
