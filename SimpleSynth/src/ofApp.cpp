@@ -49,7 +49,7 @@ void ofApp::setup_GUI()
   level.set("level", 0.5f, 0.0f, 1.0f);
   level.enableSmoothing(50.f);
 
-  lfo1waveForm.set("wave form", 0, 0, 4);
+  lfo1waveForm.set("LFO wave form", 0, 0, 4);
   lfo1Freq.set("Freq", 1.0f, 0.0f, 20.0f);
   lfo1Freq.enableSmoothing(50.f);
   lfo1ToOSCPitchAmp.set("To Pitch", 0.0f, 0.0f, 1.0f);
