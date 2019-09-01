@@ -85,6 +85,19 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         detune2;
     pdsp::Parameter         detuneFine2;
     pdsp::Parameter         level2;
+    // OSC 2 filter ADSR
+    std::vector<std::string> osc2FilterTypes = {"LowPass", "BandPass", "HighPass", "Notch" };
+    pdsp::ValueControl      osc2FilterTypeCtrl;
+    pdsp::Parameter         osc2FilterType;
+    pdsp::Parameter         osc2FilterCutoff;
+    pdsp::Parameter         osc2FilterReso;
+    pdsp::Parameter         osc2FilterLevel;
+    pdsp::Parameter         osc2FilterAttack;
+    pdsp::Parameter         osc2FilterDecay;
+    pdsp::Parameter         osc2FilterSustain;
+    pdsp::Parameter         osc2FilterRelease;
+
+
 
     // Filter
     std::vector<std::string> filterTypes = { "LowPass24", "LowPass12", "HighPass24", "HighPass12", "BandPass24", "BandPass12" };
@@ -94,7 +107,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filterReso;
 
     // Filter 2
-    std::vector<std::string> filter2Types = { "LowPass", "BandPass", "HighPass", "Noth"};
+    std::vector<std::string> filter2Types = { "LowPass", "BandPass", "HighPass", "Notch"};
     pdsp::ValueControl      filter2TypeCtrl;
     pdsp::Parameter         filter2Type;
     pdsp::Parameter         filter2Cutoff;

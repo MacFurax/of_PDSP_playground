@@ -79,15 +79,31 @@ void ofApp::setup_GUI()
   level2.set("level", 0.5f, 0.0f, 1.0f);
   level2.enableSmoothing(50.f);
 
+  osc2FilterType.set("Type", 0, 0, 4);
+  osc2FilterCutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
+  osc2FilterCutoff.enableSmoothing(50.f);
+  osc2FilterReso.set("reso", 0.0f, 0.0f, 1.0f);
+  osc2FilterReso.enableSmoothing(50.f);
+  osc2FilterLevel.set("Amount", 0.0f, 0.0f, 180.0f);
+  osc2FilterAttack.set("attack", 10.0f, 0.0f, 2000.0f);
+  osc2FilterDecay.set("decay", 1000.0f, 0.0f, 2000.0f);
+  osc2FilterSustain.set("sustain", 0.5f, 0.0f, 1.0f);
+  osc2FilterRelease.set("release", 1000.0f, 0.0f, 2000.0f);
+
+
+
   // init filter parameters
   filterType.set("type", 0 ,0, 5);
-  filterCutoff.set("cutoff", 80.0f, 0.0f, 180.0f);
-  filterReso.set("reso", 0.5f, 0.0f, 1.0f);
+  filterCutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
+  filterCutoff.enableSmoothing(50.f);
+  filterReso.set("reso", 0.0f, 0.0f, 1.0f);
+  filterReso.enableSmoothing(50.f);
 
   filter2Type.set("type", 0, 0, 3);
-  filter2Cutoff.set("cutoff", 80.0f, 0.0f, 180.0f);
-  filter2Reso.set("reso", 0.5f, 0.0f, 1.0f);
-
+  filter2Cutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
+  filter2Cutoff.enableSmoothing(50.f);
+  filter2Reso.set("reso", 0.0f, 0.0f, 1.0f);
+  filter2Reso.enableSmoothing(50.f);
 
   RefreshMIDIInDeviceList();
 }
@@ -147,6 +163,18 @@ void ofApp::setup_PDSP()
     detuneFine2 >> v.osc.detuneFine2;
 
     level2 >> v.osc.osc2Level.in_mod();
+
+    // OSC 2 Filter ADSR
+    osc2FilterTypeCtrl >> v.osc.osc2Filter.in_mode();
+    osc2FilterCutoff >> v.osc.osc2Filter.in_cutoff();
+    osc2FilterReso >> v.osc.osc2Filter.in_reso();
+    osc2FilterLevel >> v.osc.osc2FilterADSRAmt.in_mod();
+
+    osc2FilterAttack >> v.osc.osc2FilterADSR.in_attack();
+    osc2FilterDecay >> v.osc.osc2FilterADSR.in_decay();
+    osc2FilterSustain >> v.osc.osc2FilterADSR.in_sustain();
+    osc2FilterRelease >> v.osc.osc2FilterADSR.in_release();
+
 
     voiceIndex++;
   }
@@ -317,6 +345,30 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(sustain2.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(release2.getOFParameterFloat());
+
+
+    // OSC 2 Filter ADSR
+    if (ofxImGui::AddCombo(osc2FilterType.getOFParameterInt(), osc2FilterTypes))
+    {
+      osc2FilterTypeCtrl.set(osc2FilterType.getOFParameterInt().get());
+    }
+
+    ofxImGui::AddKnob(osc2FilterCutoff.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterReso.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterLevel.getOFParameterFloat());
+    
+    ofxImGui::AddKnob(osc2FilterAttack.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterDecay.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterSustain.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterRelease.getOFParameterFloat());
+
+
+
 
   ofxImGui::EndWindow(mainSettings);
 

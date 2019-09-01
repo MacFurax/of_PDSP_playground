@@ -28,6 +28,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasePDSPMidi", "BasePDSPMid
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleSynth", "SimpleSynth\SimpleSynth.vcxproj", "{99E23527-B388-4EC1-BCB9-8553693E79F1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example_sequencing2", "example_sequencing2\example_sequencing2.vcxproj", "{9C3E4827-A347-4C55-92D1-CBAC7E452488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -108,6 +110,14 @@ Global
 		{99E23527-B388-4EC1-BCB9-8553693E79F1}.Release|x64.Build.0 = Release|x64
 		{99E23527-B388-4EC1-BCB9-8553693E79F1}.Release|x86.ActiveCfg = Release|Win32
 		{99E23527-B388-4EC1-BCB9-8553693E79F1}.Release|x86.Build.0 = Release|Win32
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Debug|x64.ActiveCfg = Debug|x64
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Debug|x64.Build.0 = Debug|x64
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Debug|x86.Build.0 = Debug|Win32
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Release|x64.ActiveCfg = Release|x64
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Release|x64.Build.0 = Release|x64
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Release|x86.ActiveCfg = Release|Win32
+		{9C3E4827-A347-4C55-92D1-CBAC7E452488}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
