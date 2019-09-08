@@ -91,6 +91,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         osc2FilterType;
     pdsp::Parameter         osc2FilterCutoff;
     pdsp::Parameter         osc2FilterReso;
+    pdsp::Parameter         osc2FilterFeedback;
     pdsp::Parameter         osc2FilterLevel;
     pdsp::Parameter         osc2FilterAttack;
     pdsp::Parameter         osc2FilterDecay;
@@ -105,6 +106,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filterType;
     pdsp::Parameter         filterCutoff;
     pdsp::Parameter         filterReso;
+    pdsp::Parameter         filterFeedback;
 
     // Filter 2
     std::vector<std::string> filter2Types = { "LowPass", "BandPass", "HighPass", "Notch"};
@@ -112,6 +114,7 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filter2Type;
     pdsp::Parameter         filter2Cutoff;
     pdsp::Parameter         filter2Reso;
+    pdsp::Parameter         filter2Feedback;
 
     Synth                   synth;
 

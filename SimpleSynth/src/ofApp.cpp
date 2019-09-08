@@ -79,12 +79,14 @@ void ofApp::setup_GUI()
   level2.set("level", 0.5f, 0.0f, 1.0f);
   level2.enableSmoothing(50.f);
 
-  osc2FilterType.set("Type", 0, 0, 4);
+  osc2FilterType.set("type", 0, 0, 4);
   osc2FilterCutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
   osc2FilterCutoff.enableSmoothing(50.f);
   osc2FilterReso.set("reso", 0.0f, 0.0f, 1.0f);
   osc2FilterReso.enableSmoothing(50.f);
-  osc2FilterLevel.set("Amount", 0.0f, 0.0f, 180.0f);
+  osc2FilterFeedback.set("feedback", 0.f, 0.f, 1.f);
+  osc2FilterFeedback.enableSmoothing(50.f);
+  osc2FilterLevel.set("amount", 0.0f, 0.0f, 180.0f);
   osc2FilterAttack.set("attack", 10.0f, 0.0f, 2000.0f);
   osc2FilterDecay.set("decay", 1000.0f, 0.0f, 2000.0f);
   osc2FilterSustain.set("sustain", 0.5f, 0.0f, 1.0f);
@@ -98,12 +100,16 @@ void ofApp::setup_GUI()
   filterCutoff.enableSmoothing(50.f);
   filterReso.set("reso", 0.0f, 0.0f, 1.0f);
   filterReso.enableSmoothing(50.f);
+  filterFeedback.set("feedback", 0.f, 0.f, 1.f);
+  filterFeedback.enableSmoothing(50.f);
 
   filter2Type.set("type", 0, 0, 3);
   filter2Cutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
   filter2Cutoff.enableSmoothing(50.f);
   filter2Reso.set("reso", 0.0f, 0.0f, 1.0f);
   filter2Reso.enableSmoothing(50.f);
+  filter2Feedback.set("feedback", 0.f, 0.f, 1.f);
+  filter2Feedback.enableSmoothing(50.f);
 
   RefreshMIDIInDeviceList();
 }
@@ -357,6 +363,8 @@ void ofApp::draw_UI()
     ImGui::SameLine();
     ofxImGui::AddKnob(osc2FilterReso.getOFParameterFloat());
     ImGui::SameLine();
+    ofxImGui::AddKnob(osc2FilterFeedback.getOFParameterFloat());
+    ImGui::SameLine();
     ofxImGui::AddKnob(osc2FilterLevel.getOFParameterFloat());
     
     ofxImGui::AddKnob(osc2FilterAttack.getOFParameterFloat());
@@ -373,7 +381,7 @@ void ofApp::draw_UI()
   ofxImGui::EndWindow(mainSettings);
 
 
-  ofxImGui::BeginWindow("Filter", mainSettings, false);
+  ofxImGui::BeginWindow("Filters", mainSettings, false);
     if(ofxImGui::AddCombo(filterType.getOFParameterInt(), filterTypes))
     {
       filterTypeCtrl.set((float)filterType.getOFParameterInt().get());
@@ -381,6 +389,8 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filterCutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filterReso.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(filterFeedback.getOFParameterFloat());
 
     if (ofxImGui::AddCombo(filter2Type.getOFParameterInt(), filter2Types))
     {
@@ -389,6 +399,9 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filter2Cutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filter2Reso.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(filter2Feedback.getOFParameterFloat());
+
   ofxImGui::EndWindow(mainSettings);
 
   gui.end();
