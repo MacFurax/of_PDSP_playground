@@ -59,6 +59,17 @@ void ofApp::setup_GUI()
   lfo1ToOSCPWAmp.set("To PW", 0.0f, 0.0f, 1.0f);
   lfo1ToOSCPWAmp.enableSmoothing(50.f);
 
+  voiceOSC1Config.setName("OSC 1");
+  voiceOSC1Config.add(waveForm.getOFParameterInt());
+  voiceOSC1Config.add(pulseWidth.getOFParameterFloat());
+  voiceOSC1Config.add(attack.getOFParameterFloat());
+  voiceOSC1Config.add(decay.getOFParameterFloat());
+  voiceOSC1Config.add(sustain.getOFParameterFloat());
+  voiceOSC1Config.add(release.getOFParameterFloat());
+  voiceOSC1Config.add(detune.getOFParameterFloat());
+  voiceOSC1Config.add(detuneFine.getOFParameterFloat());
+  voiceOSC1Config.add(level.getOFParameterFloat());
+  voiceOSC1Config.setSerializable(true);
 
   // init OSC 2 parameters
   waveForm2.set("wave form", 0, 0, 4);
@@ -84,15 +95,28 @@ void ofApp::setup_GUI()
   osc2FilterCutoff.enableSmoothing(50.f);
   osc2FilterReso.set("reso", 0.0f, 0.0f, 1.0f);
   osc2FilterReso.enableSmoothing(50.f);
-  osc2FilterFeedback.set("feedback", 0.f, 0.f, 1.f);
-  osc2FilterFeedback.enableSmoothing(50.f);
   osc2FilterLevel.set("amount", 0.0f, 0.0f, 180.0f);
   osc2FilterAttack.set("attack", 10.0f, 0.0f, 2000.0f);
   osc2FilterDecay.set("decay", 1000.0f, 0.0f, 2000.0f);
   osc2FilterSustain.set("sustain", 0.5f, 0.0f, 1.0f);
   osc2FilterRelease.set("release", 1000.0f, 0.0f, 2000.0f);
 
-
+  voiceOSC2Config.setName("OSC 2");
+  voiceOSC2Config.add(waveForm2.getOFParameterInt());
+  voiceOSC2Config.add(pulseWidth2.getOFParameterFloat());
+  voiceOSC2Config.add(attack2.getOFParameterFloat());
+  voiceOSC2Config.add(sustain2.getOFParameterFloat());
+  voiceOSC2Config.add(release2.getOFParameterFloat());
+  voiceOSC2Config.add(detune2.getOFParameterFloat());
+  voiceOSC2Config.add(detuneFine2.getOFParameterFloat());
+  voiceOSC2Config.add(level2.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterType.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterCutoff.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterReso.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterLevel.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterAttack.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterSustain.getOFParameterFloat());
+  voiceOSC2Config.add(osc2FilterRelease.getOFParameterFloat());
 
   // init filter parameters
   filterType.set("type", 0 ,0, 5);
@@ -112,6 +136,32 @@ void ofApp::setup_GUI()
   filterLFOFreq.enableSmoothing(50.f);
   filterLFOAmount.set("amp", 0.f, 0.f, 180.f);
   filterLFOAmount.enableSmoothing(50.f);
+
+  synthFilters.setName("Filters");
+  synthFilters.add(filterType.getOFParameterInt());
+  synthFilters.add(filterCutoff.getOFParameterFloat());
+  synthFilters.add(filterReso.getOFParameterFloat());
+  synthFilters.add(filter2Type.getOFParameterInt());
+  synthFilters.add(filter2Cutoff.getOFParameterFloat());
+  synthFilters.add(filter2Reso.getOFParameterFloat());
+  synthFilters.add(filterLFOWaveForm.getOFParameterInt());
+  synthFilters.add(filterLFOFreq.getOFParameterFloat());
+  synthFilters.add(filterLFOAmount.getOFParameterFloat());
+
+  patch.setName("Patch"); 
+  patchVersion.set("version", "0.1");
+  patch.add(patchVersion);
+  patchName.set("name", "none");
+  patch.add(patchName);
+  patchDescription.set("description", "nothing yet...");
+  patch.add(patchDescription);
+  patch.add(voiceOSC1Config);
+  patch.add(voiceOSC2Config);
+  patch.add(synthFilters);
+
+  ofxXmlSettings tmpxmlset;
+  ofSerialize(tmpxmlset, patch);
+  tmpxmlset.saveFile("patch.xml");
 
 
   RefreshMIDIInDeviceList();
@@ -366,8 +416,6 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(osc2FilterCutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(osc2FilterReso.getOFParameterFloat());
-    ImGui::SameLine();
-    ofxImGui::AddKnob(osc2FilterFeedback.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(osc2FilterLevel.getOFParameterFloat());
     

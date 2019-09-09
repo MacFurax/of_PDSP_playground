@@ -5,6 +5,7 @@
 #include "ofxImGui.h"
 #include "CorporateGreyTheme.h"
 #include "Synth.h"
+#include "ofxXmlSettings.h"
 
 class ofApp : public ofBaseApp{
 
@@ -91,7 +92,6 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         osc2FilterType;
     pdsp::Parameter         osc2FilterCutoff;
     pdsp::Parameter         osc2FilterReso;
-    pdsp::Parameter         osc2FilterFeedback;
     pdsp::Parameter         osc2FilterLevel;
     pdsp::Parameter         osc2FilterAttack;
     pdsp::Parameter         osc2FilterDecay;
@@ -124,4 +124,13 @@ class ofApp : public ofBaseApp{
     pdsp::ParameterGain     gain;
 
     ofxImGui::Gui           gui;
+
+    ofParameterGroup        patch;
+    ofParameter<string>     patchVersion;
+    ofParameter<string>     patchName;
+    ofParameter<string>     patchDescription;
+    ofParameterGroup        voiceOSC1Config;
+    ofParameterGroup        voiceOSC2Config;
+    ofParameterGroup        synthFilters;
+
 };

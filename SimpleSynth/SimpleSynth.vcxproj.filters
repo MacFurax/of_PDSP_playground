@@ -628,6 +628,18 @@
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\voiceFullFeatures.cpp">
       <Filter>libs</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxml.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -881,6 +893,15 @@
     </Filter>
     <Filter Include="libs">
       <UniqueIdentifier>{6b1f8490-e63d-4107-aaac-283e265a2370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings">
+      <UniqueIdentifier>{179c8d3f-0d9c-459a-a4b5-0700055b9f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings\src">
+      <UniqueIdentifier>{a4d8aa1a-7695-4a9b-baa1-38c17f0583f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings\libs">
+      <UniqueIdentifier>{d7f0b712-0495-48bb-8ca6-b042568371ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1849,6 +1870,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\voiceFullFeatures.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons\ofxXmlSettings\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxml.h">
+      <Filter>addons\ofxXmlSettings\libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

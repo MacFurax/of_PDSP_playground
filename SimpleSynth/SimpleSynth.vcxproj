@@ -100,68 +100,15 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -174,61 +121,9 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -236,7 +131,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -248,61 +142,9 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -313,7 +155,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -325,61 +166,9 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;
-..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\of_v0.10.1_vs2017_release\addons\ofxGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\of_v0.10.1_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\desktop;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\src\ios;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\pgmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxMidi\libs\rtmidi;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\convolution;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\delays;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\envelopes\stages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\filters\biquads;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\helpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\antialiased\BLEP;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\base;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\cheap;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\fm;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\phasors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\oscillators\wavetable;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\resamplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\samplers\grain;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\utility;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\dsphelpers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\fft;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\interpolation;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\random;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\core;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\functions\mathfun;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\kernels;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\simd\vectors;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\tables;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\math\trig;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\messages;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\dynamics;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\effects;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\equalizers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\filters;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\oscillators;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\reverbs;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\samplers;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\signal;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\modules\sources;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\ofx\helper;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer;..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src;
+C:\Users\Constant\Dev\c_cpp\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -389,7 +178,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -602,6 +390,10 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer\SequencerProcessor.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer\SequencerSection.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer\stockBehaviors.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Synth.cpp" />
@@ -927,6 +719,8 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer\SequencerSection.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\sequencer\stockBehaviors.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\types.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Synth.h" />
   </ItemGroup>
