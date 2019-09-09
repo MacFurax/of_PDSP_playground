@@ -107,6 +107,13 @@ void ofApp::setup_GUI()
   filter2Reso.set("reso", 0.0f, 0.0f, 1.0f);
   filter2Reso.enableSmoothing(50.f);
 
+  filterLFOWaveForm.set("shape", 0, 0, 3);
+  filterLFOFreq.set("freq", 1.0f, 0.0f, 10.0f );
+  filterLFOFreq.enableSmoothing(50.f);
+  filterLFOAmount.set("amp", 0.f, 0.f, 180.f);
+  filterLFOAmount.enableSmoothing(50.f);
+
+
   RefreshMIDIInDeviceList();
 }
 
@@ -188,6 +195,10 @@ void ofApp::setup_PDSP()
   filter2TypeCtrl >> synth.filter2.in_mode();
   filter2Cutoff >> synth.filter2.in_cutoff();
   filter2Reso >> synth.filter2.in_reso();
+
+  filterLFOWaveFormCtrl >> synth.in("filter_LFO_shape");
+  filterLFOFreq >> synth.in("filter_LFO_freq");
+  filterLFOAmount >> synth.in("filter_LFO_amount");
 
   
   synth >>  gain;
@@ -390,6 +401,16 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filter2Cutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filter2Reso.getOFParameterFloat());
+
+    // Filters LFO
+    if (ofxImGui::AddCombo(filterLFOWaveForm.getOFParameterInt(), lfoWaveFormes))
+    {
+      filterLFOWaveFormCtrl.set((float)filterLFOWaveForm.getOFParameterInt().get());
+    }
+    ofxImGui::AddKnob(filterLFOFreq.getOFParameterFloat());
+    ImGui::SameLine();
+    ofxImGui::AddKnob(filterLFOAmount.getOFParameterFloat());
+
 
   ofxImGui::EndWindow(mainSettings);
 

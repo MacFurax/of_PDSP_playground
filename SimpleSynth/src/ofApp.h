@@ -113,6 +113,12 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filter2Cutoff;
     pdsp::Parameter         filter2Reso;
 
+    // filter LFO
+    pdsp::ValueControl      filterLFOWaveFormCtrl;
+    pdsp::Parameter         filterLFOWaveForm;
+    pdsp::Parameter         filterLFOFreq;
+    pdsp::Parameter         filterLFOAmount;
+
     Synth                   synth;
 
     pdsp::ParameterGain     gain;
