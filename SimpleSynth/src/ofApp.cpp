@@ -100,16 +100,12 @@ void ofApp::setup_GUI()
   filterCutoff.enableSmoothing(50.f);
   filterReso.set("reso", 0.0f, 0.0f, 1.0f);
   filterReso.enableSmoothing(50.f);
-  filterFeedback.set("feedback", 0.f, 0.f, 1.f);
-  filterFeedback.enableSmoothing(50.f);
 
   filter2Type.set("type", 0, 0, 3);
   filter2Cutoff.set("cutoff", 180.0f, 0.0f, 180.0f);
   filter2Cutoff.enableSmoothing(50.f);
   filter2Reso.set("reso", 0.0f, 0.0f, 1.0f);
   filter2Reso.enableSmoothing(50.f);
-  filter2Feedback.set("feedback", 0.f, 0.f, 1.f);
-  filter2Feedback.enableSmoothing(50.f);
 
   RefreshMIDIInDeviceList();
 }
@@ -185,20 +181,18 @@ void ofApp::setup_PDSP()
     voiceIndex++;
   }
 
-  filterTypeCtrl >> filter.in_mode();
-  filterCutoff >> filter.in_cutoff();
-  filterReso >> filter.in_reso();
+  filterTypeCtrl >> synth.filter.in_mode();
+  filterCutoff >> synth.filter.in_cutoff();
+  filterReso >> synth.filter.in_reso();
 
-  filter2TypeCtrl >> filter2.in_mode();
-  filter2Cutoff >> filter2.in_cutoff();
-  filter2Reso >> filter2.in_reso();
+  filter2TypeCtrl >> synth.filter2.in_mode();
+  filter2Cutoff >> synth.filter2.in_cutoff();
+  filter2Reso >> synth.filter2.in_reso();
 
   
-  synth >> filter;
-  filter >> gain;
+  synth >>  gain;
 
-  synth >> filter2;
-  filter2 >> gain;
+  synth >> gain;
 
   // patch gain to audio engine output 
   gain >> engine.audio_out(0);
@@ -223,7 +217,6 @@ void ofApp::setup_PDSP()
   engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
   engine.setup(44100, 512, 3);
 }
-
 
 void ofApp::RefreshMIDIInDeviceList()
 {
@@ -389,8 +382,6 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filterCutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filterReso.getOFParameterFloat());
-    ImGui::SameLine();
-    ofxImGui::AddKnob(filterFeedback.getOFParameterFloat());
 
     if (ofxImGui::AddCombo(filter2Type.getOFParameterInt(), filter2Types))
     {
@@ -399,8 +390,6 @@ void ofApp::draw_UI()
     ofxImGui::AddKnob(filter2Cutoff.getOFParameterFloat());
     ImGui::SameLine();
     ofxImGui::AddKnob(filter2Reso.getOFParameterFloat());
-    ImGui::SameLine();
-    ofxImGui::AddKnob(filter2Feedback.getOFParameterFloat());
 
   ofxImGui::EndWindow(mainSettings);
 

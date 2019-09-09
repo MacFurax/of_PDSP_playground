@@ -19,7 +19,13 @@ void Synth::setup(int numVoices)
   for (auto &v : voices)
   {
     v.setup(*this, voiceIndex);
-    v.out("signal") >> signalOut; // all voice ouput here
+    v.out("signal") >> allVoices; // all voice ouput here
+
     voiceIndex++;
   }
+  allVoices >> filter;
+  allVoices >> filter2;
+
+  filter >> signalOut;
+  filter2 >> signalOut;
 }

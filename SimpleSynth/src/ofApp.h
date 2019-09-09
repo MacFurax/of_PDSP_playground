@@ -99,14 +99,12 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         osc2FilterRelease;
 
 
-
     // Filter
     std::vector<std::string> filterTypes = { "LowPass24", "LowPass12", "HighPass24", "HighPass12", "BandPass24", "BandPass12" };
     pdsp::ValueControl      filterTypeCtrl;
     pdsp::Parameter         filterType;
     pdsp::Parameter         filterCutoff;
     pdsp::Parameter         filterReso;
-    pdsp::Parameter         filterFeedback;
 
     // Filter 2
     std::vector<std::string> filter2Types = { "LowPass", "BandPass", "HighPass", "Notch"};
@@ -114,12 +112,9 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filter2Type;
     pdsp::Parameter         filter2Cutoff;
     pdsp::Parameter         filter2Reso;
-    pdsp::Parameter         filter2Feedback;
 
     Synth                   synth;
 
-    pdsp::VAFilter          filter;
-    pdsp::SVFilter          filter2;
     pdsp::ParameterGain     gain;
 
     ofxImGui::Gui           gui;

@@ -24,5 +24,11 @@ public:
   void setup(int numVoices);
 
   std::vector<Voice> voices;
+
+  pdsp::PatchNode         allVoices;
+  pdsp::VAFilter          filter;
+  pdsp::SVFilter          filter2;
+
+
   pdsp::Amp          signalOut;
 };
