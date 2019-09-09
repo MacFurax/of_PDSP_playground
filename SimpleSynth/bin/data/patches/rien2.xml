@@ -1,0 +1,38 @@
+<Patch>
+    <version>0.1</version>
+    <name>none</name>
+    <description>nothing yet...</description>
+    <OSC_1>
+        <wave_form>0</wave_form>
+        <pw>0.5</pw>
+        <attack>0</attack>
+        <decay>100</decay>
+        <sustain>0.5</sustain>
+        <release>1000</release>
+        <detune>0</detune>
+        <fine>0</fine>
+        <level>0.1525</level>
+    </OSC_1>
+    <OSC_2>
+        <wave_form>0</wave_form>
+        <pw>0.5</pw>
+        <attack>10</attack>
+        <sustain>0.5</sustain>
+        <release>1000</release>
+        <detune>0</detune>
+        <fine>0</fine>
+        <level>0.1725</level>
+        <UnknownName>0</UnknownName>
+        <cutoff>180</cutoff>
+        <reso>0</reso>
+        <amount>0</amount>
+    </OSC_2>
+    <Filters>
+        <type>0</type>
+        <cutoff>180</cutoff>
+        <reso>0</reso>
+        <shape>0</shape>
+        <freq>1</freq>
+        <amp>0</amp>
+    </Filters>
+</Patch>

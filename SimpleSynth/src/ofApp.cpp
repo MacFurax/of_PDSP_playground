@@ -4,6 +4,8 @@
 void ofApp::setup(){
   ofSetWindowTitle("sImpLe sYnTh");
 
+  RefreshPatchsDir();
+
   setup_GUI();
   setup_PDSP();
   
@@ -159,11 +161,6 @@ void ofApp::setup_GUI()
   patch.add(voiceOSC2Config);
   patch.add(synthFilters);
 
-  ofxXmlSettings tmpxmlset;
-  ofSerialize(tmpxmlset, patch);
-  tmpxmlset.saveFile("patch.xml");
-
-
   RefreshMIDIInDeviceList();
 }
 
@@ -286,6 +283,23 @@ void ofApp::RefreshMIDIInDeviceList()
 
 }
 
+void ofApp::RefreshPatchsDir()
+{
+  patchesDir.listDir(patchesDirBase);
+  patchesDir.allowExt("xml");
+  patchesDir.sort();
+  selectedPatch.set("patches", 0, 0, patchesDir.size());
+  if (patchesDir.size() > 0)
+  {
+    patcheNames.clear();
+    for (auto fn : patchesDir)
+    {
+      patcheNames.push_back(fn.getFileName());
+      //cout << "Patch " << fn.path() << "\n";
+    }
+  }
+}
+
 //--------------------------------------------------------------
 void ofApp::update(){
 
@@ -300,7 +314,7 @@ void ofApp::draw(){
 void ofApp::draw_UI()
 {
   gui.begin();
-  
+
   if (ImGui::Begin("MIDI IN"))
   {
     if (midiInDeviceCount > 0)
@@ -325,6 +339,36 @@ void ofApp::draw_UI()
   ImGui::End();
 
   auto mainSettings = ofxImGui::Settings();
+
+  ofxImGui::BeginWindow("Patches", mainSettings, false);
+    
+    if (patchesDir.size() > 0)
+    {
+      if (ofxImGui::AddCombo(selectedPatch, patcheNames))
+      {
+      }
+    }
+    else
+    {
+      ImGui::Text("No patches");
+    }
+
+    if (ImGui::Button("Load"))
+    {
+    }
+
+    ofxImGui::AddParameter(patchName);
+    ofxImGui::AddParameter(patchDescription);
+
+    if (ImGui::Button("Save"))
+    {
+      ofxXmlSettings tmpxmlset;
+      ofSerialize(tmpxmlset, patch);
+      tmpxmlset.saveFile(patchesDirBase + patchName.get() + ".xml");
+    }
+
+  ofxImGui::EndWindow(mainSettings);
+  
 
   ofxImGui::BeginWindow("Main Out", mainSettings, false);
     ofxImGui::AddParameter(gain.getOFParameterInt());

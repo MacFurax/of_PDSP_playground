@@ -14,6 +14,7 @@ class ofApp : public ofBaseApp{
     void setup_PDSP();
     void setup_GUI();
     void RefreshMIDIInDeviceList();
+    void RefreshPatchsDir();
     void update();
     void draw();
 
@@ -125,6 +126,7 @@ class ofApp : public ofBaseApp{
 
     ofxImGui::Gui           gui;
 
+    // patch params
     ofParameterGroup        patch;
     ofParameter<string>     patchVersion;
     ofParameter<string>     patchName;
@@ -132,5 +134,12 @@ class ofApp : public ofBaseApp{
     ofParameterGroup        voiceOSC1Config;
     ofParameterGroup        voiceOSC2Config;
     ofParameterGroup        synthFilters;
+
+    const string            patchesDirBase = "patches/";
+    ofDirectory             patchesDir;
+    ofParameter<int>        selectedPatch;
+    std::vector<string>     patcheNames;
+
+
 
 };
