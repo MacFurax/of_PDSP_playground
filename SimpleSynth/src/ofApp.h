@@ -15,6 +15,8 @@ class ofApp : public ofBaseApp{
     void setup_GUI();
     void RefreshMIDIInDeviceList();
     void RefreshPatchsDir();
+    void SaveCurrentPatchToFile(string path);
+    void LoadPatchFromFile(string path);
     void update();
     void draw();
 

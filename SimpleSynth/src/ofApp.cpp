@@ -300,6 +300,21 @@ void ofApp::RefreshPatchsDir()
   }
 }
 
+void ofApp::SaveCurrentPatchToFile( string path)
+{
+  ofxXmlSettings tmpxmlset;
+  ofSerialize(tmpxmlset, patch);
+  tmpxmlset.saveFile(path);
+}
+
+void ofApp::LoadPatchFromFile( string path )
+{
+  cout << "load patch " << path << "\n";
+  ofxXmlSettings tmpxmlset;
+  tmpxmlset.loadFile(path);
+  ofDeserialize(tmpxmlset, patch);
+}
+
 //--------------------------------------------------------------
 void ofApp::update(){
 
@@ -340,12 +355,14 @@ void ofApp::draw_UI()
 
   auto mainSettings = ofxImGui::Settings();
 
+
   ofxImGui::BeginWindow("Patches", mainSettings, false);
     
     if (patchesDir.size() > 0)
     {
       if (ofxImGui::AddCombo(selectedPatch, patcheNames))
       {
+        // patch selection changes, load the new patch
       }
     }
     else
@@ -355,6 +372,11 @@ void ofApp::draw_UI()
 
     if (ImGui::Button("Load"))
     {
+      // load selected patch
+      int patchFileIndex = selectedPatch.get();
+      string path = patchesDir[patchFileIndex].path();
+      path.erase(0, 5);
+      LoadPatchFromFile(path);
     }
 
     ofxImGui::AddParameter(patchName);
@@ -362,13 +384,11 @@ void ofApp::draw_UI()
 
     if (ImGui::Button("Save"))
     {
-      ofxXmlSettings tmpxmlset;
-      ofSerialize(tmpxmlset, patch);
-      tmpxmlset.saveFile(patchesDirBase + patchName.get() + ".xml");
+      SaveCurrentPatchToFile(patchesDirBase + patchName.get() + ".xml");
     }
 
   ofxImGui::EndWindow(mainSettings);
-  
+
 
   ofxImGui::BeginWindow("Main Out", mainSettings, false);
     ofxImGui::AddParameter(gain.getOFParameterInt());
