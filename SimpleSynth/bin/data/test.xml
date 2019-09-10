@@ -1,0 +1,11 @@
+<OSC_1>
+    <wave_form>0</wave_form>
+    <pw>0.5</pw>
+    <attack>0</attack>
+    <decay>100</decay>
+    <sustain>0.5</sustain>
+    <release>1000</release>
+    <detune>0</detune>
+    <fine>0</fine>
+    <level>0.5</level>
+</OSC_1>

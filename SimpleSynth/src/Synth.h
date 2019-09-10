@@ -24,5 +24,15 @@ public:
   void setup(int numVoices);
 
   std::vector<Voice> voices;
+
+  pdsp::PatchNode         allVoices;
+  pdsp::VAFilter          filter;
+  pdsp::SVFilter          filter2;
+  pdsp::PatchNode         afterFilters;
+  pdsp::LFO               filterLFO;
+  pdsp::Switch            filterLFOShape;
+  pdsp::Amp               lFOToFilterAmount; // should be set in 0-180 range
+
+
   pdsp::Amp          signalOut;
 };

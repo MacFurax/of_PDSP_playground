@@ -5,6 +5,7 @@
 #include "ofxImGui.h"
 #include "CorporateGreyTheme.h"
 #include "Synth.h"
+#include "ofxXmlSettings.h"
 
 class ofApp : public ofBaseApp{
 
@@ -13,6 +14,7 @@ class ofApp : public ofBaseApp{
     void setup_PDSP();
     void setup_GUI();
     void RefreshMIDIInDeviceList();
+    void RefreshPatchsDir();
     void update();
     void draw();
 
@@ -98,7 +100,6 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         osc2FilterRelease;
 
 
-
     // Filter
     std::vector<std::string> filterTypes = { "LowPass24", "LowPass12", "HighPass24", "HighPass12", "BandPass24", "BandPass12" };
     pdsp::ValueControl      filterTypeCtrl;
@@ -113,11 +114,32 @@ class ofApp : public ofBaseApp{
     pdsp::Parameter         filter2Cutoff;
     pdsp::Parameter         filter2Reso;
 
+    // filter LFO
+    pdsp::ValueControl      filterLFOWaveFormCtrl;
+    pdsp::Parameter         filterLFOWaveForm;
+    pdsp::Parameter         filterLFOFreq;
+    pdsp::Parameter         filterLFOAmount;
+
     Synth                   synth;
 
-    pdsp::VAFilter          filter;
-    pdsp::SVFilter          filter2;
     pdsp::ParameterGain     gain;
 
     ofxImGui::Gui           gui;
+
+    // patch params
+    ofParameterGroup        patch;
+    ofParameter<string>     patchVersion;
+    ofParameter<string>     patchName;
+    ofParameter<string>     patchDescription;
+    ofParameterGroup        voiceOSC1Config;
+    ofParameterGroup        voiceOSC2Config;
+    ofParameterGroup        synthFilters;
+
+    const string            patchesDirBase = "patches/";
+    ofDirectory             patchesDir;
+    ofParameter<int>        selectedPatch;
+    std::vector<string>     patcheNames;
+
+
+
 };
