@@ -6,6 +6,7 @@
 #include "CorporateGreyTheme.h"
 #include "Synth.h"
 #include "ofxXmlSettings.h"
+#include "PatchParams.h"
 
 class ofApp : public ofBaseApp{
 
@@ -142,6 +143,7 @@ class ofApp : public ofBaseApp{
     ofParameter<int>        selectedPatch;
     std::vector<string>     patcheNames;
 
+    PatchParams             pp;
 
 
 };

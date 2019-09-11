@@ -9,7 +9,9 @@ void ofApp::setup(){
   setup_GUI();
   setup_PDSP();
   
- 
+  pp.AddParam("OSC1.level", 0.5f, 0.0f, 1.0f);
+  pp.AddParam("OSC1.waveForm", 0, {"sine", "triangle", "saw", "pulse", "noise"});
+  pp.AddParam("OSC1.detune", 0.0, -12.0f, 12.0f);
 }
 
 
@@ -427,7 +429,7 @@ void ofApp::draw_UI()
 
     if ( ofxImGui::AddCombo(lfo1waveForm.getOFParameterInt(), lfoWaveFormes))
     {
-      ofLogNotice() << " LFO wave form 1 change to " << lfo1waveForm.getOFParameterInt().get() << "\n";
+      //ofLogNotice() << "LFO wave form 1 change to " << lfo1waveForm.getOFParameterInt().get() << "\n";
       lfo1waveFormCtrl.set(lfo1waveForm.getOFParameterInt().get());
     }
     ofxImGui::AddKnob(lfo1Freq.getOFParameterFloat());
@@ -446,7 +448,7 @@ void ofApp::draw_UI()
     ofxImGui::AddCombo(waveForm2.getOFParameterInt(), waveFormes);
     if (prev_wavef != waveForm2.getOFParameterInt().get())
     {
-      ofLogNotice() << "wave form 2 change from " << prev_wavef << " to " << waveForm2.getOFParameterInt().get() << "\n";
+      //ofLogNotice() << "wave form 2 change from " << prev_wavef << " to " << waveForm2.getOFParameterInt().get() << "\n";
       waveForm2Ctrl.set(waveForm2.getOFParameterInt().get());
     }
 
