@@ -4,6 +4,9 @@
 void ofApp::setup(){
   ofSetWindowTitle("sImpLe sYnTh");
 
+  // send log to a file
+  ofLogToFile("app.log");
+
   RefreshPatchsDir();
 
   setup_GUI();
@@ -12,6 +15,7 @@ void ofApp::setup(){
   pp.AddParam("OSC1.level", 0.5f, 0.0f, 1.0f);
   pp.AddParam("OSC1.waveForm", 0, {"sine", "triangle", "saw", "pulse", "noise"});
   pp.AddParam("OSC1.detune", 0.0, -12.0f, 12.0f);
+  pp.Save("toto.patch");
 }
 
 
