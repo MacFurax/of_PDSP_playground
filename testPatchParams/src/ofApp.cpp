@@ -31,6 +31,8 @@ void ofApp::setup(){
   
   waveForms >> oscLevel;
 
+  midiCCs.out(3) * 68.0f >> pp.Patch("OSC1.pitch");
+
   pp.Patch("OSC1.pitch") >> osc.in_pitch();
   pp.Patch("OSC1.pw") >> osc.in_pw();
   pp.Patch("OSC1.waveForm") >> waveForms.in_select();
@@ -58,6 +60,9 @@ void ofApp::setup(){
   
   oscLevel >> engine.audio_out(0);
   oscLevel >> engine.audio_out(1);
+
+  midiIn.openPort(0); //set the right port !!!
+  engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
 
   engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
   engine.setup(44100, 512, 3);
