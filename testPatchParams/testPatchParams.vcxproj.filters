@@ -631,7 +631,18 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.cpp">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.cpp" />
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStore.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStoreOfxImGui.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -891,6 +902,9 @@
     </Filter>
     <Filter Include="addons\ofxPDSP\libs\audiofft">
       <UniqueIdentifier>{e9f6c9ca-b400-4f54-9627-4d5a71b17488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{be1a3378-c806-4fc6-9c40-90f36380f527}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1857,7 +1871,18 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.h">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.h" />
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStore.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStoreOfxImGui.h">
+      <Filter>libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

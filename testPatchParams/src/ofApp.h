@@ -2,6 +2,9 @@
 
 #include "ofMain.h"
 #include "PatchParams.h"
+#include "PatchParamsOfxImGui.h"
+#include "PatchFilesStore.h"
+#include "ofxPDSP.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,8 +25,25 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-    PatchParams pp;
+    pdsp::Engine            engine;
+    pdsp::VAOscillator      osc;
+    pdsp::Switch            waveForms;
+    pdsp::Amp               oscLevel;
+    pdsp::LFO               lfo;
+    pdsp::Switch            lfoWaveForms;
+    pdsp::Amp               lfoLevelToPitch;
+    pdsp::Amp               lfoLevelToPW;
+
+    PatchParams             pp;
+    PatchParamsOfxImGui     ppDrawer;
 
     ofxImGui::Gui           gui;
+
+    const string            patchesDirBase = "patches/";
+    ofDirectory             patchesDir;
+    ofParameter<int>        selectedPatch;
+    std::vector<string>     patchNames;
+
+    PatchFilesStore         patchStore;
 		
 };

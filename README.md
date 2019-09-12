@@ -11,6 +11,10 @@ Required Addons
 * ofxMidi
 * ofxOSC
 
+Required libraries
+
+* ofxPDSP_More (https://github.com/MacFurax/ofxPDSP_More.git)
+
 # Compile
 
 For now only with Visual Studio (2017)

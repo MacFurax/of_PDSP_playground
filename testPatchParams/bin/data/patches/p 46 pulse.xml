@@ -1,0 +1,12 @@
+<patch>
+    <version>0.1</version>
+    <name></name>
+    <description></description>
+    <OSC1>
+        <waveForm>3</waveForm>
+        <pitch>49.52</pitch>
+        <level>0.045</level>
+        <LFO_freq>1</LFO_freq>
+        <LFO_amp>0.5</LFO_amp>
+    </OSC1>
+</patch>

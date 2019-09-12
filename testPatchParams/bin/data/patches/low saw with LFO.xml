@@ -1,0 +1,15 @@
+<patch>
+    <version>0.1</version>
+    <name>low saw with LFO</name>
+    <description>low saw with LFO</description>
+    <OSC1>
+        <waveForm>2</waveForm>
+        <pitch>35.24</pitch>
+        <level>0.1275</level>
+        <pw>0.7</pw>
+        <LFO_wf>0</LFO_wf>
+        <LFO_freq>2.15</LFO_freq>
+        <LFO_pitch>9.225</LFO_pitch>
+        <LFO_pw>0</LFO_pw>
+    </OSC1>
+</patch>
