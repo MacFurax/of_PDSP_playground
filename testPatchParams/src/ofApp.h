@@ -34,7 +34,10 @@ class ofApp : public ofBaseApp{
     pdsp::LFO               lfo;
     pdsp::Switch            lfoWaveForms;
     pdsp::Amp               lfoLevelToPitch;
-    pdsp::Amp               lfoLevelToPW;
+
+    pdsp::LFO               lfo2;
+    pdsp::Switch            lfo2WaveForms;
+    pdsp::Amp               lfo2LevelToPW;
 
     PatchParams             pp;
     PatchParamsOfxImGui     ppDrawer;

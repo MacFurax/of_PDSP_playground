@@ -15,13 +15,19 @@ void ofApp::setup(){
   pp.AddParam("OSC1.waveForm", 0, { "sine", "triangle", "saw", "pulse" });
   pp.AddParam("OSC1.pitch", 68.0f, 12.f, 180.f);
   pp.AddParam("OSC1.level", 0.5f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
-  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 1.f, 0.9f, ParamDesc::Layouts::SameLine);
+  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 0.9f, 50.f, ParamDesc::Layouts::SameLine);
+  
   pp.AddParam("OSC1.LFO wf", 0, { "sine", "triangle", "saw", "square" });
   pp.AddParam("OSC1.LFO freq", 1.0f, 0.f, 20.f);
   pp.AddParam("OSC1.LFO pitch", 0.0f, 0.0f, 90.f, 50.f, ParamDesc::Layouts::SameLine);
-  pp.AddParam("OSC1.LFO pw", 0.0f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
+  
+  pp.AddParam("OSC1.LFO2 wf", 0, { "sine", "triangle", "saw", "square" });
+  pp.AddParam("OSC1.LFO2 freq", 1.0f, 0.f, 20.f);
+  pp.AddParam("OSC1.LFO2 pw", 0.0f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
   
   ppDrawer.setPatchParams(pp);
+
+  // OSC 1
 
   waveForms.resize(4);
   osc.out_sine() >> waveForms.input(0);
@@ -30,15 +36,13 @@ void ofApp::setup(){
   osc.out_pulse() >> waveForms.input(3);
   
   waveForms >> oscLevel;
-
-  midiCCs.out(3) * 68.0f >> pp.Patch("OSC1.pitch");
-
+  
   pp.Patch("OSC1.pitch") >> osc.in_pitch();
   pp.Patch("OSC1.pw") >> osc.in_pw();
   pp.Patch("OSC1.waveForm") >> waveForms.in_select();
-
   pp.Patch("OSC1.level") >> oscLevel.in_mod();
-
+  
+  // LFO 1
   pp.Patch("OSC1.LFO freq") >> lfo.in_freq();
 
   lfoWaveForms.resize(4);
@@ -50,13 +54,27 @@ void ofApp::setup(){
   pp.Patch("OSC1.LFO wf") >> lfoWaveForms.in_select();
 
   lfoWaveForms >> lfoLevelToPitch;
-  lfoWaveForms >> lfoLevelToPW;
-
   pp.Patch("OSC1.LFO pitch") >> lfoLevelToPitch.in_mod();
-  pp.Patch("OSC1.LFO pw") >> lfoLevelToPW.in_mod();
 
   lfoLevelToPitch >> osc.in_pitch();
-  lfoLevelToPW >> osc.in_pw();
+
+  // LFO 2
+  pp.Patch("OSC1.LFO2 freq") >> lfo2.in_freq();
+
+  lfo2WaveForms.resize(4);
+  lfo2.out_sine() >> lfo2WaveForms.input(0);
+  lfo2.out_triangle() >> lfo2WaveForms.input(1);
+  lfo2.out_saw() >> lfo2WaveForms.input(2);
+  lfo2.out_square() >> lfo2WaveForms.input(3);
+
+  pp.Patch("OSC1.LFO2 wf") >> lfo2WaveForms.in_select();
+  
+  lfo2WaveForms >> lfo2LevelToPW;
+
+  pp.Patch("OSC1.LFO2 pw") >> lfo2LevelToPW.in_mod();
+
+
+  lfo2LevelToPW >> osc.in_pw();
   
   oscLevel >> engine.audio_out(0);
   oscLevel >> engine.audio_out(1);
