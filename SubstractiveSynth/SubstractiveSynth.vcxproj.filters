@@ -628,6 +628,9 @@
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsLayout.cpp">
       <Filter>libs</Filter>
     </ClCompile>
+    <ClCompile Include="src\SubStractiveSyntParamsLayout.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1843,6 +1846,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsLayout.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SubStractiveSyntParamsLayout.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
