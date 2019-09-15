@@ -631,6 +631,15 @@
     <ClCompile Include="src\SubStractiveSyntParamsLayout.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.cpp">
+      <Filter>libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1849,6 +1858,15 @@
     </ClInclude>
     <ClInclude Include="src\SubStractiveSyntParamsLayout.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.h">
+      <Filter>libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

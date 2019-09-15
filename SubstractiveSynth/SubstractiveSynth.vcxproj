@@ -184,6 +184,9 @@
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.cpp" />
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynth.cpp" />
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynthParams.cpp" />
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.cpp" />
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.cpp" />
+    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.cpp" />
     <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\voiceFullFeatures.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\src\ofxAudioFile.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src\imgui.cpp" />
@@ -397,6 +400,9 @@
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.h" />
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynth.h" />
     <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynthParams.h" />
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.h" />
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.h" />
+    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_flac.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_mp3.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxAudioFile\libs\dr_wav.h" />

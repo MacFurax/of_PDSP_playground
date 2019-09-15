@@ -164,10 +164,10 @@ void ofApp::draw_ui_param(shared_ptr<LayoutParam> param )
   switch ( param->widgetType )
   {
   case LayoutParam::WidgetTypes::Knob:
-    ofxImGui::AddVSlider(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
+    ofxImGui::AddKnob(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
     break;
   case LayoutParam::WidgetTypes::VFader:
-    //ofxImGui::Add
+	  ofxImGui::AddVSlider(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat(), ImVec2(50, 160));
     break;
   default:
     ofLogWarning() << "ofApp::draw_ui_param - Unkown widget type " << static_cast<int>(param->widgetType);
