@@ -46,5 +46,6 @@ private:
 
     SubstractiveSynthParams synthParams;
     PatchParamsLayout paramsLayout;
+	PatchParams	mainOutParams;
 
 };

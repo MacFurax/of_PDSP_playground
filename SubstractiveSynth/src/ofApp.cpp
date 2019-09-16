@@ -6,45 +6,61 @@ void ofApp::setup(){
 	gui.setup(); 
 	setupParamsLayout();
 
-	int polyphonyVoiceCount = 1;
+	int polyphonyVoiceCount = 8;
 	int unisonVoiceCount = 1;
 
 	synth.setVoiceCount(polyphonyVoiceCount);
 
 	midiKeys.setPolyMode(polyphonyVoiceCount, unisonVoiceCount);
-
-	/*int voiceIndex = 0;
+	
+	int voiceIndex = 0;
 	for (auto& voice : synth.getVoices())
 	{
 		midiKeys.out_trig(voiceIndex) >> voice.in("trigger");
 		midiKeys.out_pitch(voiceIndex) >> voice.in("pitch");
+
 		synthParams.Patch("OSC1.Level") >> voice.in("level");
+
 		synthParams.Patch("OSC1.PW") >> voice.in("pulseWidth");
-		synthParams.Patch("OSC1.Sine") >> voice.osc1SineLevel;
-		synthParams.Patch("OSC1.Triangle") >> voice.osc1TriangleLevel;
-		synthParams.Patch("OSC1.Pulse") >> voice.osc1PulseLevel;
-		synthParams.Patch("OSC1.Saw") >> voice.osc1SawLevel;
-		synthParams.Patch("OSC1.Noise") >> voice.osc1NoiseLevel;
+
+		synthParams.Patch("OSC1.Detune") >> voice.osc1coarseDetune;
+		synthParams.Patch("OSC1.Fine") >> voice.osc1FineDetune;
+
+		synthParams.Patch("OSC1.Sine") >> voice.osc1SineLevel.in_mod();
+		synthParams.Patch("OSC1.Triangle") >> voice.osc1TriangleLevel.in_mod();
+		synthParams.Patch("OSC1.Pulse") >> voice.osc1PulseLevel.in_mod();
+		synthParams.Patch("OSC1.Saw") >> voice.osc1SawLevel.in_mod();
+		synthParams.Patch("OSC1.Noise") >> voice.osc1NoiseLevel.in_mod();
 
 		synthParams.Patch("OSC1.A") >> voice.osc1ADSR.in_attack();
 		synthParams.Patch("OSC1.D") >> voice.osc1ADSR.in_decay();
 		synthParams.Patch("OSC1.S") >> voice.osc1ADSR.in_sustain();
 		synthParams.Patch("OSC1.R") >> voice.osc1ADSR.in_release();
 
+		synthParams.Patch("OSC1.LFO Freq") >> voice.osc1LFO.in_freq();
+
+		synthParams.Patch("OSC1.LFO Sine") >> voice.osc1LFOSineLevel.in_mod();
+		synthParams.Patch("OSC1.LFO Triangle") >> voice.osc1LFOTriangleLevel.in_mod();
+		synthParams.Patch("OSC1.LFO Saw") >> voice.osc1LFOSawLevel.in_mod();
+		synthParams.Patch("OSC1.LFO Square") >> voice.osc1LFOSquareLevel.in_mod();
+
+		synthParams.Patch("OSC1.LFO PW") >> voice.osc1PWAmp.in_mod();
+		synthParams.Patch("OSC1.LFO Pitch") >> voice.osc1PitchAmp.in_mod();
+		synthParams.Patch("OSC1.LFO Level") >> voice.osc1LevelAmp.in_mod();
+
+
+
 		voiceIndex++;
-	}*/
+	}
 
-	midiKeys.out_trig(0) >> synth.adsr.in_trig();
-	midiKeys.out_pitch(0) >> synth.osc.in_pitch();
 
-	synthParams.Patch("OSC1.A") >> synth.adsr.in_attack();
-	synthParams.Patch("OSC1.D") >> synth.adsr.in_decay();
-	synthParams.Patch("OSC1.S") >> synth.adsr.in_sustain();
-	synthParams.Patch("OSC1.R") >> synth.adsr.in_release();
+	mainOutParams.Patch("MAIN.Level") >> synth.in("level");
+	synthParams.Patch("SYNTH.Filter Type") >> synth.filter.in_mode();
+	synthParams.Patch("SYNTH.Filter Cutoff") >> synth.filter.in_cutoff();
+	synthParams.Patch("SYNTH.Filter Reso") >> synth.filter.in_reso();
+
 
 	synth.patchVoicesToSynth();
-
-	0.5f >> synth.in("level");
 
 	synth >> engine.audio_out(0);
 	synth >> engine.audio_out(1);
@@ -64,101 +80,125 @@ void ofApp::setup(){
 
 void ofApp::setupParamsLayout()
 {
-	paramsLayout.StartWindow("OSC 1");
 
-	paramsLayout.StartGroup("OSC");
+	mainOutParams.AddParam("MAIN.Level", 0.5f, 0.0f, 1.0f);
 
-	shared_ptr<LayoutParam> param = paramsLayout.AddParam("level", synthParams.getParamDesc("OSC1.Level"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
+	paramsLayout.StartWindow("Main Out");
 
-	param = paramsLayout.AddParam("detune", synthParams.getParamDesc("OSC1.Detune"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		shared_ptr<LayoutParam> param = paramsLayout.AddParam("level", mainOutParams.getParamDesc("MAIN.Level"));
+		param->widgetType = LayoutParam::WidgetTypes::Knob;
+	paramsLayout.EndWindow();
 
-	param = paramsLayout.AddParam("fine", synthParams.getParamDesc("OSC1.Fine"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+	paramsLayout.StartWindow("Synth :: Filter");
 
-	param = paramsLayout.AddParam("pw", synthParams.getParamDesc("OSC1.PW"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		param = paramsLayout.AddParam("cutoff", synthParams.getParamDesc("SYNTH.Filter Type"));
+		//param->widgetType = LayoutParam::WidgetTypes::Knob;
 
+		param = paramsLayout.AddParam("cutoff", synthParams.getParamDesc("SYNTH.Filter Cutoff"));
+		param->widgetType = LayoutParam::WidgetTypes::Knob;
 
-	param = paramsLayout.AddParam("sine", synthParams.getParamDesc("OSC1.Sine"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
+		param = paramsLayout.AddParam("reso", synthParams.getParamDesc("SYNTH.Filter Reso"));
+		param->widgetType = LayoutParam::WidgetTypes::Knob;
+		param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	param = paramsLayout.AddParam("triangle", synthParams.getParamDesc("OSC1.Triangle"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+	paramsLayout.EndWindow();
 
-	param = paramsLayout.AddParam("saw", synthParams.getParamDesc("OSC1.Saw"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+	paramsLayout.StartWindow("Voice 1 :: OSC + LFO");
 
-	param = paramsLayout.AddParam("pulse", synthParams.getParamDesc("OSC1.Pulse"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		paramsLayout.StartGroup("OSC");
 
-	param = paramsLayout.AddParam("noise", synthParams.getParamDesc("OSC1.Noise"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("level", synthParams.getParamDesc("OSC1.Level"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
 
-	paramsLayout.EndGroup();
+			param = paramsLayout.AddParam("detune", synthParams.getParamDesc("OSC1.Detune"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
+			param = paramsLayout.AddParam("fine", synthParams.getParamDesc("OSC1.Fine"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	paramsLayout.StartGroup("ADSR");
-
-	param = paramsLayout.AddParam("A", synthParams.getParamDesc("OSC1.A"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-
-	param = paramsLayout.AddParam("D", synthParams.getParamDesc("OSC1.D"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
-
-	param = paramsLayout.AddParam("S", synthParams.getParamDesc("OSC1.S"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
-
-	param = paramsLayout.AddParam("R", synthParams.getParamDesc("OSC1.R"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("pw", synthParams.getParamDesc("OSC1.PW"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
 
-	paramsLayout.EndGroup();
+			param = paramsLayout.AddParam("sine", synthParams.getParamDesc("OSC1.Sine"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
 
-	paramsLayout.StartGroup("LFO");
+			param = paramsLayout.AddParam("triangle", synthParams.getParamDesc("OSC1.Triangle"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	param = paramsLayout.AddParam("freq", synthParams.getParamDesc("OSC1.LFO Freq"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param = paramsLayout.AddParam("saw", synthParams.getParamDesc("OSC1.Saw"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	param = paramsLayout.AddParam("pitch", synthParams.getParamDesc("OSC1.LFO Pitch"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("pulse", synthParams.getParamDesc("OSC1.Pulse"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	param = paramsLayout.AddParam("level", synthParams.getParamDesc("OSC1.LFO Level"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("noise", synthParams.getParamDesc("OSC1.Noise"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	param = paramsLayout.AddParam("pw", synthParams.getParamDesc("OSC1.LFO PW"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		paramsLayout.EndGroup();
 
-	param = paramsLayout.AddParam("sine", synthParams.getParamDesc("OSC1.LFO Sine"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
 
-	param = paramsLayout.AddParam("triangle", synthParams.getParamDesc("OSC1.LFO Triangle"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		paramsLayout.StartGroup("ADSR");
 
-	param = paramsLayout.AddParam("saw", synthParams.getParamDesc("OSC1.LFO Saw"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("A", synthParams.getParamDesc("OSC1.A"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
 
-	param = paramsLayout.AddParam("square", synthParams.getParamDesc("OSC1.LFO Square"));
-	param->widgetType = LayoutParam::WidgetTypes::Knob;
-	param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+			param = paramsLayout.AddParam("D", synthParams.getParamDesc("OSC1.D"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
 
-	paramsLayout.EndGroup();
+			param = paramsLayout.AddParam("S", synthParams.getParamDesc("OSC1.S"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("R", synthParams.getParamDesc("OSC1.R"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+
+		paramsLayout.EndGroup();
+
+		paramsLayout.StartGroup("LFO");
+
+			param = paramsLayout.AddParam("freq", synthParams.getParamDesc("OSC1.LFO Freq"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+
+			param = paramsLayout.AddParam("pitch", synthParams.getParamDesc("OSC1.LFO Pitch"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("level", synthParams.getParamDesc("OSC1.LFO Level"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("pw", synthParams.getParamDesc("OSC1.LFO PW"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("sine", synthParams.getParamDesc("OSC1.LFO Sine"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+
+			param = paramsLayout.AddParam("triangle", synthParams.getParamDesc("OSC1.LFO Triangle"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("saw", synthParams.getParamDesc("OSC1.LFO Saw"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+			param = paramsLayout.AddParam("square", synthParams.getParamDesc("OSC1.LFO Square"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+		paramsLayout.EndGroup();
+
 	paramsLayout.EndWindow();
 }
 
@@ -213,6 +253,15 @@ void ofApp::drawUIParam(shared_ptr<LayoutParam> param )
   case LayoutParam::WidgetTypes::VFader:
 	  ofxImGui::AddVSlider(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat(), ImVec2(50, 160));
     break;
+  case LayoutParam::WidgetTypes::Combo:
+	  ofxImGui::AddCombo(param->mLabel, 
+			param->mParamDesc->pdspParameter->getOFParameterInt(), 
+			param->mParamDesc->comboOptions
+		  );
+	  break;
+  case LayoutParam::WidgetTypes::HFader:
+	  ofxImGui::AddParameter(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
+	  break;
   default:
     ofLogWarning() << "ofApp::draw_ui_param - Unkown widget type " << static_cast<int>(param->widgetType);
   }
