@@ -4,6 +4,7 @@
 #include "ofxImGui.h"
 #include "ofxPDSP.h"
 #include "SubstractiveSynthParams.h"
+#include "SubstractiveSynth.h"
 #include "PatchParamsOfxImGui.h"
 #include "PatchParamsLayout.h"
 
@@ -12,6 +13,7 @@ class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void setupParamsLayout();
 		void update();
 		void draw();
 
@@ -29,13 +31,20 @@ class ofApp : public ofBaseApp{
 
 private:
 
-    void draw_ui();
-    void draw_ui_param(shared_ptr<LayoutParam> param);
-    void draw_ui_group(shared_ptr<LayoutGroup> group);
+    void drawUI();
+    void drawUIParam(shared_ptr<LayoutParam> param);
+    void drawUIGroup(shared_ptr<LayoutGroup> group);
 
-    ofxImGui::Gui           gui;
+    ofxImGui::Gui gui;
+
+	pdsp::midi::Input       midiIn;
+	pdsp::midi::Keys        midiKeys;
+	pdsp::midi::Controls    midiCCs;
+	pdsp::Engine            engine;
+
+	SubstractiveSynth synth;
 
     SubstractiveSynthParams synthParams;
-    PatchParamsLayout       paramsLayout;
-    PatchParamsOfxImGui     paramsUI;
+    PatchParamsLayout paramsLayout;
+
 };
