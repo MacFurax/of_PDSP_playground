@@ -76,6 +76,9 @@ void ofApp::setup(){
 	engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
 	engine.setup(44100, 512, 3);
 
+	midiDevicesGUI.setPDSPMIDI(&midiIn);
+	patchSaveLoadGUI.setPatchParams(&synthParams);
+
 }
 
 void ofApp::setupParamsLayout()
@@ -220,21 +223,24 @@ void ofApp::drawUI()
   auto mainSettings = ofxImGui::Settings();
   for (auto lw : paramsLayout.Windows())
   {
-    ofxImGui::BeginWindow(lw->mName, mainSettings, false);
+	ofxImGui::BeginWindow(lw->mName, mainSettings, false);
 
-    for (auto param : lw->params)
-    {
-      drawUIParam(param);
-    }
+	for (auto param : lw->params)
+	{
+	  drawUIParam(param);
+	}
 
-    for (auto group : lw->subGroup)
-    {
-      drawUIGroup(group);
+	for (auto group : lw->subGroup)
+	{
+	  drawUIGroup(group);
 
-    }
+	}
 
-    ofxImGui::EndWindow(mainSettings);
+	ofxImGui::EndWindow(mainSettings);
   }
+
+  midiDevicesGUI.draw();
+  patchSaveLoadGUI.draw();
 
   gui.end();
 }
@@ -243,16 +249,16 @@ void ofApp::drawUIParam(shared_ptr<LayoutParam> param )
 {
   if (param->paramLayout == LayoutParam::ParamLayouts::SameLine)
   {
-    ImGui::SameLine();
+	ImGui::SameLine();
   }
   switch ( param->widgetType )
   {
   case LayoutParam::WidgetTypes::Knob:
-    ofxImGui::AddKnob(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
-    break;
+	ofxImGui::AddKnob(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
+	break;
   case LayoutParam::WidgetTypes::VFader:
 	  ofxImGui::AddVSlider(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat(), ImVec2(50, 160));
-    break;
+	break;
   case LayoutParam::WidgetTypes::Combo:
 	  ofxImGui::AddCombo(param->mLabel, 
 			param->mParamDesc->pdspParameter->getOFParameterInt(), 
@@ -263,7 +269,7 @@ void ofApp::drawUIParam(shared_ptr<LayoutParam> param )
 	  ofxImGui::AddParameter(param->mLabel, param->mParamDesc->pdspParameter->getOFParameterFloat());
 	  break;
   default:
-    ofLogWarning() << "ofApp::draw_ui_param - Unkown widget type " << static_cast<int>(param->widgetType);
+	ofLogWarning() << "ofApp::draw_ui_param - Unkown widget type " << static_cast<int>(param->widgetType);
   }
 }
 
@@ -272,15 +278,15 @@ void ofApp::drawUIGroup(shared_ptr<LayoutGroup> group)
 {
   if (ImGui::CollapsingHeader(group->mName.c_str(), ImGuiTreeNodeFlags_DefaultOpen))
   {
-    for (auto param : group->params)
-    {
-      drawUIParam(param);
-    }
+	for (auto param : group->params)
+	{
+	  drawUIParam(param);
+	}
 
-    for (auto subGroup : group->subGroup)
-    {
-      drawUIGroup(subGroup);
-    }
+	for (auto subGroup : group->subGroup)
+	{
+	  drawUIGroup(subGroup);
+	}
   }
 }
 

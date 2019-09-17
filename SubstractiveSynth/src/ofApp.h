@@ -7,6 +7,8 @@
 #include "SubstractiveSynth.h"
 #include "PatchParamsOfxImGui.h"
 #include "PatchParamsLayout.h"
+#include "ofxImGuiMIDIDevicesSelector.h"
+#include "ofxImGuiLoadSavePatchs.h"
 
 
 class ofApp : public ofBaseApp{
@@ -31,11 +33,11 @@ class ofApp : public ofBaseApp{
 
 private:
 
-    void drawUI();
-    void drawUIParam(shared_ptr<LayoutParam> param);
-    void drawUIGroup(shared_ptr<LayoutGroup> group);
+	void drawUI();
+	void drawUIParam(shared_ptr<LayoutParam> param);
+	void drawUIGroup(shared_ptr<LayoutGroup> group);
 
-    ofxImGui::Gui gui;
+	ofxImGui::Gui gui;
 
 	pdsp::midi::Input       midiIn;
 	pdsp::midi::Keys        midiKeys;
@@ -44,8 +46,10 @@ private:
 
 	SubstractiveSynth synth;
 
-    SubstractiveSynthParams synthParams;
-    PatchParamsLayout paramsLayout;
+	SubstractiveSynthParams synthParams;
+	PatchParamsLayout paramsLayout;
 	PatchParams	mainOutParams;
+	ofxImGuiMIDIDevicesSelector	midiDevicesGUI;
+	ofxImGuiLoadSavePatchs patchSaveLoadGUI;
 
 };

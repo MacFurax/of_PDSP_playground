@@ -601,44 +601,47 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.cpp">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\oscWaveSelectDetune.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStore.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStoreOfxImGui.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\voiceFullFeatures.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynthParams.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynth.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsLayout.cpp">
-      <Filter>libs</Filter>
-    </ClCompile>
     <ClCompile Include="src\SubStractiveSyntParamsLayout.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.cpp">
-      <Filter>libs</Filter>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\patch\PatchFilesStore.cpp">
+      <Filter>addons\ofxPDSPTools\src\patch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.cpp">
-      <Filter>libs</Filter>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\patch\PatchParams.cpp">
+      <Filter>addons\ofxPDSPTools\src\patch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.cpp">
-      <Filter>libs</Filter>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\oscWaveSelectDetune.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynth.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynthParams.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveVoice.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthBase.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsLayout.cpp">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.cpp">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.cpp">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.cpp">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -894,8 +897,20 @@
     <Filter Include="addons\ofxPDSP\libs\audiofft">
       <UniqueIdentifier>{11439e3b-001b-4e8d-bd21-ec732152592e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="libs">
-      <UniqueIdentifier>{bcc2b725-d82a-41a7-8dd6-c0188501d336}</UniqueIdentifier>
+    <Filter Include="addons\ofxPDSPTools">
+      <UniqueIdentifier>{3f250ce0-f86a-4b7e-b105-37ec0f12649e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPDSPTools\src">
+      <UniqueIdentifier>{50812053-8ab0-4a31-8533-35dfbedeeebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPDSPTools\src\patch">
+      <UniqueIdentifier>{59b9c33e-2bf8-442e-8fef-42bb437499f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPDSPTools\src\synth">
+      <UniqueIdentifier>{8cf3d786-e3ae-4cf5-9764-c0a76e3c43dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxPDSPTools\src\ui">
+      <UniqueIdentifier>{1a6f947f-6fe0-44c1-b50e-824ea42eafbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1829,47 +1844,55 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.h">
       <Filter>addons\ofxPDSP\libs\audiofft</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStore.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchFilesStoreOfxImGui.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParams.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsOfxImGui.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\oscWaveSelectDetune.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\includes\modules\voiceFullFeatures.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynthParams.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveSynth.h">
-      <Filter>libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\PatchParamsLayout.h">
-      <Filter>libs</Filter>
-    </ClInclude>
     <ClInclude Include="src\SubStractiveSyntParamsLayout.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SynthBase.h">
-      <Filter>libs</Filter>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\patch\PatchFilesStore.h">
+      <Filter>addons\ofxPDSPTools\src\patch</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\VoiceBase.h">
-      <Filter>libs</Filter>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\patch\PatchParams.h">
+      <Filter>addons\ofxPDSPTools\src\patch</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\libs\ofxPDSP_More\src\SubstractiveVoice.h">
-      <Filter>libs</Filter>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\oscWaveSelectDetune.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynth.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynthParams.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveVoice.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthBase.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsLayout.h">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.h">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.h">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.h">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\README.md">
+      <Filter>addons\ofxPDSPTools</Filter>
+    </None>
   </ItemGroup>
 </Project>
