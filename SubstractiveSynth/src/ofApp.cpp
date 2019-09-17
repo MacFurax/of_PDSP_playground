@@ -59,6 +59,10 @@ void ofApp::setup(){
 	synthParams.Patch("SYNTH.Filter Cutoff") >> synth.filter.in_cutoff();
 	synthParams.Patch("SYNTH.Filter Reso") >> synth.filter.in_reso();
 
+	synthParams.Patch("SYNTH.Filter LFO WF") >> synth.in("filter.LFO.Shape");
+	synthParams.Patch("SYNTH.Filter LFO Freq") >> synth.in("filter.LFO.Freq");
+	synthParams.Patch("SYNTH.Filter LFO Amp") >> synth.in("filter.LFO.Level");
+
 
 	synth.patchVoicesToSynth();
 
@@ -103,6 +107,20 @@ void ofApp::setupParamsLayout()
 		param = paramsLayout.AddParam("reso", synthParams.getParamDesc("SYNTH.Filter Reso"));
 		param->widgetType = LayoutParam::WidgetTypes::Knob;
 		param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+
+		paramsLayout.StartGroup("LFO");
+			param = paramsLayout.AddParam("wave form", synthParams.getParamDesc("SYNTH.Filter LFO WF"));
+
+			param = paramsLayout.AddParam("freq", synthParams.getParamDesc("SYNTH.Filter LFO Freq"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+
+			param = paramsLayout.AddParam("amp", synthParams.getParamDesc("SYNTH.Filter LFO Amp"));
+			param->widgetType = LayoutParam::WidgetTypes::Knob;
+			param->paramLayout = LayoutParam::ParamLayouts::SameLine;
+		
+		paramsLayout.EndGroup();
+
+
 
 	paramsLayout.EndWindow();
 
