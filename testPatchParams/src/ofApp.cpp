@@ -14,16 +14,16 @@ void ofApp::setup(){
   //
   pp.AddParam("OSC1.waveForm", 0, { "sine", "triangle", "saw", "pulse" });
   pp.AddParam("OSC1.pitch", 68.0f, 12.f, 180.f);
-  pp.AddParam("OSC1.level", 0.5f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
-  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 0.9f, 50.f, ParamDesc::Layouts::SameLine);
+  pp.AddParam("OSC1.level", 0.5f, 0.f, 1.f, 50.f, ParamLayouts::SameLine);
+  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 0.9f, 50.f, ParamLayouts::SameLine);
   
   pp.AddParam("OSC1.LFO wf", 0, { "sine", "triangle", "saw", "square" });
   pp.AddParam("OSC1.LFO freq", 1.0f, 0.f, 20.f);
-  pp.AddParam("OSC1.LFO pitch", 0.0f, 0.0f, 90.f, 50.f, ParamDesc::Layouts::SameLine);
+  pp.AddParam("OSC1.LFO pitch", 0.0f, 0.0f, 90.f, 50.f, ParamLayouts::SameLine);
   
   pp.AddParam("OSC1.LFO2 wf", 0, { "sine", "triangle", "saw", "square" });
   pp.AddParam("OSC1.LFO2 freq", 1.0f, 0.f, 20.f);
-  pp.AddParam("OSC1.LFO2 pw", 0.0f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
+  pp.AddParam("OSC1.LFO2 pw", 0.0f, 0.f, 1.f, 50.f, ParamLayouts::SameLine);
   
   ppDrawer.setPatchParams(pp);
 
@@ -123,21 +123,21 @@ void ofApp::draw(){
   {
     if (patchStore.numFiles() > 0)
     {
-      if (!patchStore.Load(selectedPatch.get(), pp.rootGroup))
+      if (!patchStore.Load(selectedPatch.get(), pp.getParameterGroup()))
       {
         // load failed
       }
     }
   }
 
-  ofxImGui::AddParameter(pp.Name(), 256);
-  ofxImGui::AddParameter(pp.Description(), 2048, true);
+  ofxImGui::AddParameter(pp.name(), 256);
+  ofxImGui::AddParameter(pp.description(), 2048, true);
 
   if (ImGui::Button("Save"))
   {
-    string fn = patchStore.buildFullFilename(pp.Name().get());
+    string fn = patchStore.buildFullFilename(pp.name().get());
     //ofLogNotice() << "ofApp::draw - Save to " + fn + ".xml";
-    if (!patchStore.Save(fn, pp.rootGroup))
+    if (!patchStore.Save(fn, pp.getParameterGroup()))
     {
       // save failed
     }
