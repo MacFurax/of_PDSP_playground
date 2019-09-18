@@ -215,7 +215,9 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynthParams.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveVoice.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthBase.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VEOscADSRFilter.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceElement.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.cpp" />
@@ -459,7 +461,9 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveSynthParams.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SubstractiveVoice.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthBase.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VEOscADSRFilter.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceElement.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.h" />

@@ -50,6 +50,8 @@ void ofApp::setup(){
 
 
 
+
+
 		voiceIndex++;
 	}
 
