@@ -26,6 +26,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 
-    PatchParams             pp;
+		PatchParams pp;
 		
 };
