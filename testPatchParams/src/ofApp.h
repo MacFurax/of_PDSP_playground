@@ -25,30 +25,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-    pdsp::midi::Input       midiIn;
-    pdsp::midi::Controls    midiCCs;
-    pdsp::Engine            engine;
-    pdsp::VAOscillator      osc;
-    pdsp::Switch            waveForms;
-    pdsp::Amp               oscLevel;
-    pdsp::LFO               lfo;
-    pdsp::Switch            lfoWaveForms;
-    pdsp::Amp               lfoLevelToPitch;
-
-    pdsp::LFO               lfo2;
-    pdsp::Switch            lfo2WaveForms;
-    pdsp::Amp               lfo2LevelToPW;
 
     PatchParams             pp;
-    PatchParamsOfxImGui     ppDrawer;
-
-    ofxImGui::Gui           gui;
-
-    const string            patchesDirBase = "patches/";
-    ofDirectory             patchesDir;
-    ofParameter<int>        selectedPatch;
-    std::vector<string>     patchNames;
-
-    PatchFilesStore         patchStore;
 		
 };

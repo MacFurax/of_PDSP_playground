@@ -1,0 +1,23 @@
+<patch>
+    <version>none</version>
+    <name></name>
+    <description></description>
+    <synth>
+        <level>0.5</level>
+        <filter>
+            <cutoff>180</cutoff>
+            <reso>0</reso>
+        </filter>
+        <voice>
+            <OSC1>
+                <level>0.5</level>
+                <sine>1</sine>
+                <triangle>0</triangle>
+                <saw>0</saw>
+                <pulse>0</pulse>
+                <noise>0</noise>
+                <pw>0</pw>
+            </OSC1>
+        </voice>
+    </synth>
+</patch>
