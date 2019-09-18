@@ -14,16 +14,16 @@ void ofApp::setup(){
   //
   pp.AddParam("OSC1.waveForm", 0, { "sine", "triangle", "saw", "pulse" });
   pp.AddParam("OSC1.pitch", 68.0f, 12.f, 180.f);
-  pp.AddParam("OSC1.level", 0.5f, 0.f, 1.f, 50.f, ParamLayouts::SameLine);
-  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 0.9f, 50.f, ParamLayouts::SameLine);
+  pp.AddParam("OSC1.level", 0.5f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
+  pp.AddParam("OSC1.pw", 0.7f, 0.5f, 0.9f, 50.f, ParamDesc::Layouts::SameLine);
   
   pp.AddParam("OSC1.LFO wf", 0, { "sine", "triangle", "saw", "square" });
   pp.AddParam("OSC1.LFO freq", 1.0f, 0.f, 20.f);
-  pp.AddParam("OSC1.LFO pitch", 0.0f, 0.0f, 90.f, 50.f, ParamLayouts::SameLine);
+  pp.AddParam("OSC1.LFO pitch", 0.0f, 0.0f, 90.f, 50.f, ParamDesc::Layouts::SameLine);
   
   pp.AddParam("OSC1.LFO2 wf", 0, { "sine", "triangle", "saw", "square" });
   pp.AddParam("OSC1.LFO2 freq", 1.0f, 0.f, 20.f);
-  pp.AddParam("OSC1.LFO2 pw", 0.0f, 0.f, 1.f, 50.f, ParamLayouts::SameLine);
+  pp.AddParam("OSC1.LFO2 pw", 0.0f, 0.f, 1.f, 50.f, ParamDesc::Layouts::SameLine);
   
   ppDrawer.setPatchParams(pp);
 
