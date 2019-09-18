@@ -5,3 +5,4 @@ ofxAudioFile
 ofxImGui
 ofxMidi
 ofxPDSP
+ofxPDSPTools
