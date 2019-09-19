@@ -25,15 +25,14 @@ void ofApp::setup(){
 	pp.AddParam("voice01.osc.pulse", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.noise", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	
-
-	pp.AddParam("voice01.filter.type", 0, { "LowPass", "BandPass", "HighPass", "Notch" });
-	pp.AddParam("voice01.filter.cutoff", 180.0f, 0.0f, 180.0f);
-	pp.AddParam("voice01.filter.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-
 	pp.AddParam("voice01.adsr.a", 10.0f, 0.0f, 3000.0f);
 	pp.AddParam("voice01.adsr.d", 300.0f, 0.0f, 3000.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.adsr.s", 0.5f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.adsr.r", 300.0f, 0.0f, 3000.0f, 50.0f, ParamLayouts::SameLine);
+
+	pp.AddParam("voice01.filter.type", 0, { "LowPass", "BandPass", "HighPass", "Notch" });
+	pp.AddParam("voice01.filter.cutoff", 180.0f, 0.0f, 180.0f);
+	pp.AddParam("voice01.filter.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice01.lfo.freq", 1.0f, 0.0f, 30.0f);
 	pp.AddParam("voice01.lfo.pitch", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
