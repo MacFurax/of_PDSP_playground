@@ -91,7 +91,7 @@ void ofApp::setup(){
 	engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
 	engine.setup(44100, 512, 3);
 
-	MIDIDeviceUI.setPDSPMIDI(&midiIn);
+	midiDeviceUI.setPDSPMIDI(&midiIn);
 	patchParamUI.setPatchParams(pp);
 	patchSaveLoadUI.setPatchParams(&pp);
 
@@ -116,7 +116,7 @@ void ofApp::drawUI()
 	gui.begin();
 
 	patchParamUI.draw();
-	MIDIDeviceUI.draw();
+	midiDeviceUI.draw();
 	patchSaveLoadUI.draw();
 
 	gui.end();
