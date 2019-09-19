@@ -5,8 +5,12 @@
     <synth>
         <level>0.5</level>
         <filter>
+            <type>0</type>
             <cutoff>180</cutoff>
             <reso>0</reso>
+            <lfo>
+                <freq>1</freq>
+            </lfo>
         </filter>
         <voice>
             <OSC1>

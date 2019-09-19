@@ -676,6 +676,9 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.cpp">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.cpp">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1959,6 +1962,12 @@
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.h">
+      <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ofxPDSPTools.h">
+      <Filter>addons\ofxPDSPTools\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.h">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClInclude>
   </ItemGroup>

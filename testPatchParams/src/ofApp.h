@@ -1,10 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "PatchParams.h"
-#include "PatchParamsOfxImGui.h"
-#include "PatchFilesStore.h"
+#include "ofxImGui.h"
 #include "ofxPDSP.h"
+#include "ofxPDSPTools.h"
 
 class ofApp : public ofBaseApp{
 
@@ -12,6 +11,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+		void ofApp::drawUI();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -25,7 +25,19 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+	private:
+		PatchParams             pp;
+		PatchFilesStore			patchStore;
+		ofxImGuiPatchParamsUI	patchParamUI;
+		ofxImGuiMIDIDevicesSelector MIDIDeviceUI;
+		ofxImGuiLoadSavePatchs	patchSaveLoadUI;
 
-    PatchParams             pp;
+		ofxImGui::Gui			gui;
+
+		pdsp::midi::Input       midiIn;
+		pdsp::midi::Keys        midiKeys;
+		pdsp::midi::Controls    midiCCs;
+		pdsp::Engine			engine;
+
 		
 };
