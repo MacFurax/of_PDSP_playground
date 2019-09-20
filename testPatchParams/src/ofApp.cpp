@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+	ofSetWindowShape(1600, 800);
+
 	gui.setup();
 
 	pp.AddParam("synth.level", 0.5f, 0.0f, 1.0f);
@@ -17,7 +19,7 @@ void ofApp::setup(){
 	pp.AddParam("voice01.osc.level", 0.5f, 0.0f, 1.0f);
 	pp.AddParam("voice01.osc.detune", 0.0f, -12.0f, 12.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.fine", 0.0f, -1.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice01.osc.pw", 0.1f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice01.osc.sine", 1.0f, 0.0f, 1.0f);
 	pp.AddParam("voice01.osc.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
@@ -51,7 +53,7 @@ void ofApp::setup(){
 	pp.AddParam("voice02.osc.level", 0.5f, 0.0f, 1.0f);
 	pp.AddParam("voice02.osc.detune", 0.0f, -12.0f, 12.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.fine", 0.0f, -1.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice02.osc.pw", 0.1f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice02.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice02.osc.sine", 1.0f, 0.0f, 1.0f);
 	pp.AddParam("voice02.osc.triangle", 0.0f, 0.0f, 1.0f,  50.0f, ParamLayouts::SameLine);
