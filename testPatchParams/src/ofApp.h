@@ -44,7 +44,5 @@ class ofApp : public ofBaseApp{
 		ofxImGuiPatchParamsUI	patchParamUI;
 
 		SynthA	synth;
-
-		VESingleOSC osc;
 		
 };
