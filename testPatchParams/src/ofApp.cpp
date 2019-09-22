@@ -84,6 +84,34 @@ void ofApp::setup(){
 
 	midiKeys.setPolyMode(polyphonyVoiceCount, unisonVoiceCount);
 
+	//midiKeys.out_trig() >> synth.
+	synth.setup(polyphonyVoiceCount*unisonVoiceCount);
+
+	int voiceIndex = 0;
+	for (auto& voice : synth.ves)
+	{
+		midiKeys.out_trig(voiceIndex) >> voice->in_trig();
+		midiKeys.out_pitch(voiceIndex) >> voice->in_pitch();
+
+		voiceIndex++;
+	}
+	/*for (auto& voice : synth.getVoices())
+	{
+		midiKeys.out_trig(voiceIndex) >> voice.in_trig();
+		midiKeys.out_pitch(voiceIndex) >> voice.in_pitch();
+
+		voiceIndex++;
+	}
+	
+*/
+/*44.0f >> osc.in_pitch();
+	osc.signal() >> engine.audio_out(0);
+	osc.signal() >> engine.audio_out(1);
+	*/
+
+	synth >> engine.audio_out(0);
+	synth >> engine.audio_out(1);
+
 	midiIn.openPort(0); 
 	// for our midi controllers to work we have to add them to the engine, so it know it has to process them
 	engine.addMidiController(midiKeys, midiIn); // add midi processing to the engine
@@ -96,6 +124,7 @@ void ofApp::setup(){
 	patchParamUI.setPatchParams(pp);
 	patchSaveLoadUI.setPatchParams(&pp);
 
+	
 
 	//patchStore.save("toto", *(pp.getOfParameterGroup()));
 }

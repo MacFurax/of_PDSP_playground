@@ -49,9 +49,6 @@ void ofApp::setup(){
 		synthParams.Patch("OSC1.LFO Level") >> voice.osc1LevelAmp.in_mod();
 
 
-
-
-
 		voiceIndex++;
 	}
 

@@ -679,6 +679,15 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.cpp">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VEOscLFO.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthA.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VESingleOSC.cpp">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1969,6 +1978,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.h">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VEOscLFO.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\SynthA.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VESingleOSC.h">
+      <Filter>addons\ofxPDSPTools\src\synth</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

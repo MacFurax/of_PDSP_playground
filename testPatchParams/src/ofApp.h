@@ -5,6 +5,10 @@
 #include "ofxPDSP.h"
 #include "ofxPDSPTools.h"
 
+#include "SynthA.h"
+
+#include "VESingleOSC.h"
+
 
 class ofApp : public ofBaseApp{
 
@@ -38,5 +42,9 @@ class ofApp : public ofBaseApp{
 		ofxImGuiMIDIDevicesSelector	midiDeviceUI;
 		ofxImGuiLoadSavePatchs patchSaveLoadUI;
 		ofxImGuiPatchParamsUI	patchParamUI;
+
+		SynthA	synth;
+
+		VESingleOSC osc;
 		
 };
