@@ -45,16 +45,18 @@ void ofApp::setup(){
 	pp.AddParam("voice01.lfo.pw", 0.0f, 0.0f, 0.4f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.lfo.cutoff", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
 
-	pp.AddParam("voice01.lfo.sine", 0.0f, 0.0f, 40.0f);
-	pp.AddParam("voice01.lfo.triangle", 0.0f, 0.0f, 0.5f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice01.lfo.saw", 0.0f, 0.0f, 0.4f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice01.lfo.pulse", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice01.lfo.noise", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
-
-	pp.AddParam("voice01.lfo.sine", 0.0f, 0.0f, 1.0f);
+	pp.AddParam("voice01.lfo.sine", 1.0f, 0.0f, 1.0f);
 	pp.AddParam("voice01.lfo.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.lfo.saw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.lfo.square", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+
+	pp.AddParam("voice01.lfo.toSine", 0.0f, 0.0f, 40.0f);
+	pp.AddParam("voice01.lfo.toTriangle", 0.0f, 0.0f, 0.5f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.lfo.toSaw", 0.0f, 0.0f, 0.4f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.lfo.toPulse", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.lfo.toNoise", 0.0f, 0.0f, 40.0f, 50.0f, ParamLayouts::SameLine);
+
+	
 	
 
 
@@ -109,9 +111,12 @@ void ofApp::setup(){
 		midiKeys.out_trig(voiceIndex) >> voice->in_trig();
 		midiKeys.out_pitch(voiceIndex) >> voice->in_pitch();
 
-		pp.patch("voice02.osc.level") >> voice->in("level");
+		1.0f >> voice->in("level"); // level of the voice
+		// each voice element can have there own level
 
 		VoiceElement * ve = voice->getVoiceElementAt(0);
+
+		pp.patch("voice02.osc.level") >> ve->in("level");
 		pp.patch("voice02.osc.detune") >> ve->in("detune");
 		pp.patch("voice02.osc.fine") >> ve->in("fine");
 		pp.patch("voice02.osc.pw") >> ve->in("pulseWidth");
@@ -144,6 +149,35 @@ void ofApp::setup(){
 		pp.patch("voice02.env adsr.triangle") >> ve->in("filter.adsr.toTriangle");
 		pp.patch("voice02.env adsr.saw") >> ve->in("filter.adsr.toSaw");
 		pp.patch("voice02.env adsr.pulse") >> ve->in("filter.adsr.toPulse");
+
+		ve = voice->getVoiceElementAt(1);
+
+		pp.patch("voice01.osc.level") >> ve->in("level");
+		pp.patch("voice01.osc.detune") >> ve->in("detune");
+		pp.patch("voice01.osc.fine") >> ve->in("fine");
+		pp.patch("voice01.osc.pw") >> ve->in("pulseWidth");
+
+		pp.patch("voice01.osc.sine") >> ve->in("sineLevel");
+		pp.patch("voice01.osc.triangle") >> ve->in("triangleLevel");
+		pp.patch("voice01.osc.saw") >> ve->in("sawLevel");
+		pp.patch("voice01.osc.pulse") >> ve->in("pulseLevel");
+		pp.patch("voice01.osc.noise") >> ve->in("noiseLevel");
+
+		pp.patch("voice01.adsr.a") >> ve->in("attack");
+		pp.patch("voice01.adsr.d") >> ve->in("decay");
+		pp.patch("voice01.adsr.s") >> ve->in("sustain");
+		pp.patch("voice01.adsr.r") >> ve->in("release");
+
+		pp.patch("voice01.lfo.freq") >> ve->in("lfo.freq");
+		pp.patch("voice01.lfo.sine") >> ve->in("lfo.sine");
+		pp.patch("voice01.lfo.triangle") >> ve->in("lfo.triangle");
+		pp.patch("voice01.lfo.saw") >> ve->in("lfo.saw");
+		pp.patch("voice01.lfo.square") >> ve->in("lfo.square");
+			   
+		pp.patch("voice01.lfo.pitch") >> ve->in("lfo.toPitch");
+		pp.patch("voice01.lfo.level") >> ve->in("lfo.toLevel");
+		pp.patch("voice01.lfo.pw") >> ve->in("lfo.toPw");
+		pp.patch("voice01.lfo.cutoff") >> ve->in("lfo.toPitch");
 
 		voiceIndex++;
 	}
