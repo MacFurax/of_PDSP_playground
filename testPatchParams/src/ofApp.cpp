@@ -86,13 +86,13 @@ void ofApp::setup(){
 	pp.AddParam("voice02.env adsr.d", 300.0f, 0.0f, 3000.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.env adsr.s", 0.5f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.env adsr.r", 300.0f, 0.0f, 3000.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice02.env adsr.cutoff", 0.0f, 0.0f, 40.0f);
-	pp.AddParam("voice02.env adsr.pw", 0.0f, 0.0f, 0.4f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice02.env adsr.cutoff", 0.0f, 0.0f, 60.0f);
+	pp.AddParam("voice02.env adsr.pw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice02.env adsr.sine", 0.0f, 0.0f, 1.0f);
 	pp.AddParam("voice02.env adsr.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.env adsr.saw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice02.env adsr.square", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice02.env adsr.pulse", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
 
 	int polyphonyVoiceCount = 8;
@@ -128,8 +128,22 @@ void ofApp::setup(){
 		pp.patch("voice02.osc.noise") >> ve->in("noiseLevel");
 
 
+		pp.patch("voice02.filter.cutoff") >> ve->in("filter.cutoff");
+		pp.patch("voice02.filter.reso") >> ve->in("filter.reso");
+		pp.patch("voice02.filter.type") >> ve->in("filter.type");
 
-
+		pp.patch("voice02.env adsr.a") >> ve->in("filter.attack");
+		pp.patch("voice02.env adsr.d") >> ve->in("filter.decay");
+		pp.patch("voice02.env adsr.s") >> ve->in("filter.sustain");
+		pp.patch("voice02.env adsr.r") >> ve->in("filter.release");
+		
+		pp.patch("voice02.env adsr.cutoff") >> ve->in("filter.adsr.toCutOff");
+		pp.patch("voice02.env adsr.pw") >> ve->in("filter.adsr.toPw");
+		
+		pp.patch("voice02.env adsr.sine") >> ve->in("filter.adsr.toSine");
+		pp.patch("voice02.env adsr.triangle") >> ve->in("filter.adsr.toTriangle");
+		pp.patch("voice02.env adsr.saw") >> ve->in("filter.adsr.toSaw");
+		pp.patch("voice02.env adsr.pulse") >> ve->in("filter.adsr.toPulse");
 
 		voiceIndex++;
 	}
