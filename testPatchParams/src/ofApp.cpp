@@ -193,7 +193,15 @@ void ofApp::setup(){
 	/*44.0f >> osc.in_pitch();
 	osc.signal() >> engine.audio_out(0);
 	osc.signal() >> engine.audio_out(1);*/
-	
+
+	pp.patch("synth.level") >> synth.in("level");
+	pp.patch("synth.filter.type") >> synth.in("filter.type");
+	pp.patch("synth.filter.cutoff") >> synth.in("filter.cutoff");
+	pp.patch("synth.filter.reso") >> synth.in("filter.reso");
+
+	pp.patch("synth.filter.lfo.type") >> synth.in("filter.lfo.type");
+	pp.patch("synth.filter.lfo.freq") >> synth.in("filter.lfo.freq");
+	pp.patch("synth.filter.lfo.cutoff") >> synth.in("filter.lfo.cutoff");
 
 	synth >> engine.audio_out(0);
 	synth >> engine.audio_out(1);
