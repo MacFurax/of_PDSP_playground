@@ -8,16 +8,17 @@ Required Addons
 * ofxGui
 * ofxImGui (my fork https://github.com/MacFurax/ofxImGui.git `branch docking` )
 * ofxPDSP  (my fork https://github.com/MacFurax/ofxPDSP.git `branch features/midi`)
+* ofxPDSPTools (https://github.com/MacFurax/ofxPDSPTools `not finished yet`)
 * ofxMidi
 * ofxOSC
 
-Required libraries
+Required libraries (deprecated will be removed)
 
-* ofxPDSP_More (https://github.com/MacFurax/ofxPDSP_More.git)
+* ofxPDSP_More (https://github.com/MacFurax/ofxPDSP_More.git `deprecatedreplaced by ofxPDSPTools`)
 
 # Compile
 
-For now only with Visual Studio (2017)
+For now only texted with Visual Studio (2017)
 
 Folder layout for this solution to compile should be
 
@@ -30,7 +31,5 @@ Folder layout for this solution to compile should be
 
 # Projects
 
-## ProgressiveSynth
 
-Progresivelly build synths (additive, substractive, pays wih filters, LFOs...) and UIs to configure them.
 

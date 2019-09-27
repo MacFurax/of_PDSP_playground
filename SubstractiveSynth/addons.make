@@ -1,6 +1,0 @@
-ofxOsc
-ofxXmlSettings
-ofxAudioFile
-ofxImGui
-ofxMidi
-ofxPDSP
