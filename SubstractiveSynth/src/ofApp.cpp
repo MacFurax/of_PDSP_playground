@@ -16,6 +16,9 @@ void ofApp::setup(){
 	pp.AddParam("synth.filter.lfo.freq", 1.0f, 0.0f, 20.0f);
 	pp.AddParam("synth.filter.lfo.cutoff", 0.0f, 0.0f, 80.0f, 50.0f, ParamLayouts::SameLine);
 
+	pp.AddParam("synth.modulation.lfo freq", 0.0f, 0.0f, 40.0f);
+	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+
 	// Voice 1 with 
 	// one osc with detune, ADSR and filter
 	// LFO patchable to level, pitch , pulse width and cutoff
@@ -202,6 +205,9 @@ void ofApp::setup(){
 	pp.patch("synth.filter.lfo.type") >> synth.in("filter.lfo.type");
 	pp.patch("synth.filter.lfo.freq") >> synth.in("filter.lfo.freq");
 	pp.patch("synth.filter.lfo.cutoff") >> synth.in("filter.lfo.cutoff");
+
+	pp.patch("synth.modulation.lfo freq") >> synth.in("filter.modulation.lfo freq");
+	pp.patch("synth.modulation.reso") >> synth.in("filter.modulation.reso");
 
 	synth >> engine.audio_out(0);
 	synth >> engine.audio_out(1);
