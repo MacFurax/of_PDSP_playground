@@ -109,6 +109,9 @@ void ofApp::setup(){
 		midiKeys.out_trig(voiceIndex) >> voice->in_trig();
 		midiKeys.out_pitch(voiceIndex) >> voice->in_pitch();
 
+		// patch CC modulation 
+		midiCCs.out(1) >> voice->in_modulation();
+
 		1.0f >> voice->in("level"); // level of the voice
 		// each voice element can have there own level
 		// TODO FIX voice are setup in reverse order
@@ -204,9 +207,12 @@ void ofApp::setup(){
 	synth >> engine.audio_out(1);
 
 	midiIn.openPort(0); 
+	midiKeys.setPitchBend(-12.f, 12.f);
+	
 	// for our midi controllers to work we have to add them to the engine, so it know it has to process them
 	engine.addMidiController(midiKeys, midiIn); // add midi processing to the engine
 	engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
+	//engine.setApi(ofSoundDevice::MS_DS);
 	engine.listDevices();
 	engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
 	engine.setup(44100, 512, 3);
