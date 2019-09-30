@@ -223,7 +223,7 @@ void ofApp::setup(){
 	engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
 	//engine.setApi(ofSoundDevice::MS_DS);
 	engine.listDevices();
-	engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+	engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
 	engine.setup(44100, 512, 3);
 
 	midiDeviceUI.setPDSPMIDI(&midiIn);

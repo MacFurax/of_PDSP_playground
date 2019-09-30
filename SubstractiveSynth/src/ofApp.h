@@ -43,6 +43,8 @@ class ofApp : public ofBaseApp{
 		ofxImGuiLoadSavePatchs patchSaveLoadUI;
 		ofxImGuiPatchParamsUI	patchParamUI;
 
+		ofxImGuiAudioMidiSettings	audioMidiUI;
+
 		SynthA	synth;
 		
 };
