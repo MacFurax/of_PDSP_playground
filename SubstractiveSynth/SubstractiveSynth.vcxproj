@@ -198,6 +198,7 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src\imgui_draw.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src\imgui_widgets.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\BaseEngine.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateGreyTheme.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\DefaultTheme.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineGLFW.cpp" />
@@ -425,6 +426,7 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\libs\imgui\src\imstb_truetype.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\BaseEngine.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\BaseTheme.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateGreyTheme.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\DefaultTheme.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineGLFW.h" />

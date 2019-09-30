@@ -1,4 +1,6 @@
 #include "ofApp.h"
+#include "CorporateGreyTheme.h"
+#include "CorporateAquaTheme.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -6,7 +8,8 @@ void ofApp::setup(){
 	ofSetWindowShape(1400, 800);
 	ofSetWindowTitle("Substractive Synth");
 
-	gui.setup();
+	gui.setup( new ofxImGui::CorporateAquaTheme());
+	//gui.setup();
 
 	pp.AddParam("synth.level", 0.5f, 0.0f, 1.0f);
 	pp.AddParam("synth.filter.type", 0, {"LowPass", "BandPass", "HighPass", "Notch"});
