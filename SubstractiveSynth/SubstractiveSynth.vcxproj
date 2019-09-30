@@ -243,11 +243,10 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceElement.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiAudioMidiSettings.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.cpp" />
-    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsLayout.cpp" />
-    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control\SequencerBridge.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control\SequencerGateOutput.cpp" />
@@ -494,11 +493,10 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceBase.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\VoiceElement.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\synth\voiceFullFeatures.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiAudioMidiSettings.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiLoadSavePatchs.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiMIDIDevicesSelector.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.h" />
-    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsLayout.h" />
-    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\libs\audiofft\AudioFFT.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control\SequencerBridge.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSP\src\DSP\control\SequencerGateOutput.h" />
