@@ -658,6 +658,9 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.cpp">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.cpp">
+      <Filter>addons\ofxImGui\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -1918,6 +1921,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\PatchParamsOfxImGui.h">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.h">
+      <Filter>addons\ofxImGui\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
