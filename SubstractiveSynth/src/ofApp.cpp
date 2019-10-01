@@ -28,8 +28,8 @@ void ofApp::setup(){
 	// LFO patchable to level, pitch , pulse width and cutoff
 	
 	pp.AddParam("voice01.osc.level", 0.5f, 0.0f, 1.0f);
-	pp.AddParam("voice01.osc.detune", 0.0f, -12.0f, 12.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice01.osc.fine", 0.0f, -1.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.osc.detune", 0.0f, -12.0f, 12.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice01.osc.fine", 0.0f, -1.0f, 1.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice01.osc.sine", 1.0f, 0.0f, 1.0f);
@@ -69,8 +69,8 @@ void ofApp::setup(){
 	// one osc with detune and ADSR
 	// filter with adsr patch to filter.cutoff
 	pp.AddParam("voice02.osc.level", 0.5f, 0.0f, 1.0f);
-	pp.AddParam("voice02.osc.detune", 0.0f, -12.0f, 12.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("voice02.osc.fine", 0.0f, -1.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice02.osc.detune", 0.0f, -12.0f, 12.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("voice02.osc.fine", 0.0f, -1.0f, 1.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("voice02.osc.sine", 1.0f, 0.0f, 1.0f);
