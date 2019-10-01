@@ -39,11 +39,11 @@ class ofApp : public ofBaseApp{
 		pdsp::midi::Controls    midiCCs;
 		pdsp::Engine            engine;
 
-		ofxImGuiMIDIDevicesSelector	midiDeviceUI;
-		ofxImGuiLoadSavePatchs patchSaveLoadUI;
-		ofxImGuiPatchParamsUI	patchParamUI;
+		ofxImGuiMIDIDevicesSelector		midiDeviceUI;
+		ofxImGuiLoadSavePatchs			patchSaveLoadUI;
+		ofxImGuiPatchParamsUI			patchParamUI;
 
-		ofxImGuiAudioMidiSettings	audioMidiUI;
+		ofxImGuiAudioMidiSettings		audioMidiConfigUI;
 
 		SynthA	synth;
 		

@@ -652,13 +652,13 @@
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.cpp">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.cpp">
-      <Filter>addons\ofxImGui\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiAudioMidiSettings.cpp">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.cpp">
+      <Filter>addons\ofxImGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateOrangeTheme.cpp">
       <Filter>addons\ofxImGui\src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1916,13 +1916,13 @@
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiPatchParamsUI.h">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.h">
-      <Filter>addons\ofxImGui\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxPDSPTools\src\ui\ofxImGuiAudioMidiSettings.h">
       <Filter>addons\ofxPDSPTools\src\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateAquaTheme.h">
+      <Filter>addons\ofxImGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\CorporateOrangeTheme.h">
       <Filter>addons\ofxImGui\src</Filter>
     </ClInclude>
   </ItemGroup>

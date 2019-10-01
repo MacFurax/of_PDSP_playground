@@ -1,15 +1,16 @@
 #include "ofApp.h"
 #include "CorporateGreyTheme.h"
-#include "CorporateAquaTheme.h"
+#include "CorporateOrangeTheme.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 
 	ofSetWindowShape(1400, 800);
 	ofSetWindowTitle("Substractive Synth");
+	ofSetBackgroundColor(58);
 
-	gui.setup( new ofxImGui::CorporateAquaTheme());
-	//gui.setup();
+	gui.enableDocking();
+	gui.setup( new ofxImGui::CorporateOrangeTheme());
 
 	pp.AddParam("synth.level", 0.5f, 0.0f, 1.0f);
 	pp.AddParam("synth.filter.type", 0, {"LowPass", "BandPass", "HighPass", "Notch"});
@@ -223,7 +224,7 @@ void ofApp::setup(){
 	engine.addMidiController(midiCCs, midiIn);  // add midi processing to the engine
 	//engine.setApi(ofSoundDevice::MS_DS);
 	engine.listDevices();
-	engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+	engine.setDeviceID(0); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
 	engine.setup(44100, 512, 3);
 
 	midiDeviceUI.setPDSPMIDI(&midiIn);
