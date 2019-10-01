@@ -46,5 +46,10 @@ class ofApp : public ofBaseApp{
 		ofxImGuiAudioMidiSettings		audioMidiConfigUI;
 
 		SynthA	synth;
+
+		pdsp::Saturator1		saturator;
+		pdsp::Amp				saturatorWet;
+		pdsp::Amp				saturatorDry;
+		pdsp::PatchNode			saturatorSink;
 		
 };

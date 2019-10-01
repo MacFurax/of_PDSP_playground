@@ -26,6 +26,30 @@ void ofApp::setup(){
 	pp.AddParam("synth.modulation.cutoff", 0.0f, 0.0f, 90.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
+	pp.AddParam("FX.disto.dry", 1.0f, 0.0f, 1.0f);
+	pp.AddParam("FX.disto.wet", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+	
+	pp.AddParam("FX.delay.level", 0.0f, 0.0f, 1.0f);
+	pp.AddParam("FX.delay.time", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.delay.feedback", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.delay.damping", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+
+	pp.AddParam("FX.chorus.level", 0.0f, 0.0f, 1.0f);
+	pp.AddParam("FX.chorus.speed", 0.0f, 0.0f, 2.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.chorus.depth", 10.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.chorus.delay", 80.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
+
+	pp.AddParam("FX.reverb.level", 0.0f, 0.0f, 1.0f);
+	pp.AddParam("FX.reverb.time", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.reverb.density", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.reverb.damping", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.reverb.hi cut", 0.0f, 0.0f, 10.0f);
+	pp.AddParam("FX.reverb.mod freq", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+
+
+
+
+
 	// Voice 1 with 
 	// one osc with detune, ADSR and filter
 	// LFO patchable to level, pitch , pulse width and cutoff
@@ -103,6 +127,8 @@ void ofApp::setup(){
 	pp.AddParam("voice02.env adsr.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.env adsr.saw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.env adsr.pulse", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+
+
 
 
 	int polyphonyVoiceCount = 8;
@@ -213,11 +239,17 @@ void ofApp::setup(){
 	pp.patch("synth.modulation.lfo freq") >> synth.in("filter.modulation.lfo freq");
 	pp.patch("synth.modulation.reso") >> synth.in("filter.modulation.reso");
 
+	pp.patch("FX.disto.dry") >> saturatorDry.in_mod();
+	pp.patch("FX.disto.wet") >> saturatorWet.in_mod();
+
 	// patch CC modulation 
 	midiCCs.out(1) >> synth.in_modulation();
 
-	synth >> engine.audio_out(0);
-	synth >> engine.audio_out(1);
+	synth >> saturatorDry >> saturatorSink;
+	synth >> saturator >> saturatorWet >> saturatorSink;
+
+	saturatorSink >> engine.audio_out(0);
+	saturatorSink >> engine.audio_out(1);
 
 	midiIn.openPort(0); 
 	midiKeys.setPitchBend(-12.f, 12.f);
