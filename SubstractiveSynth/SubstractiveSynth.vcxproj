@@ -204,6 +204,7 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineGLFW.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineOpenGLES.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineVk.cpp" />
+    <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\FlatDryWineGreenTheme.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\Gui.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\Helpers.cpp" />
     <ClCompile Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\ofxImGuiLoggerChannel.cpp" />
@@ -431,6 +432,7 @@ $(OF_ROOT)\addons\ofxPDSPTools\src\ui;%(AdditionalIncludeDirectories)</Additiona
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineGLFW.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineOpenGLES.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\EngineVk.h" />
+    <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\FlatDryWineGreenTheme.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\Gui.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\Helpers.h" />
     <ClInclude Include="..\..\..\of_v0.10.1_vs2017_release\addons\ofxImGui\src\imconfig.h" />

@@ -1,6 +1,7 @@
 #include "ofApp.h"
 #include "CorporateGreyTheme.h"
 #include "CorporateOrangeTheme.h"
+#include "FlatDryWineGreenTheme.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -11,6 +12,7 @@ void ofApp::setup(){
 
 	gui.enableDocking();
 	gui.setup( new ofxImGui::CorporateOrangeTheme());
+	//gui.setup(new ofxImGui::FlatDryWineGreenTheme());
 
 	pp.AddParam("synth.level", 0.5f, 0.0f, 1.0f);
 	pp.AddParam("synth.filter.type", 0, {"LowPass", "BandPass", "HighPass", "Notch"});
