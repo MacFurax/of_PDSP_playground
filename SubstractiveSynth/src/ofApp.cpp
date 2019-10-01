@@ -21,6 +21,7 @@ void ofApp::setup(){
 	pp.AddParam("synth.filter.lfo.cutoff", 0.0f, 0.0f, 80.0f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("synth.modulation.lfo freq", 0.0f, 0.0f, 40.0f);
+	pp.AddParam("synth.modulation.cutoff", 0.0f, 0.0f, 90.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
 	// Voice 1 with 
