@@ -124,18 +124,28 @@ void ofApp::setup(){
 	pp.patch("synth.modulation.reso") >> synth.in("filter.modulation.reso");
 	pp.patch("synth.modulation.cutoff") >> synth.in("filter.modulation.cutoff");
 
-	pp.patch("FX.disto.drive") >> saturatorDrive.in_mod();
-	pp.patch("FX.disto.dry") >> saturatorDry.in_mod();
-	pp.patch("FX.disto.wet") >> saturatorWet.in_mod();
-
 	// patch CC modulation 
 	midiCCs.out(1) >> synth.in_modulation();
 
-	synth >> saturatorDry >> saturatorSink;
-	synth >> saturatorDrive >> saturator >> saturatorWet >> saturatorSink;
+	pp.patch("FX.delay.level") >> delayLevel.in_mod();
+	pp.patch("FX.delay.time") >> delay.in_time();
+	pp.patch("FX.delay.feedback") >> delay.in_feedback();
+	pp.patch("FX.delay.damping") >> delay.in_damping();
 
-	saturatorSink >> engine.audio_out(0);
-	saturatorSink >> engine.audio_out(1);
+	synth >> delay * 0.5f >> delayLevel >> engine.audio_out(0);
+					        delayLevel >> engine.audio_out(1);
+
+	pp.patch("FX.chorus.level") >> chorusLevel.in_mod();
+	pp.patch("FX.chorus.speed") >> chorus.in_speed();
+	pp.patch("FX.chorus.depth") >> chorus.in_depth();
+	pp.patch("FX.chorus.delay") >> chorus.in_delay();
+
+	synth >> chorus * 0.5f >> chorusLevel >> engine.audio_out(0);
+							  chorusLevel >> engine.audio_out(1);
+
+	synth >> engine.audio_out(0);
+	synth >> engine.audio_out(1);
+
 
 	midiIn.openPort(0); 
 	midiKeys.setPitchBend(-12.f, 12.f);
@@ -168,41 +178,26 @@ void ofApp::setPatchParams()
 	pp.AddParam("synth.modulation.cutoff", 0.0f, 0.0f, 90.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
-	pp.AddParam("FX.disto.drive", 1.0f, 1.0f, 5.0f);
-	pp.AddParam("FX.disto.dry", 1.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.disto.wet", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
-
 	pp.AddParam("FX.delay.level", 0.0f, 0.0f, 1.0f);
-	pp.AddParam("FX.delay.time", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.delay.feedback", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.delay.damping", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.delay.time", 300.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.delay.feedback", 0.2f, 0.0f, 0.99f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.delay.damping", 0.2f, 0.f, 0.99f, 50.0f, ParamLayouts::SameLine);
 
 	pp.AddParam("FX.chorus.level", 0.0f, 0.0f, 1.0f);
-	pp.AddParam("FX.chorus.speed", 0.0f, 0.0f, 2.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.chorus.depth", 10.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.chorus.delay", 80.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
-
-	pp.AddParam("FX.reverb.level", 0.0f, 0.0f, 1.0f);
-	pp.AddParam("FX.reverb.time", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.reverb.density", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.reverb.damping", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-	pp.AddParam("FX.reverb.hi cut", 0.0f, 0.0f, 10.0f);
-	pp.AddParam("FX.reverb.mod freq", 0.0f, 0.0f, 10.0f, 50.0f, ParamLayouts::SameLine);
-
-
-
-
+	pp.AddParam("FX.chorus.speed", 0.25f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.chorus.depth", 10.0f, 0.0f, 100.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("FX.chorus.delay", 80.0f, 0.0f, 200.0f, 50.0f, ParamLayouts::SameLine);
 
 	// Voice 1 with 
 	// one osc with detune, ADSR and filter
 	// LFO patchable to level, pitch , pulse width and cutoff
 
-	pp.AddParam("voice01.osc.level", 0.5f, 0.0f, 2.0f);
+	pp.AddParam("voice01.osc.level", 0.80f, 0.0f, 1.0f);
 	pp.AddParam("voice01.osc.detune", 0.0f, -12.0f, 12.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.fine", 0.0f, -1.0f, 1.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
-	pp.AddParam("voice01.osc.sine", 1.0f, 0.0f, 1.0f);
+	pp.AddParam("voice01.osc.sine", 0.4f, 0.0f, 1.0f);
 	pp.AddParam("voice01.osc.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.saw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice01.osc.pulse", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
@@ -238,12 +233,12 @@ void ofApp::setPatchParams()
 	// Voice 2 with 
 	// one osc with detune and ADSR
 	// filter with adsr patch to filter.cutoff
-	pp.AddParam("voice02.osc.level", 0.5f, 0.0f, 2.0f);
+	pp.AddParam("voice02.osc.level", 0.80f, 0.0f, 1.0f);
 	pp.AddParam("voice02.osc.detune", 0.0f, -12.0f, 12.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.fine", 0.0f, -1.0f, 1.0f, 0.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.pw", 0.5f, 0.1f, 0.9f, 50.0f, ParamLayouts::SameLine);
 
-	pp.AddParam("voice02.osc.sine", 1.0f, 0.0f, 1.0f);
+	pp.AddParam("voice02.osc.sine", 0.4f, 0.0f, 1.0f);
 	pp.AddParam("voice02.osc.triangle", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.saw", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("voice02.osc.pulse", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);

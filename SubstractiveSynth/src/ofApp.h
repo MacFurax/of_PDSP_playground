@@ -50,12 +50,12 @@ class ofApp : public ofBaseApp{
 
 		// FX
 		pdsp::Saturator1		saturator;
-		pdsp::Amp				saturatorDrive;
-		pdsp::Amp				saturatorWet;
-		pdsp::Amp				saturatorDry;
-		pdsp::PatchNode			saturatorSink;
-		
-		// Reverb
-		pdsp::IRVerb			reverb;
+
+		pdsp::Delay				delay;
+		pdsp::Amp				delayLevel;
+
+		pdsp::DimensionChorus	chorus;
+		pdsp::Amp				chorusLevel;
+	
 
 };
