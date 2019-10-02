@@ -14,6 +14,7 @@ class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void setPatchParams();
 		void update();
 		void draw();
 		void drawUI();
@@ -47,9 +48,14 @@ class ofApp : public ofBaseApp{
 
 		SynthA	synth;
 
+		// FX
 		pdsp::Saturator1		saturator;
+		pdsp::Amp				saturatorDrive;
 		pdsp::Amp				saturatorWet;
 		pdsp::Amp				saturatorDry;
 		pdsp::PatchNode			saturatorSink;
 		
+		// Reverb
+		pdsp::IRVerb			reverb;
+
 };
