@@ -48,6 +48,8 @@ class ofApp : public ofBaseApp{
 
 		SynthA	synth;
 
+		pdsp::Compressor		compressor;
+
 		// FX
 		pdsp::Saturator1		saturator;
 

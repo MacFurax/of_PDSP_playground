@@ -127,12 +127,19 @@ void ofApp::setup(){
 	// patch CC modulation 
 	midiCCs.out(1) >> synth.in_modulation();
 
+	pp.patch("synth.compressor.threshold") >> compressor.in_threshold();
+	pp.patch("synth.compressor.ratio") >> compressor.in_ratio();
+	pp.patch("synth.compressor.attack") >> compressor.in_attack();
+	pp.patch("synth.compressor.release") >> compressor.in_release();
+	pp.patch("synth.compressor.knee") >> compressor.in_knee();
+
+
 	pp.patch("FX.delay.level") >> delayLevel.in_mod();
 	pp.patch("FX.delay.time") >> delay.in_time();
 	pp.patch("FX.delay.feedback") >> delay.in_feedback();
 	pp.patch("FX.delay.damping") >> delay.in_damping();
 
-	synth >> delay * 0.5f >> delayLevel >> engine.audio_out(0);
+	synth >> compressor >> delay * 0.5f >> delayLevel >> engine.audio_out(0);
 					        delayLevel >> engine.audio_out(1);
 
 	pp.patch("FX.chorus.level") >> chorusLevel.in_mod();
@@ -140,11 +147,11 @@ void ofApp::setup(){
 	pp.patch("FX.chorus.depth") >> chorus.in_depth();
 	pp.patch("FX.chorus.delay") >> chorus.in_delay();
 
-	synth >> chorus * 0.5f >> chorusLevel >> engine.audio_out(0);
+	synth >> compressor >> chorus * 0.5f >> chorusLevel >> engine.audio_out(0);
 							  chorusLevel >> engine.audio_out(1);
 
-	synth >> engine.audio_out(0);
-	synth >> engine.audio_out(1);
+	synth >> compressor >> engine.audio_out(0);
+	synth >> compressor >> engine.audio_out(1);
 
 
 	midiIn.openPort(0); 
@@ -177,6 +184,13 @@ void ofApp::setPatchParams()
 	pp.AddParam("synth.modulation.lfo freq", 0.0f, 0.0f, 40.0f);
 	pp.AddParam("synth.modulation.cutoff", 0.0f, 0.0f, 90.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
+
+	pp.AddParam("synth.compressor.threshold", -20.0f, -120.0f, 0.0f);
+	pp.AddParam("synth.compressor.ratio", 4.0f, 0.0f, 100.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("synth.compressor.attack", 10.0f, 0.0f, 300.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("synth.compressor.release", 50.0f, 0.0f, 300.0f, 50.0f, ParamLayouts::SameLine);
+	pp.AddParam("synth.compressor.knee", 0.0f, 0.0f, 20.0f, 50.0f, ParamLayouts::SameLine);
+	// TODO add a gain
 
 	pp.AddParam("FX.delay.level", 0.0f, 0.0f, 1.0f);
 	pp.AddParam("FX.delay.time", 300.0f, 0.0f, 500.0f, 50.0f, ParamLayouts::SameLine);
