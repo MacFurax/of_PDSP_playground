@@ -6,7 +6,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	ofSetWindowShape(1400, 800);
+	ofSetWindowShape(1800, 1000);
 	ofSetWindowTitle("Substractive Synth");
 	ofSetBackgroundColor(58);
 
