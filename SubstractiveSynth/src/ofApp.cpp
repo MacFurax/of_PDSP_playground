@@ -155,6 +155,7 @@ void ofApp::setup(){
 
 
 	midiIn.openPort(0); 
+
 	midiKeys.setPitchBend(-12.f, 12.f);
 	
 	// for our midi controllers to work we have to add them to the engine, so it know it has to process them
