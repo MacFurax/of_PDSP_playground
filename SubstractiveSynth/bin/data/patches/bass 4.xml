@@ -1,9 +1,9 @@
 <patch>
     <version>none</version>
-    <name>bass4</name>
-    <description>Jouer avec le cutoff/reso &#x0A;de voice01 change beaucoup &#x0A;le son.</description>
+    <name>bass 5</name>
+    <description>Jouer avec le cutoff/reso &#x0A;de voice01 ey 02 change &#x0A;beaucoup le son.</description>
     <synth>
-        <level>5</level>
+        <level>3.1</level>
         <filter>
             <type>0</type>
             <cutoff>180</cutoff>
@@ -21,7 +21,7 @@
         </modulation>
         <compressor>
             <threshold>0</threshold>
-            <ratio>4</ratio>
+            <ratio>5.25</ratio>
             <attack>10</attack>
             <release>50</release>
             <knee>0</knee>
@@ -43,26 +43,26 @@
     </FX>
     <voice01>
         <osc>
-            <level>0.4675</level>
+            <level>0.83</level>
             <detune>-12</detune>
             <fine>0</fine>
             <pw>0.5</pw>
             <sine>0</sine>
             <triangle>0</triangle>
-            <saw>1</saw>
+            <saw>0.84</saw>
             <pulse>0</pulse>
             <noise>0</noise>
         </osc>
         <adsr>
-            <a>0</a>
+            <a>15</a>
             <d>990</d>
-            <s>0</s>
+            <s>0.105</s>
             <r>240</r>
         </adsr>
         <filter>
             <type>0</type>
-            <cutoff>118.35</cutoff>
-            <reso>1</reso>
+            <cutoff>45.9001</cutoff>
+            <reso>0.715</reso>
         </filter>
         <lfo>
             <sine>1</sine>
@@ -77,32 +77,32 @@
             <toSine>0</toSine>
             <toTriangle>0</toTriangle>
             <toSaw>0</toSaw>
-            <toPulse>0</toPulse>
+            <toPulse>1.4</toPulse>
             <toNoise>0</toNoise>
         </lfo>
     </voice01>
     <voice02>
         <osc>
-            <level>1</level>
+            <level>0.845</level>
             <detune>0</detune>
             <fine>0</fine>
             <pw>0.5</pw>
             <sine>0</sine>
             <triangle>0</triangle>
-            <saw>1</saw>
+            <saw>0.945</saw>
             <pulse>0</pulse>
             <noise>0</noise>
         </osc>
         <adsr>
             <a>10</a>
             <d>900</d>
-            <s>0</s>
+            <s>0.11</s>
             <r>300</r>
         </adsr>
         <filter>
             <type>1</type>
-            <cutoff>53.1</cutoff>
-            <reso>0.1775</reso>
+            <cutoff>96.75</cutoff>
+            <reso>0.4575</reso>
         </filter>
         <env_adsr>
             <a>10</a>

@@ -1,9 +1,9 @@
 <patch>
     <version>none</version>
-    <name>bass4</name>
-    <description>Jouer avec le cutoff/reso &#x0A;de voice01 change beaucoup &#x0A;le son.</description>
+    <name>bass3</name>
+    <description></description>
     <synth>
-        <level>5</level>
+        <level>1</level>
         <filter>
             <type>0</type>
             <cutoff>180</cutoff>
@@ -20,8 +20,8 @@
             <reso>0</reso>
         </modulation>
         <compressor>
-            <threshold>0</threshold>
-            <ratio>4</ratio>
+            <threshold>-2.4</threshold>
+            <ratio>83</ratio>
             <attack>10</attack>
             <release>50</release>
             <knee>0</knee>
@@ -29,13 +29,13 @@
     </synth>
     <FX>
         <delay>
-            <level>0.0825</level>
-            <time>261.25</time>
-            <feedback>0.41285</feedback>
-            <damping>0</damping>
+            <level>0</level>
+            <time>300</time>
+            <feedback>0.2</feedback>
+            <damping>0.2</damping>
         </delay>
         <chorus>
-            <level>0.06</level>
+            <level>0</level>
             <speed>0.25</speed>
             <depth>10</depth>
             <delay>80</delay>
@@ -43,26 +43,26 @@
     </FX>
     <voice01>
         <osc>
-            <level>0.4675</level>
-            <detune>-12</detune>
+            <level>1</level>
+            <detune>0</detune>
             <fine>0</fine>
             <pw>0.5</pw>
-            <sine>0</sine>
+            <sine>1</sine>
             <triangle>0</triangle>
-            <saw>1</saw>
+            <saw>0</saw>
             <pulse>0</pulse>
             <noise>0</noise>
         </osc>
         <adsr>
-            <a>0</a>
-            <d>990</d>
+            <a>7.5</a>
+            <d>1440</d>
             <s>0</s>
-            <r>240</r>
+            <r>300</r>
         </adsr>
         <filter>
             <type>0</type>
-            <cutoff>118.35</cutoff>
-            <reso>1</reso>
+            <cutoff>180</cutoff>
+            <reso>0</reso>
         </filter>
         <lfo>
             <sine>1</sine>
@@ -84,32 +84,32 @@
     <voice02>
         <osc>
             <level>1</level>
-            <detune>0</detune>
-            <fine>0</fine>
+            <detune>-3.94881e-07</detune>
+            <fine>-0.04</fine>
             <pw>0.5</pw>
             <sine>0</sine>
             <triangle>0</triangle>
-            <saw>1</saw>
-            <pulse>0</pulse>
+            <saw>0</saw>
+            <pulse>1</pulse>
             <noise>0</noise>
         </osc>
         <adsr>
-            <a>10</a>
-            <d>900</d>
+            <a>2.5</a>
+            <d>240</d>
             <s>0</s>
             <r>300</r>
         </adsr>
         <filter>
-            <type>1</type>
-            <cutoff>53.1</cutoff>
-            <reso>0.1775</reso>
+            <type>0</type>
+            <cutoff>92.7</cutoff>
+            <reso>0.3725</reso>
         </filter>
         <env_adsr>
-            <a>10</a>
-            <d>562.5</d>
-            <s>0.0850002</s>
+            <a>0</a>
+            <d>202.5</d>
+            <s>0</s>
             <r>300</r>
-            <cutoff>17.1</cutoff>
+            <cutoff>24.6</cutoff>
             <pw>0</pw>
             <sine>0</sine>
             <triangle>0</triangle>

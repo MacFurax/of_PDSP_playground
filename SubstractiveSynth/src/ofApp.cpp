@@ -177,7 +177,7 @@ void ofApp::setup(){
 
 void ofApp::setPatchParams()
 {
-	pp.AddParam("synth.level", 0.5f, 0.0f, 1.0f);
+	pp.AddParam("synth.level", 1.0f, 0.0f, 5.0f);
 	pp.AddParam("synth.filter.type", 0, { "LowPass", "BandPass", "HighPass", "Notch" });
 	pp.AddParam("synth.filter.cutoff", 180.0f, 0.0f, 180.0f);
 	pp.AddParam("synth.filter.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
@@ -189,7 +189,7 @@ void ofApp::setPatchParams()
 	pp.AddParam("synth.modulation.cutoff", 0.0f, 0.0f, 90.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.modulation.reso", 0.0f, 0.0f, 1.0f, 50.0f, ParamLayouts::SameLine);
 
-	pp.AddParam("synth.compressor.threshold", -20.0f, -120.0f, 0.0f);
+	pp.AddParam("synth.compressor.threshold", -20.0f, -41.0f, 0.0f);
 	pp.AddParam("synth.compressor.ratio", 4.0f, 0.0f, 100.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.compressor.attack", 10.0f, 0.0f, 300.0f, 50.0f, ParamLayouts::SameLine);
 	pp.AddParam("synth.compressor.release", 50.0f, 0.0f, 300.0f, 50.0f, ParamLayouts::SameLine);

@@ -3,7 +3,7 @@
     <name>StrangerThing 2</name>
     <description></description>
     <synth>
-        <level>0.4775</level>
+        <level>3.4025</level>
         <filter>
             <type>2</type>
             <cutoff>80.1</cutoff>
@@ -14,10 +14,36 @@
                 <cutoff>0</cutoff>
             </lfo>
         </filter>
+        <modulation>
+            <lfo_freq>0</lfo_freq>
+            <cutoff>0</cutoff>
+            <reso>0</reso>
+        </modulation>
+        <compressor>
+            <threshold>0</threshold>
+            <ratio>4</ratio>
+            <attack>10</attack>
+            <release>50</release>
+            <knee>0</knee>
+        </compressor>
     </synth>
+    <FX>
+        <delay>
+            <level>0</level>
+            <time>300</time>
+            <feedback>0.2</feedback>
+            <damping>0.2</damping>
+        </delay>
+        <chorus>
+            <level>0</level>
+            <speed>0.25</speed>
+            <depth>10</depth>
+            <delay>80</delay>
+        </chorus>
+    </FX>
     <voice01>
         <osc>
-            <level>0.5</level>
+            <level>1</level>
             <detune>0</detune>
             <fine>0</fine>
             <pw>0.5</pw>
@@ -57,13 +83,13 @@
     </voice01>
     <voice02>
         <osc>
-            <level>0.45</level>
+            <level>1</level>
             <detune>0</detune>
             <fine>0</fine>
             <pw>0.518</pw>
-            <sine>0.76</sine>
+            <sine>1</sine>
             <triangle>0</triangle>
-            <saw>0.5275</saw>
+            <saw>1</saw>
             <pulse>0</pulse>
             <noise>0</noise>
         </osc>

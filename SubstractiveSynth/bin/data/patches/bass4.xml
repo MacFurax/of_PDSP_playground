@@ -1,7 +1,7 @@
 <patch>
     <version>none</version>
     <name>bass4</name>
-    <description>Jouer avec le cutoff/reso &#x0A;de voice01 change beaucoup &#x0A;le son.</description>
+    <description></description>
     <synth>
         <level>5</level>
         <filter>
@@ -29,13 +29,13 @@
     </synth>
     <FX>
         <delay>
-            <level>0.0825</level>
+            <level>0</level>
             <time>261.25</time>
             <feedback>0.41285</feedback>
-            <damping>0</damping>
+            <damping>0.12575</damping>
         </delay>
         <chorus>
-            <level>0.06</level>
+            <level>0</level>
             <speed>0.25</speed>
             <depth>10</depth>
             <delay>80</delay>
@@ -43,26 +43,26 @@
     </FX>
     <voice01>
         <osc>
-            <level>0.4675</level>
-            <detune>-12</detune>
+            <level>0</level>
+            <detune>0</detune>
             <fine>0</fine>
             <pw>0.5</pw>
             <sine>0</sine>
             <triangle>0</triangle>
-            <saw>1</saw>
+            <saw>0</saw>
             <pulse>0</pulse>
             <noise>0</noise>
         </osc>
         <adsr>
             <a>0</a>
-            <d>990</d>
+            <d>1035</d>
             <s>0</s>
             <r>240</r>
         </adsr>
         <filter>
             <type>0</type>
-            <cutoff>118.35</cutoff>
-            <reso>1</reso>
+            <cutoff>85.95</cutoff>
+            <reso>0.21</reso>
         </filter>
         <lfo>
             <sine>1</sine>
@@ -95,7 +95,7 @@
         </osc>
         <adsr>
             <a>10</a>
-            <d>900</d>
+            <d>570</d>
             <s>0</s>
             <r>300</r>
         </adsr>
@@ -106,10 +106,10 @@
         </filter>
         <env_adsr>
             <a>10</a>
-            <d>562.5</d>
-            <s>0.0850002</s>
+            <d>300</d>
+            <s>0.5</s>
             <r>300</r>
-            <cutoff>17.1</cutoff>
+            <cutoff>0</cutoff>
             <pw>0</pw>
             <sine>0</sine>
             <triangle>0</triangle>
