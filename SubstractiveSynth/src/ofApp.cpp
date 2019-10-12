@@ -139,19 +139,22 @@ void ofApp::setup(){
 	pp.patch("FX.delay.feedback") >> delay.in_feedback();
 	pp.patch("FX.delay.damping") >> delay.in_damping();
 
-	synth >> compressor >> delay * 0.5f >> delayLevel >> engine.audio_out(0);
-					        delayLevel >> engine.audio_out(1);
+	// * 0.3f is to avoid going over 1 when signal is summed
+	// 0.3 is 1/3 because 3 signals are summed
+
+	synth >> compressor >> delay >> delayLevel * 0.3f >> engine.audio_out(0);
+								    delayLevel * 0.3f >> engine.audio_out(1);
 
 	pp.patch("FX.chorus.level") >> chorusLevel.in_mod();
 	pp.patch("FX.chorus.speed") >> chorus.in_speed();
 	pp.patch("FX.chorus.depth") >> chorus.in_depth();
 	pp.patch("FX.chorus.delay") >> chorus.in_delay();
 
-	synth >> compressor >> chorus * 0.5f >> chorusLevel >> engine.audio_out(0);
-							  chorusLevel >> engine.audio_out(1);
+	synth >> compressor >> chorus >> chorusLevel * 0.3f >> engine.audio_out(0);
+							         chorusLevel * 0.3f >> engine.audio_out(1);
 
-	synth >> compressor >> engine.audio_out(0);
-	synth >> compressor >> engine.audio_out(1);
+	synth >> compressor * 0.3f >> engine.audio_out(0);
+	synth >> compressor * 0.3f >> engine.audio_out(1);
 
 
 	midiIn.openPort(0); 
