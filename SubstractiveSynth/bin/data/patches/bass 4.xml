@@ -1,6 +1,6 @@
 <patch>
     <version>none</version>
-    <name>bass 5</name>
+    <name>bass 4</name>
     <description>Jouer avec le cutoff/reso &#x0A;de voice01 ey 02 change &#x0A;beaucoup le son.</description>
     <synth>
         <level>3.1</level>
@@ -56,7 +56,7 @@
         <adsr>
             <a>15</a>
             <d>990</d>
-            <s>0.105</s>
+            <s>0.205</s>
             <r>240</r>
         </adsr>
         <filter>
@@ -69,7 +69,7 @@
             <triangle>0</triangle>
             <saw>0</saw>
             <square>0</square>
-            <freq>1</freq>
+            <freq>0.325</freq>
             <pitch>0</pitch>
             <level>0</level>
             <pw>0</pw>
@@ -96,7 +96,7 @@
         <adsr>
             <a>10</a>
             <d>900</d>
-            <s>0.11</s>
+            <s>0.2325</s>
             <r>300</r>
         </adsr>
         <filter>
